@@ -1,0 +1,15 @@
+#java specific
+*.class
+
+#generated bin directory
+bin
+
+#.metadata files
+.metadata
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
