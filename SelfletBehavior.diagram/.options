@@ -1,0 +1,7 @@
+# Tracing options for the SelfletBehavior.diagram plug-in
+
+# Common issues
+SelfletBehavior.diagram/debug=false
+
+# Visual IDs
+SelfletBehavior.diagram/debug/visualID=false

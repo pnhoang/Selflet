@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Selflet/src"
+    modelPluginID="Selflet" modelName="Selflet" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>selflet.ecore</foreignModel>
+  <genPackages prefix="Selflet" resource="XML" disposableProviderFactory="true" ecorePackage="selflet.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="selflet.ecore#//Mode">
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/CanDo"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/CanTeach"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/Both"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/KnowsWhoCanBoth"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/KnowsWhoCanDo"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/KnowsWhoCanTeach"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Mode/None"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="selflet.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/double"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/string"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/ServiceAskMode"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/ServiceOfferMode"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/Double1"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/Integer1"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/String1"/>
+      <genEnumLiterals ecoreEnumLiteral="selflet.ecore#//Type/Boolean1"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="selflet.ecore#//IpAddress"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//IpAddressObject"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//LimePort"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//LimePortObject"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//ModeTypeObject"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//Port"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//PortObject"/>
+    <genDataTypes ecoreDataType="selflet.ecore#//TypeObject"/>
+    <genClasses ecoreClass="selflet.ecore#//Abilities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Abilities/ability"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Ability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Ability/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Ability/methods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Ability/file"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Actions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Actions/action"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Action/file"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Active">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Active/mainService"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Behavior">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Behavior/elementaryBehaviorCost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Behavior/elementaryBehaviorCPUTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Behavior/fileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Behavior/isDefaultBehavior"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Behavior/implements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Behavior/name"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Conditions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Conditions/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Condition/file"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//CPUUtilization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//CPUUtilization/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//CPUUtilization/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Empty"/>
+    <genClasses ecoreClass="selflet.ecore#//GeneralKnowledge">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//GeneralKnowledge/selfLetProperty"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Input">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Input/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Method">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Method/paramType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Method/name"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Methods">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Methods/method"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//OfferMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//OfferMode/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Output">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Output/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Reds">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Reds/ipAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Reds/port"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Rules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Rules/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Rule/file"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Selflet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Selflet/selfletProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Selflet/selfletResources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Selflet/name"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//SelfletProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfletProperties/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfletProperties/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletProperties/passive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletProperties/active"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletProperties/reds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfletProperties/limePort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletProperties/generalknowledge"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletProperties/typeKnowledge"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfletProperties/enableOptimizationPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfletProperties/enableCloudOptimizationPolicy"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//SelfLetProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfLetProperty/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfLetProperty/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//SelfLetProperty/value"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//SelfletResources">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletResources/abilities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletResources/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletResources/conditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletResources/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//SelfletResources/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Services">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Services/service"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//Service">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Service/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Service/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Service/offermode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Service/active"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Service/revenue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Service/maxResponseTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//Service/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//Service/implementations"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//TypeKnowledge">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//TypeKnowledge/selfLetProperty"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//ElementaryBehavior">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//ElementaryBehavior/states"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//ComplexBehavior">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference selflet.ecore#//ComplexBehavior/states"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//State">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference selflet.ecore#//State/next"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute selflet.ecore#//State/name"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//InitialState"/>
+    <genClasses ecoreClass="selflet.ecore#//FinalState"/>
+    <genClasses ecoreClass="selflet.ecore#//AbilityState">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference selflet.ecore#//AbilityState/do"/>
+    </genClasses>
+    <genClasses ecoreClass="selflet.ecore#//InvocationState">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference selflet.ecore#//InvocationState/invoke"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

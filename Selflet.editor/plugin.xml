@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="selflet.presentation.SelfletModelWizardID"
+            name="%_UI_SelfletModelWizard_label"
+            class="selflet.presentation.SelfletModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SelfletModelFile.gif">
+         <description>%_UI_SelfletModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="selflet.presentation.SelfletEditorID"
+            name="%_UI_SelfletEditor_label"
+            icon="icons/full/obj16/SelfletModelFile.gif"
+            extensions="selflet"
+            class="selflet.presentation.SelfletEditor"
+            contributorClass="selflet.presentation.SelfletActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

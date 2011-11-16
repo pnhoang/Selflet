@@ -1,0 +1,8 @@
+#Wed Nov 16 12:34:57 CET 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/SelfletBehavior/model/SelfletBehavior.genmodel
+gmf_dashboard/domainModel=platform\:/resource/SelfletBehavior/model/SelfletBehavior.ecore
+gmf_dashboard/generationModel=platform\:/resource/SelfletBehavior/model/SelfletBehavior.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/SelfletBehavior/model/SelfletBehavior.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/SelfletBehavior/model/SelfletBehavior.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/SelfletBehavior/model/SelfletBehavior.gmftool

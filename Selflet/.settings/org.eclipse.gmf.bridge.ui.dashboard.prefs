@@ -1,0 +1,8 @@
+#Tue Nov 01 23:58:36 CET 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/Selflet/model/selflet.genmodel
+gmf_dashboard/domainModel=platform\:/resource/Selflet/model/selflet.ecore
+gmf_dashboard/generationModel=platform\:/resource/Selflet/model/selflet.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/Selflet/model/selflet.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/Selflet/model/selflet.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/Selflet/model/selflet.gmftool

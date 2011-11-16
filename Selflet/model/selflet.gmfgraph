@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="selflet">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="StateNextTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="InitialStateNextTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="AbilityStateNextTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="InvocationStateNextTargetDecoration"/>
+    <descriptors name="BehaviorFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="BehaviorFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="BehaviorElementaryBehaviorCostFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="BehaviorElementaryBehaviorCPUTimeFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="BehaviorFileNameFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="BehaviorIsDefaultBehaviorFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="ServiceFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ServiceFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="ServiceActiveFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ServiceRevenueFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ServiceMaxResponseTimeFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ServiceNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="ElementaryBehaviorFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ElementaryBehaviorFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="ElementaryBehaviorElementaryBehaviorCostFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ElementaryBehaviorElementaryBehaviorCPUTimeFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ElementaryBehaviorFileNameFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ElementaryBehaviorIsDefaultBehaviorFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.2/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="ComplexBehaviorFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ComplexBehaviorFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="ComplexBehaviorElementaryBehaviorCostFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ComplexBehaviorElementaryBehaviorCPUTimeFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ComplexBehaviorFileNameFigure" text="&lt;...>"/>
+        <children xsi:type="gmfgraph:Label" name="ComplexBehaviorIsDefaultBehaviorFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.2"/>
+      <accessors figure="//@figures.0/@descriptors.3/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors name="StateFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="StateFigure"/>
+    </descriptors>
+    <descriptors name="StateNextFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="StateNextFigure" targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors name="InitialStateFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="InitialStateFigure"/>
+    </descriptors>
+    <descriptors name="InitialStateNextFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="InitialStateNextFigure" targetDecoration="//@figures.0/@figures.1"/>
+    </descriptors>
+    <descriptors name="FinalStateFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="FinalStateFigure"/>
+    </descriptors>
+    <descriptors name="AbilityStateFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="AbilityStateFigure"/>
+    </descriptors>
+    <descriptors name="AbilityStateNextFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AbilityStateNextFigure" targetDecoration="//@figures.0/@figures.2"/>
+    </descriptors>
+    <descriptors name="InvocationStateFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="InvocationStateFigure"/>
+    </descriptors>
+    <descriptors name="InvocationStateNextFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="InvocationStateNextFigure" targetDecoration="//@figures.0/@figures.3"/>
+    </descriptors>
+  </figures>
+  <nodes name="Behavior" figure="BehaviorFigure"/>
+  <nodes name="Service" figure="ServiceFigure"/>
+  <nodes name="ElementaryBehavior" figure="ElementaryBehaviorFigure"/>
+  <nodes name="ComplexBehavior" figure="ComplexBehaviorFigure"/>
+  <nodes name="State" figure="StateFigure"/>
+  <nodes name="InitialState" figure="InitialStateFigure"/>
+  <nodes name="FinalState" figure="FinalStateFigure"/>
+  <nodes name="AbilityState" figure="AbilityStateFigure"/>
+  <nodes name="InvocationState" figure="InvocationStateFigure"/>
+  <connections name="StateNext" figure="StateNextFigure"/>
+  <connections name="InitialStateNext" figure="InitialStateNextFigure"/>
+  <connections name="AbilityStateNext" figure="AbilityStateNextFigure"/>
+  <connections name="InvocationStateNext" figure="InvocationStateNextFigure"/>
+  <labels name="BehaviorElementaryBehaviorCost" figure="BehaviorFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="BehaviorElementaryBehaviorCPUTime" figure="BehaviorFigure" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels name="BehaviorFileName" figure="BehaviorFigure" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
+  <labels name="BehaviorIsDefaultBehavior" figure="BehaviorFigure" accessor="//@figures.0/@descriptors.0/@accessors.3"/>
+  <labels name="ServiceActive" figure="ServiceFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ServiceRevenue" figure="ServiceFigure" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <labels name="ServiceMaxResponseTime" figure="ServiceFigure" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <labels name="ServiceName" figure="ServiceFigure" accessor="//@figures.0/@descriptors.1/@accessors.3"/>
+  <labels name="ElementaryBehaviorElementaryBehaviorCost" figure="ElementaryBehaviorFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="ElementaryBehaviorElementaryBehaviorCPUTime" figure="ElementaryBehaviorFigure" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <labels name="ElementaryBehaviorFileName" figure="ElementaryBehaviorFigure" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+  <labels name="ElementaryBehaviorIsDefaultBehavior" figure="ElementaryBehaviorFigure" accessor="//@figures.0/@descriptors.2/@accessors.3"/>
+  <labels name="ComplexBehaviorElementaryBehaviorCost" figure="ComplexBehaviorFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="ComplexBehaviorElementaryBehaviorCPUTime" figure="ComplexBehaviorFigure" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <labels name="ComplexBehaviorFileName" figure="ComplexBehaviorFigure" accessor="//@figures.0/@descriptors.3/@accessors.2"/>
+  <labels name="ComplexBehaviorIsDefaultBehavior" figure="ComplexBehaviorFigure" accessor="//@figures.0/@descriptors.3/@accessors.3"/>
+</gmfgraph:Canvas>

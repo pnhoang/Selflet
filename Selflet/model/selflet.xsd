@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://sourceforge.net/projects/selflet/"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://sourceforge.net/projects/selflet/">
+
+	<xsd:element name="selflet" type="selflet"></xsd:element>
+
+	<xsd:complexType name="selflet">
+		<xsd:sequence>
+			<xsd:element name="selfletProperties" type="selfletProperties"></xsd:element>
+			<xsd:element name="selfletResources" type="selfletResources"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="selfletProperties">
+		<xsd:sequence>
+			<xsd:element name="author" type="xsd:string"></xsd:element>
+			<xsd:element name="description" type="xsd:string"></xsd:element>
+			<xsd:choice>
+				<xsd:element name="passive" type="empty"></xsd:element>
+				<xsd:element name="active" type="activeType"></xsd:element>
+			</xsd:choice>
+			<xsd:element name="reds" type="redsType"></xsd:element>
+			<xsd:element name="limePort">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"></xsd:minInclusive>
+						<xsd:maxInclusive value="65535"></xsd:maxInclusive>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="generalknowledge" type="generalKnowledgeType"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="typeKnowledge" type="typeKnowledgeType"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="enableOptimizationPolicy" type="xsd:boolean"
+				default="false" minOccurs="0"></xsd:element>
+			<xsd:element name="enableCloudOptimizationPolicy" type="xsd:boolean"
+				default="false" minOccurs="0" nillable="false"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="activeType">
+		<xsd:attribute name="mainService" type="xsd:string" use="required">
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="empty"></xsd:complexType>
+
+	<xsd:complexType name="redsType">
+		<xsd:sequence>
+			<xsd:element name="ipAddress">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern
+							value="((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]).){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])">
+						</xsd:pattern>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="port">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"></xsd:minInclusive>
+						<xsd:maxInclusive value="65535"></xsd:maxInclusive>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="ipAddress">
+		<xsd:restriction base="xsd:string"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="selfLetProperty">
+		<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+		<xsd:attribute name="type" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="double"></xsd:enumeration>
+					<xsd:enumeration value="integer"></xsd:enumeration>
+					<xsd:enumeration value="string"></xsd:enumeration>
+					<xsd:enumeration value="boolean"></xsd:enumeration>
+					<xsd:enumeration value="ServiceAskMode"></xsd:enumeration>
+					<xsd:enumeration value="ServiceOfferMode"></xsd:enumeration>
+					<xsd:enumeration value="Double"></xsd:enumeration>
+					<xsd:enumeration value="Integer"></xsd:enumeration>
+					<xsd:enumeration value="String"></xsd:enumeration>
+					<xsd:enumeration value="Boolean"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="value" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="selfletResources">
+		<xsd:sequence>
+			<xsd:element name="abilities" type="abilitiesType">
+			</xsd:element>
+			<xsd:element name="actions" type="actionsType"></xsd:element>
+			<xsd:element name="conditions" type="conditionsType"></xsd:element>
+			<xsd:element name="services" type="servicesType"></xsd:element>
+			<xsd:element name="rules" type="rulesType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="method">
+		<xsd:sequence>
+			<xsd:element name="paramType" type="xsd:string"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="generalKnowledgeType">
+		<xsd:sequence>
+			<xsd:element name="selfLetProperty" type="selfLetProperty"
+				maxOccurs="unbounded" minOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeKnowledgeType">
+		<xsd:sequence>
+			<xsd:element name="selfLetProperty" type="selfLetProperty"
+				maxOccurs="unbounded" minOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="actionsType">
+		<xsd:sequence>
+			<xsd:element name="action" type="actionType" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="abilitiesType">
+		<xsd:sequence>
+			<xsd:element name="ability" type="abilityType" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="abilityType">
+		<xsd:sequence>
+			<xsd:element name="service" type="xsd:string"></xsd:element>
+			<xsd:element name="methods" type="methodsType" maxOccurs="1"
+				minOccurs="1"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="file" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="actionType">
+		<xsd:attribute name="file" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="conditionsType">
+		<xsd:sequence>
+			<xsd:element name="condition" type="conditionType"
+				maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="conditionType">
+		<xsd:attribute name="file" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="servicesType">
+		<xsd:sequence>
+			<xsd:element name="service" type="serviceType" maxOccurs="unbounded"
+				minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="serviceType">
+		<xsd:sequence>
+			<xsd:element name="input" type="inputType"></xsd:element>
+			<xsd:element name="output" type="outputType"></xsd:element>
+			<xsd:element name="offermode" type="offerModeType"></xsd:element>
+			<xsd:element name="active" type="xsd:boolean"></xsd:element>
+			<xsd:element name="implementedBy" type="implementedByType">
+			</xsd:element>
+			<xsd:element name="revenue" type="xsd:int" maxOccurs="1"
+				minOccurs="1">
+			</xsd:element>
+			<xsd:element name="maxResponseTime" type="xsd:double"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="rulesType">
+		<xsd:sequence>
+			<xsd:element name="rule" type="ruleType" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ruleType">
+		<xsd:attribute name="file" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="methodsType">
+		<xsd:sequence>
+			<xsd:element name="method" type="method" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="inputType">
+		<xsd:sequence>
+			<xsd:element name="parameter" type="parameterType"
+				maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="parameterType">
+		<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+		<xsd:attribute name="type" type="xsd:string" use="required"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="outputType">
+		<xsd:sequence>
+			<xsd:element name="parameter" type="parameterType"
+				maxOccurs="1" minOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="offerModeType">
+		<xsd:attribute name="mode">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="CanDo"></xsd:enumeration>
+					<xsd:enumeration value="CanTeach"></xsd:enumeration>
+					<xsd:enumeration value="Both"></xsd:enumeration>
+					<xsd:enumeration value="KnowsWhoCanBoth"></xsd:enumeration>
+					<xsd:enumeration value="KnowsWhoCanDo"></xsd:enumeration>
+					<xsd:enumeration value="KnowsWhoCanTeach"></xsd:enumeration>
+					<xsd:enumeration value="None"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="implementedByType">
+		<xsd:sequence>
+			<xsd:element name="behavior" type="behaviorType"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="behaviorType">
+		<xsd:attribute name="fileName" type="xsd:string" use="required">
+		</xsd:attribute>
+		<xsd:attribute name="isDefaultBehavior" type="xsd:boolean"
+			use="optional" default="false">
+		</xsd:attribute>
+		<xsd:attribute name="elementaryBehaviorCost" type="xsd:double"
+			use="optional" default="0">
+		</xsd:attribute>
+		<xsd:attribute name="elementaryBehaviorCPUTime" type="xsd:double"
+			use="optional"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="CPUUtilizationType">
+		<xsd:sequence>
+			<xsd:element name="lowerBound" type="xsd:double"></xsd:element>
+			<xsd:element name="upperBound" type="xsd:double"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
