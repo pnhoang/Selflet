@@ -198,23 +198,23 @@
           title="State Nodes">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Init"
-            description="Create new Init"
+            title="Initial State"
+            description="Create new Initial State"
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Final"
-            description="Create new Final"
+            title="Final State"
+            description="Create new Final State"
             genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Intermediate"
-            description="Create new Intermediate"
+            title="Calling Service State"
+            description="Create new calling service state"
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Invocation"
-            description="Create new Invocation"
+            title="Invocation State"
+            description="Create new Invocation State"
             genNodes="//@diagram/@topLevelNodes.3"/>
       </groups>
       <groups

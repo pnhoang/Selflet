@@ -10,8 +10,8 @@
         title="State Nodes">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Init"
-          description="Create new Init">
+          title="Initial State"
+          description="Create new Initial State">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -19,8 +19,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Final"
-          description="Create new Final">
+          title="Final State"
+          description="Create new Final State">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -28,8 +28,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Intermediate"
-          description="Create new Intermediate">
+          title="Calling Service State"
+          description="Create new calling service state">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -37,8 +37,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Invocation"
-          description="Create new Invocation">
+          title="Invocation State"
+          description="Create new Invocation State">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

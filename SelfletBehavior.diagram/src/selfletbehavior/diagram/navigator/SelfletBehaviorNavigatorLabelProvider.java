@@ -90,24 +90,24 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
-		case FinalEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_2003); //$NON-NLS-1$
-		case InitEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_2002); //$NON-NLS-1$
 		case InvocationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Invocation", SelfletBehaviorElementTypes.Invocation_2004); //$NON-NLS-1$
-		case BehaviorEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://selfletbehavior/1.0?Behavior", SelfletBehaviorElementTypes.Behavior_1000); //$NON-NLS-1$
 		case StateNextEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://selfletbehavior/1.0?State?next", SelfletBehaviorElementTypes.StateNext_4006); //$NON-NLS-1$
 		case IntermediateEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Intermediate", SelfletBehaviorElementTypes.Intermediate_2001); //$NON-NLS-1$
+		case FinalEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_2003); //$NON-NLS-1$
+		case InitEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_2002); //$NON-NLS-1$
+		case BehaviorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://selfletbehavior/1.0?Behavior", SelfletBehaviorElementTypes.Behavior_1000); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -160,18 +160,18 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
-		case FinalEditPart.VISUAL_ID:
-			return getFinal_2003Text(view);
-		case InitEditPart.VISUAL_ID:
-			return getInit_2002Text(view);
 		case InvocationEditPart.VISUAL_ID:
 			return getInvocation_2004Text(view);
-		case BehaviorEditPart.VISUAL_ID:
-			return getBehavior_1000Text(view);
 		case StateNextEditPart.VISUAL_ID:
 			return getStateNext_4006Text(view);
 		case IntermediateEditPart.VISUAL_ID:
 			return getIntermediate_2001Text(view);
+		case FinalEditPart.VISUAL_ID:
+			return getFinal_2003Text(view);
+		case InitEditPart.VISUAL_ID:
+			return getInit_2002Text(view);
+		case BehaviorEditPart.VISUAL_ID:
+			return getBehavior_1000Text(view);
 		}
 		return getUnknownElementText(view);
 	}
