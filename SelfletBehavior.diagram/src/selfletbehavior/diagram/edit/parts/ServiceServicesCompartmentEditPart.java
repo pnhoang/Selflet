@@ -1,6 +1,7 @@
 package selfletbehavior.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
@@ -46,12 +47,25 @@ public class ServiceServicesCompartmentEditPart extends ListCompartmentEditPart 
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
+		// Fix the margins
+		Insets insets = result.getContentPane().getInsets();
+		insets.top = 5;
+		insets.bottom = 5;
+		insets.left = 5;
+		insets.right = 5;
+		// Layout behavior modification : data must be represented horizontally
+		ConstrainedToolbarLayout layoutMgr = (ConstrainedToolbarLayout) result
+				.getContentPane().getLayoutManager();
+		layoutMgr.setVertical(false);
+		layoutMgr.setStretchMajorAxis(true); // uses all the avalaible space
+		layoutMgr.setStretchMinorAxis(true); // uses all the avalaible space
+		layoutMgr.setSpacing(5);
 		return result;
 	}
 
