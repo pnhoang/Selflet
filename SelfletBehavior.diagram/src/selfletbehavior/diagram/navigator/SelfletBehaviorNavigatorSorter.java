@@ -12,7 +12,7 @@ public class SelfletBehaviorNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 4008;
+	private static final int GROUP_CATEGORY = 7005;
 
 	/**
 	 * @generated

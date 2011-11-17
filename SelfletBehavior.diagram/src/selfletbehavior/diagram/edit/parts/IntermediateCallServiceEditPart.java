@@ -56,7 +56,7 @@ public class IntermediateCallServiceEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5004;
 
 	/**
 	 * @generated
@@ -300,7 +300,7 @@ public class IntermediateCallServiceEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = SelfletBehaviorParserProvider
 					.getParser(
-							SelfletBehaviorElementTypes.Intermediate_2001,
+							SelfletBehaviorElementTypes.Intermediate_3004,
 							getParserElement(),
 							SelfletBehaviorVisualIDRegistry
 									.getType(selfletbehavior.diagram.edit.parts.IntermediateCallServiceEditPart.VISUAL_ID));

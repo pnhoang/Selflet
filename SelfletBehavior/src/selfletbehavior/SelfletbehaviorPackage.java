@@ -256,6 +256,155 @@ public interface SelfletbehaviorPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link selfletbehavior.impl.ElementaryImpl <em>Elementary</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.impl.ElementaryImpl
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getElementary()
+	 * @generated
+	 */
+	int ELEMENTARY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENTARY__NAME = BEHAVIOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENTARY__STATES = BEHAVIOR__STATES;
+
+	/**
+	 * The number of structural features of the '<em>Elementary</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENTARY_FEATURE_COUNT = BEHAVIOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link selfletbehavior.impl.ComplexImpl <em>Complex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.impl.ComplexImpl
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getComplex()
+	 * @generated
+	 */
+	int COMPLEX = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX__NAME = BEHAVIOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX__STATES = BEHAVIOR__STATES;
+
+	/**
+	 * The number of structural features of the '<em>Complex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_FEATURE_COUNT = BEHAVIOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link selfletbehavior.impl.SelfletImpl <em>Selflet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.impl.SelfletImpl
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getSelflet()
+	 * @generated
+	 */
+	int SELFLET = 8;
+
+	/**
+	 * The feature id for the '<em><b>Service</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELFLET__SERVICE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Selflet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELFLET_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link selfletbehavior.impl.ServiceImpl <em>Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.impl.ServiceImpl
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getService()
+	 * @generated
+	 */
+	int SERVICE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Behavior</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__BEHAVIOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__DESCRIPTION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_FEATURE_COUNT = 3;
+
+
+	/**
 	 * Returns the meta object for class '{@link selfletbehavior.Behavior <em>Behavior</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -369,6 +518,90 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInvocation_DoActivity();
+
+	/**
+	 * Returns the meta object for class '{@link selfletbehavior.Elementary <em>Elementary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Elementary</em>'.
+	 * @see selfletbehavior.Elementary
+	 * @generated
+	 */
+	EClass getElementary();
+
+	/**
+	 * Returns the meta object for class '{@link selfletbehavior.Complex <em>Complex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Complex</em>'.
+	 * @see selfletbehavior.Complex
+	 * @generated
+	 */
+	EClass getComplex();
+
+	/**
+	 * Returns the meta object for class '{@link selfletbehavior.Selflet <em>Selflet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Selflet</em>'.
+	 * @see selfletbehavior.Selflet
+	 * @generated
+	 */
+	EClass getSelflet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link selfletbehavior.Selflet#getService <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Service</em>'.
+	 * @see selfletbehavior.Selflet#getService()
+	 * @see #getSelflet()
+	 * @generated
+	 */
+	EReference getSelflet_Service();
+
+	/**
+	 * Returns the meta object for class '{@link selfletbehavior.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service</em>'.
+	 * @see selfletbehavior.Service
+	 * @generated
+	 */
+	EClass getService();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link selfletbehavior.Service#getBehavior <em>Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Behavior</em>'.
+	 * @see selfletbehavior.Service#getBehavior()
+	 * @see #getService()
+	 * @generated
+	 */
+	EReference getService_Behavior();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Service#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see selfletbehavior.Service#getName()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Service#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see selfletbehavior.Service#getDescription()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Description();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -491,6 +724,78 @@ public interface SelfletbehaviorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INVOCATION__DO_ACTIVITY = eINSTANCE.getInvocation_DoActivity();
+
+		/**
+		 * The meta object literal for the '{@link selfletbehavior.impl.ElementaryImpl <em>Elementary</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.impl.ElementaryImpl
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getElementary()
+		 * @generated
+		 */
+		EClass ELEMENTARY = eINSTANCE.getElementary();
+
+		/**
+		 * The meta object literal for the '{@link selfletbehavior.impl.ComplexImpl <em>Complex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.impl.ComplexImpl
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getComplex()
+		 * @generated
+		 */
+		EClass COMPLEX = eINSTANCE.getComplex();
+
+		/**
+		 * The meta object literal for the '{@link selfletbehavior.impl.SelfletImpl <em>Selflet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.impl.SelfletImpl
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getSelflet()
+		 * @generated
+		 */
+		EClass SELFLET = eINSTANCE.getSelflet();
+
+		/**
+		 * The meta object literal for the '<em><b>Service</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELFLET__SERVICE = eINSTANCE.getSelflet_Service();
+
+		/**
+		 * The meta object literal for the '{@link selfletbehavior.impl.ServiceImpl <em>Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.impl.ServiceImpl
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getService()
+		 * @generated
+		 */
+		EClass SERVICE = eINSTANCE.getService();
+
+		/**
+		 * The meta object literal for the '<em><b>Behavior</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE__BEHAVIOR = eINSTANCE.getService_Behavior();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__NAME = eINSTANCE.getService_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__DESCRIPTION = eINSTANCE.getService_Description();
 
 	}
 

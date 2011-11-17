@@ -18,12 +18,24 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 
 import selfletbehavior.Behavior;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
+import selfletbehavior.diagram.edit.parts.ComplexEditPart;
+import selfletbehavior.diagram.edit.parts.ComplexNameEditPart;
+import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
+import selfletbehavior.diagram.edit.parts.ElementaryNameEditPart;
+import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
+import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
+import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateCallService2EditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateCallServiceEditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
+import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
+import selfletbehavior.diagram.edit.parts.InvocationDoActivity2EditPart;
 import selfletbehavior.diagram.edit.parts.InvocationDoActivityEditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.ServiceEditPart;
+import selfletbehavior.diagram.edit.parts.ServiceNameEditPart;
 import selfletbehavior.diagram.edit.parts.StateNextEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramEditorPlugin;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
@@ -90,24 +102,45 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
+		case InitEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_3002); //$NON-NLS-1$
 		case InvocationEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Invocation", SelfletBehaviorElementTypes.Invocation_2004); //$NON-NLS-1$
+					"Navigator?Node?http://selfletbehavior/1.0?Invocation", SelfletBehaviorElementTypes.Invocation_3003); //$NON-NLS-1$
+		case Init2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_3007); //$NON-NLS-1$
 		case StateNextEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://selfletbehavior/1.0?State?next", SelfletBehaviorElementTypes.StateNext_4006); //$NON-NLS-1$
-		case IntermediateEditPart.VISUAL_ID:
+		case Invocation2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Intermediate", SelfletBehaviorElementTypes.Intermediate_2001); //$NON-NLS-1$
+					"Navigator?Node?http://selfletbehavior/1.0?Invocation", SelfletBehaviorElementTypes.Invocation_3008); //$NON-NLS-1$
+		case ComplexEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Complex", SelfletBehaviorElementTypes.Complex_3006); //$NON-NLS-1$
+		case ElementaryEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Elementary", SelfletBehaviorElementTypes.Elementary_3001); //$NON-NLS-1$
 		case FinalEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_2003); //$NON-NLS-1$
-		case InitEditPart.VISUAL_ID:
+					"Navigator?Node?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_3005); //$NON-NLS-1$
+		case IntermediateEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_2002); //$NON-NLS-1$
+					"Navigator?Node?http://selfletbehavior/1.0?Intermediate", SelfletBehaviorElementTypes.Intermediate_3004); //$NON-NLS-1$
+		case Intermediate2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Intermediate", SelfletBehaviorElementTypes.Intermediate_3009); //$NON-NLS-1$
+		case Final2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_3010); //$NON-NLS-1$
+		case ServiceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Service", SelfletBehaviorElementTypes.Service_2005); //$NON-NLS-1$
 		case BehaviorEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://selfletbehavior/1.0?Behavior", SelfletBehaviorElementTypes.Behavior_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://selfletbehavior/1.0?Selflet", SelfletBehaviorElementTypes.Selflet_1000); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -160,18 +193,32 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
+		case InitEditPart.VISUAL_ID:
+			return getInit_3002Text(view);
 		case InvocationEditPart.VISUAL_ID:
-			return getInvocation_2004Text(view);
+			return getInvocation_3003Text(view);
+		case Init2EditPart.VISUAL_ID:
+			return getInit_3007Text(view);
 		case StateNextEditPart.VISUAL_ID:
 			return getStateNext_4006Text(view);
-		case IntermediateEditPart.VISUAL_ID:
-			return getIntermediate_2001Text(view);
+		case Invocation2EditPart.VISUAL_ID:
+			return getInvocation_3008Text(view);
+		case ComplexEditPart.VISUAL_ID:
+			return getComplex_3006Text(view);
+		case ElementaryEditPart.VISUAL_ID:
+			return getElementary_3001Text(view);
 		case FinalEditPart.VISUAL_ID:
-			return getFinal_2003Text(view);
-		case InitEditPart.VISUAL_ID:
-			return getInit_2002Text(view);
+			return getFinal_3005Text(view);
+		case IntermediateEditPart.VISUAL_ID:
+			return getIntermediate_3004Text(view);
+		case Intermediate2EditPart.VISUAL_ID:
+			return getIntermediate_3009Text(view);
+		case Final2EditPart.VISUAL_ID:
+			return getFinal_3010Text(view);
+		case ServiceEditPart.VISUAL_ID:
+			return getService_2005Text(view);
 		case BehaviorEditPart.VISUAL_ID:
-			return getBehavior_1000Text(view);
+			return getSelflet_1000Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -179,13 +226,26 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getBehavior_1000Text(View view) {
-		Behavior domainModelElement = (Behavior) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getName();
+	private String getInit_3002Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInvocation_3003Text(View view) {
+		IParser parser = SelfletBehaviorParserProvider.getParser(
+				SelfletBehaviorElementTypes.Invocation_3003,
+				view.getElement() != null ? view.getElement() : view,
+				SelfletBehaviorVisualIDRegistry
+						.getType(InvocationDoActivityEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+					"Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -193,14 +253,7 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getInit_2002Text(View view) {
-		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getFinal_2003Text(View view) {
+	private String getInit_3007Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
@@ -214,9 +267,76 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getIntermediate_2001Text(View view) {
+	private String getInvocation_3008Text(View view) {
 		IParser parser = SelfletBehaviorParserProvider.getParser(
-				SelfletBehaviorElementTypes.Intermediate_2001, view
+				SelfletBehaviorElementTypes.Invocation_3008,
+				view.getElement() != null ? view.getElement() : view,
+				SelfletBehaviorVisualIDRegistry
+						.getType(InvocationDoActivity2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getComplex_3006Text(View view) {
+		IParser parser = SelfletBehaviorParserProvider.getParser(
+				SelfletBehaviorElementTypes.Complex_3006,
+				view.getElement() != null ? view.getElement() : view,
+				SelfletBehaviorVisualIDRegistry
+						.getType(ComplexNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5008); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getElementary_3001Text(View view) {
+		IParser parser = SelfletBehaviorParserProvider.getParser(
+				SelfletBehaviorElementTypes.Elementary_3001,
+				view.getElement() != null ? view.getElement() : view,
+				SelfletBehaviorVisualIDRegistry
+						.getType(ElementaryNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getFinal_3005Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getIntermediate_3004Text(View view) {
+		IParser parser = SelfletBehaviorParserProvider.getParser(
+				SelfletBehaviorElementTypes.Intermediate_3004, view
 						.getElement() != null ? view.getElement() : view,
 				SelfletBehaviorVisualIDRegistry
 						.getType(IntermediateCallServiceEditPart.VISUAL_ID));
@@ -226,7 +346,7 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 					ParserOptions.NONE.intValue());
 		} else {
 			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
+					"Parser was not found for label " + 5004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -234,21 +354,55 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getInvocation_2004Text(View view) {
+	private String getIntermediate_3009Text(View view) {
 		IParser parser = SelfletBehaviorParserProvider.getParser(
-				SelfletBehaviorElementTypes.Invocation_2004,
-				view.getElement() != null ? view.getElement() : view,
+				SelfletBehaviorElementTypes.Intermediate_3009, view
+						.getElement() != null ? view.getElement() : view,
 				SelfletBehaviorVisualIDRegistry
-						.getType(InvocationDoActivityEditPart.VISUAL_ID));
+						.getType(IntermediateCallService2EditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
+					"Parser was not found for label " + 5007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getFinal_3010Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getService_2005Text(View view) {
+		IParser parser = SelfletBehaviorParserProvider.getParser(
+				SelfletBehaviorElementTypes.Service_2005,
+				view.getElement() != null ? view.getElement() : view,
+				SelfletBehaviorVisualIDRegistry
+						.getType(ServiceNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSelflet_1000Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**

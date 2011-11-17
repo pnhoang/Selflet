@@ -70,28 +70,161 @@
       <accessors
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="ServiceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ServiceFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceDescriptionFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ServiceCompartmentFigure">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors
+        name="ElementaryBehaviorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ElementaryBehaviorName"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ElementaryBehaviorCompartmentFigure">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="ComplexBehaviorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ComplexBehaviorName"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ComplexBehaviorCompartmentFigure">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <nodes
-      name="Init"
+      name="Initial State"
       figure="InitFigure"/>
   <nodes
-      name="Final"
+      name="Final State"
       figure="FinalFigure"/>
   <nodes
-      name="Intermediate"
+      name="Intermediate State"
       figure="IntermediateFigure"/>
   <nodes
-      name="Invocation"
+      name="Invocation State"
       figure="InvocationFigure"/>
+  <nodes
+      name="Service"
+      figure="ServiceFigure"/>
+  <nodes
+      name="Elementary Behavior"
+      figure="ElementaryBehaviorFigure"/>
+  <nodes
+      name="Complex Behavior"
+      figure="ComplexBehaviorFigure"/>
   <connections
       name="StateNext"
       figure="StateNextFigure"/>
+  <compartments
+      name="ServicesCompartment"
+      figure="ServiceFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.2"/>
+  <compartments
+      name="ElementaryBehaviorsCompartment"
+      figure="ElementaryBehaviorFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments
+      name="ComplexBehaviorsCompartment"
+      figure="ComplexBehaviorFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
   <labels
-      name="IntermediateCallService"
+      name="callService"
       figure="IntermediateFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
-      name="InvocationDoActivity"
+      name="doActivity"
       figure="InvocationFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="serviceName"
+      figure="ServiceFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="serviceDescription"
+      figure="ServiceFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <labels
+      name="elementaryBehaviorName"
+      figure="ElementaryBehaviorFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="complexBehaviorName"
+      figure="ComplexBehaviorFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
 </gmfgraph:Canvas>

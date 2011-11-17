@@ -19,61 +19,60 @@
         xsi:type="gmfgen:FigureViewmap"
         figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
     <domainDiagramElement
-        href="SelfletBehavior.genmodel#//selfletbehavior/Behavior"/>
-    <topLevelNodes
-        visualID="2001"
-        editPartClassName="IntermediateEditPart"
-        itemSemanticEditPolicyClassName="IntermediateItemSemanticEditPolicy"
-        notationViewFactoryClassName="IntermediateViewFactory"
-        canonicalEditPolicyClassName="IntermediateCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="IntermediateGraphicalNodeEditPolicy"
-        createCommandClassName="IntermediateCreateCommand">
+        href="SelfletBehavior.genmodel#//selfletbehavior/Selflet"/>
+    <childNodes
+        visualID="3001"
+        editPartClassName="ElementaryEditPart"
+        itemSemanticEditPolicyClassName="ElementaryItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ElementaryCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.1"
+        graphicalNodeEditPolicyClassName="ElementaryGraphicalNodeEditPolicy"
+        createCommandClassName="ElementaryCreateCommand"
+        containers="//@diagram/@compartments.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="IntermediateEditHelper"/>
+          editHelperClassName="ElementaryEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="XY_LAYOUT"
-          className="IntermediateFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IntermediateFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIntermediateCallServiceFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IntermediateFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.draw2d.XYLayout());&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(25)&#xA;, getMapMode().DPtoLP(25)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIntermediateCallServiceFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureIntermediateCallServiceFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureIntermediateCallServiceFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIntermediateCallServiceFigure() {&#xA;&#x9;&#x9;return fFigureIntermediateCallServiceFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="ElementaryBehaviorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ElementaryBehaviorFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureElementaryBehaviorName; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureElementaryBehaviorCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ElementaryBehaviorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureElementaryBehaviorName = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureElementaryBehaviorName.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureElementaryBehaviorName, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureElementaryBehaviorCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;this.add(fFigureElementaryBehaviorCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureElementaryBehaviorName() {&#xA;&#x9;&#x9;return fFigureElementaryBehaviorName;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureElementaryBehaviorCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureElementaryBehaviorCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="SelfletBehavior.genmodel#//selfletbehavior/Intermediate"/>
+            href="SelfletBehavior.genmodel#//selfletbehavior/Elementary"/>
         <containmentMetaFeature
-            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+            href="SelfletBehavior.genmodel#//selfletbehavior/Service/behavior"/>
         <childMetaFeature
-            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+            href="SelfletBehavior.genmodel#//selfletbehavior/Service/behavior"/>
       </modelFacet>
       <labels
-          visualID="5001"
-          editPartClassName="IntermediateCallServiceEditPart"
-          itemSemanticEditPolicyClassName="IntermediateCallServiceItemSemanticEditPolicy"
-          notationViewFactoryClassName="IntermediateCallServiceViewFactory"
+          visualID="5005"
+          editPartClassName="ElementaryNameEditPart"
+          itemSemanticEditPolicyClassName="ElementaryNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureIntermediateCallServiceFigure"
+            getterName="getFigureElementaryBehaviorName"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="SelfletBehavior.genmodel#//selfletbehavior/Intermediate/callService"/>
+              href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/name"/>
         </modelFacet>
       </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2002"
+    </childNodes>
+    <childNodes
+        visualID="3002"
         editPartClassName="InitEditPart"
         itemSemanticEditPolicyClassName="InitItemSemanticEditPolicy"
-        notationViewFactoryClassName="InitViewFactory"
         canonicalEditPolicyClassName="InitCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InitGraphicalNodeEditPolicy"
-        createCommandClassName="InitCreateCommand">
+        createCommandClassName="InitCreateCommand"
+        containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -90,46 +89,15 @@
         <childMetaFeature
             href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
       </modelFacet>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2003"
-        editPartClassName="FinalEditPart"
-        itemSemanticEditPolicyClassName="FinalItemSemanticEditPolicy"
-        notationViewFactoryClassName="FinalViewFactory"
-        canonicalEditPolicyClassName="FinalCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="FinalGraphicalNodeEditPolicy"
-        createCommandClassName="FinalCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="FinalEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="FinalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="SelfletBehavior.genmodel#//selfletbehavior/Final"/>
-        <containmentMetaFeature
-            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
-        <childMetaFeature
-            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
-      </modelFacet>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2004"
+    </childNodes>
+    <childNodes
+        visualID="3003"
         editPartClassName="InvocationEditPart"
         itemSemanticEditPolicyClassName="InvocationItemSemanticEditPolicy"
-        notationViewFactoryClassName="InvocationViewFactory"
         canonicalEditPolicyClassName="InvocationCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InvocationGraphicalNodeEditPolicy"
-        createCommandClassName="InvocationCreateCommand">
+        createCommandClassName="InvocationCreateCommand"
+        containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -153,10 +121,9 @@
             href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="5003"
           editPartClassName="InvocationDoActivityEditPart"
           itemSemanticEditPolicyClassName="InvocationDoActivityItemSemanticEditPolicy"
-          notationViewFactoryClassName="InvocationDoActivityViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -169,6 +136,339 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="SelfletBehavior.genmodel#//selfletbehavior/Invocation/doActivity"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3004"
+        editPartClassName="IntermediateEditPart"
+        itemSemanticEditPolicyClassName="IntermediateItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="IntermediateCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="IntermediateGraphicalNodeEditPolicy"
+        createCommandClassName="IntermediateCreateCommand"
+        containers="//@diagram/@compartments.1">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="IntermediateEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="XY_LAYOUT"
+          className="IntermediateFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IntermediateFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIntermediateCallServiceFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IntermediateFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.draw2d.XYLayout());&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(25)&#xA;, getMapMode().DPtoLP(25)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIntermediateCallServiceFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureIntermediateCallServiceFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureIntermediateCallServiceFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIntermediateCallServiceFigure() {&#xA;&#x9;&#x9;return fFigureIntermediateCallServiceFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Intermediate"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+      </modelFacet>
+      <labels
+          visualID="5004"
+          editPartClassName="IntermediateCallServiceEditPart"
+          itemSemanticEditPolicyClassName="IntermediateCallServiceItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureIntermediateCallServiceFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="SelfletBehavior.genmodel#//selfletbehavior/Intermediate/callService"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3005"
+        editPartClassName="FinalEditPart"
+        itemSemanticEditPolicyClassName="FinalItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="FinalCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="FinalGraphicalNodeEditPolicy"
+        createCommandClassName="FinalCreateCommand"
+        containers="//@diagram/@compartments.1">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="FinalEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="FinalFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Final"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="3006"
+        editPartClassName="ComplexEditPart"
+        itemSemanticEditPolicyClassName="ComplexItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ComplexCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.2"
+        graphicalNodeEditPolicyClassName="ComplexGraphicalNodeEditPolicy"
+        createCommandClassName="ComplexCreateCommand"
+        containers="//@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ComplexEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ComplexBehaviorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComplexBehaviorFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureComplexBehaviorName; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureComplexBehaviorCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComplexBehaviorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureComplexBehaviorName = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureComplexBehaviorName.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureComplexBehaviorName, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureComplexBehaviorCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;this.add(fFigureComplexBehaviorCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureComplexBehaviorName() {&#xA;&#x9;&#x9;return fFigureComplexBehaviorName;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureComplexBehaviorCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureComplexBehaviorCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Complex"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Service/behavior"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Service/behavior"/>
+      </modelFacet>
+      <labels
+          visualID="5008"
+          editPartClassName="ComplexNameEditPart"
+          itemSemanticEditPolicyClassName="ComplexNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureComplexBehaviorName"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/name"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3007"
+        editPartClassName="Init2EditPart"
+        itemSemanticEditPolicyClassName="Init2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Init2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Init2GraphicalNodeEditPolicy"
+        createCommandClassName="Init2CreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.Ellipse"/>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Init"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="3008"
+        editPartClassName="Invocation2EditPart"
+        itemSemanticEditPolicyClassName="Invocation2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Invocation2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Invocation2GraphicalNodeEditPolicy"
+        createCommandClassName="Invocation2CreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="XY_LAYOUT"
+          className="InvocationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InvocationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInvocationDoActivityFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InvocationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.draw2d.XYLayout());&#xA;&#x9;&#x9;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInvocationDoActivityFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInvocationDoActivityFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureInvocationDoActivityFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInvocationDoActivityFigure() {&#xA;&#x9;&#x9;return fFigureInvocationDoActivityFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Invocation"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+      </modelFacet>
+      <labels
+          visualID="5006"
+          editPartClassName="InvocationDoActivity2EditPart"
+          itemSemanticEditPolicyClassName="InvocationDoActivity2ItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureInvocationDoActivityFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="SelfletBehavior.genmodel#//selfletbehavior/Invocation/doActivity"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3009"
+        editPartClassName="Intermediate2EditPart"
+        itemSemanticEditPolicyClassName="Intermediate2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Intermediate2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Intermediate2GraphicalNodeEditPolicy"
+        createCommandClassName="Intermediate2CreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.3/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="XY_LAYOUT"
+          className="IntermediateFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IntermediateFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIntermediateCallServiceFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IntermediateFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.draw2d.XYLayout());&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(25)&#xA;, getMapMode().DPtoLP(25)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIntermediateCallServiceFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureIntermediateCallServiceFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureIntermediateCallServiceFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIntermediateCallServiceFigure() {&#xA;&#x9;&#x9;return fFigureIntermediateCallServiceFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Intermediate"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+      </modelFacet>
+      <labels
+          visualID="5007"
+          editPartClassName="IntermediateCallService2EditPart"
+          itemSemanticEditPolicyClassName="IntermediateCallService2ItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureIntermediateCallServiceFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="SelfletBehavior.genmodel#//selfletbehavior/Intermediate/callService"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3010"
+        editPartClassName="Final2EditPart"
+        itemSemanticEditPolicyClassName="Final2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="Final2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Final2GraphicalNodeEditPolicy"
+        createCommandClassName="Final2CreateCommand"
+        containers="//@diagram/@compartments.2">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.4/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="FinalFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Final"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Behavior/states"/>
+      </modelFacet>
+    </childNodes>
+    <topLevelNodes
+        visualID="2005"
+        editPartClassName="ServiceEditPart"
+        itemSemanticEditPolicyClassName="ServiceItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ServiceCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.0"
+        graphicalNodeEditPolicyClassName="ServiceGraphicalNodeEditPolicy"
+        createCommandClassName="ServiceCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ServiceEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ServiceFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceDescriptionFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureServiceCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureServiceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureServiceDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureServiceDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceDescriptionFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureServiceCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;this.add(fFigureServiceCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureServiceDescriptionFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureServiceCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureServiceCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="SelfletBehavior.genmodel#//selfletbehavior/Service"/>
+        <containmentMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Selflet/service"/>
+        <childMetaFeature
+            href="SelfletBehavior.genmodel#//selfletbehavior/Selflet/service"/>
+      </modelFacet>
+      <labels
+          visualID="5009"
+          editPartClassName="ServiceNameEditPart"
+          itemSemanticEditPolicyClassName="ServiceNameItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureServiceNameFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="SelfletBehavior.genmodel#//selfletbehavior/Service/name"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5010"
+          editPartClassName="ServiceDescriptionEditPart"
+          itemSemanticEditPolicyClassName="ServiceDescriptionItemSemanticEditPolicy"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureServiceDescriptionFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="SelfletBehavior.genmodel#//selfletbehavior/Service/description"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -193,29 +493,97 @@
             href="SelfletBehavior.genmodel#//selfletbehavior/State/next"/>
       </modelFacet>
     </links>
+    <compartments
+        visualID="7001"
+        editPartClassName="ServiceServicesCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ServiceServicesCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ServiceServicesCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.5"
+        title="ServicesCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.0">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureServiceCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7002"
+        editPartClassName="ElementaryElementaryBehaviorsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ElementaryElementaryBehaviorsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ElementaryElementaryBehaviorsCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4"
+        title="ElementaryBehaviorsCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.0"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureElementaryBehaviorCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7003"
+        editPartClassName="ComplexComplexBehaviorsCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ComplexComplexBehaviorsCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="ComplexComplexBehaviorsCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.6 //@diagram/@childNodes.7 //@diagram/@childNodes.8 //@diagram/@childNodes.9"
+        title="ComplexBehaviorsCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.5"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureComplexBehaviorCompartmentFigure"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
     <palette>
       <groups
-          title="State Nodes">
+          title="Nodes">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Initial State"
             description="Create new Initial State"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            genNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Final State"
             description="Create new Final State"
-            genNodes="//@diagram/@topLevelNodes.2"/>
+            genNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.9"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Calling Service State"
             description="Create new calling service state"
-            genNodes="//@diagram/@topLevelNodes.0"/>
+            genNodes="//@diagram/@childNodes.8"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Invocation State"
             description="Create new Invocation State"
-            genNodes="//@diagram/@topLevelNodes.3"/>
+            genNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.7"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Service"
+            description="Create a new Selflet Service "
+            genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Elementary Behavior"
+            description="Create a new Selflet Elementary Behavior"
+            genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Complex Behavior"
+            description="Create a new Selflet Complex Behavior"
+            genNodes="//@diagram/@childNodes.5"/>
       </groups>
       <groups
           title="Connections">
@@ -261,17 +629,38 @@
     <childReferences
         child="//@diagram"/>
     <childReferences
+        parent="//@diagram/@childNodes.0"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram/@childNodes.0"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@childNodes.0"
+        child="//@diagram/@childNodes.3"/>
+    <childReferences
+        parent="//@diagram/@childNodes.0"
+        child="//@diagram/@childNodes.4"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@childNodes.5"
+        child="//@diagram/@childNodes.6"/>
+    <childReferences
+        parent="//@diagram/@childNodes.5"
+        child="//@diagram/@childNodes.7"/>
+    <childReferences
+        parent="//@diagram/@childNodes.5"
+        child="//@diagram/@childNodes.8"/>
+    <childReferences
+        parent="//@diagram/@childNodes.5"
+        child="//@diagram/@childNodes.9"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.5"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.1"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.2"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.3"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -279,96 +668,192 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.1"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.0"
+        parent="//@diagram/@childNodes.1"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.2"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.1"
+        parent="//@diagram/@childNodes.2"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.3"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.2"
+        parent="//@diagram/@childNodes.3"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@childNodes.4"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.3"
+        parent="//@diagram/@childNodes.4"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.6"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.6"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.7"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.7"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.8"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.9"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.1"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.0"
+        parent="//@diagram/@childNodes.1"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.2"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.1"
+        parent="//@diagram/@childNodes.2"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.3"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.2"
+        parent="//@diagram/@childNodes.3"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@childNodes.4"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.3"
+        parent="//@diagram/@childNodes.4"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.6"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.6"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.7"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.7"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.8"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.9"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
@@ -400,7 +885,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.1/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

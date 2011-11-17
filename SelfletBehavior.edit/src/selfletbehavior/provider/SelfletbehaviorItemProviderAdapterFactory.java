@@ -214,6 +214,98 @@ public class SelfletbehaviorItemProviderAdapterFactory extends SelfletbehaviorAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link selfletbehavior.Elementary} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ElementaryItemProvider elementaryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link selfletbehavior.Elementary}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createElementaryAdapter() {
+		if (elementaryItemProvider == null) {
+			elementaryItemProvider = new ElementaryItemProvider(this);
+		}
+
+		return elementaryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link selfletbehavior.Complex} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComplexItemProvider complexItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link selfletbehavior.Complex}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComplexAdapter() {
+		if (complexItemProvider == null) {
+			complexItemProvider = new ComplexItemProvider(this);
+		}
+
+		return complexItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link selfletbehavior.Selflet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SelfletItemProvider selfletItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link selfletbehavior.Selflet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSelfletAdapter() {
+		if (selfletItemProvider == null) {
+			selfletItemProvider = new SelfletItemProvider(this);
+		}
+
+		return selfletItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link selfletbehavior.Service} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceItemProvider serviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link selfletbehavior.Service}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceAdapter() {
+		if (serviceItemProvider == null) {
+			serviceItemProvider = new ServiceItemProvider(this);
+		}
+
+		return serviceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,6 +410,10 @@ public class SelfletbehaviorItemProviderAdapterFactory extends SelfletbehaviorAd
 		if (finalItemProvider != null) finalItemProvider.dispose();
 		if (intermediateItemProvider != null) intermediateItemProvider.dispose();
 		if (invocationItemProvider != null) invocationItemProvider.dispose();
+		if (elementaryItemProvider != null) elementaryItemProvider.dispose();
+		if (complexItemProvider != null) complexItemProvider.dispose();
+		if (selfletItemProvider != null) selfletItemProvider.dispose();
+		if (serviceItemProvider != null) serviceItemProvider.dispose();
 	}
 
 }

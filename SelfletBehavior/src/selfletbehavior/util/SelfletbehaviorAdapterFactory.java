@@ -96,6 +96,22 @@ public class SelfletbehaviorAdapterFactory extends AdapterFactoryImpl {
 				return createInvocationAdapter();
 			}
 			@Override
+			public Adapter caseElementary(Elementary object) {
+				return createElementaryAdapter();
+			}
+			@Override
+			public Adapter caseComplex(Complex object) {
+				return createComplexAdapter();
+			}
+			@Override
+			public Adapter caseSelflet(Selflet object) {
+				return createSelfletAdapter();
+			}
+			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -196,6 +212,62 @@ public class SelfletbehaviorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInvocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link selfletbehavior.Elementary <em>Elementary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see selfletbehavior.Elementary
+	 * @generated
+	 */
+	public Adapter createElementaryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link selfletbehavior.Complex <em>Complex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see selfletbehavior.Complex
+	 * @generated
+	 */
+	public Adapter createComplexAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link selfletbehavior.Selflet <em>Selflet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see selfletbehavior.Selflet
+	 * @generated
+	 */
+	public Adapter createSelfletAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link selfletbehavior.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see selfletbehavior.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
 		return null;
 	}
 

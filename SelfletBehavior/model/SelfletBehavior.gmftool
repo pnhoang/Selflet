@@ -7,7 +7,7 @@
       title="selfletbehaviorPalette">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="State Nodes">
+        title="Nodes">
       <tools
           xsi:type="gmftool:CreationTool"
           title="Initial State"
@@ -39,6 +39,33 @@
           xsi:type="gmftool:CreationTool"
           title="Invocation State"
           description="Create new Invocation State">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Service"
+          description="Create a new Selflet Service ">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Elementary Behavior"
+          description="Create a new Selflet Elementary Behavior">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Complex Behavior"
+          description="Create a new Selflet Complex Behavior">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

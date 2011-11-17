@@ -11,6 +11,7 @@ import selfletbehavior.diagram.edit.commands.FinalCreateCommand;
 import selfletbehavior.diagram.edit.commands.InitCreateCommand;
 import selfletbehavior.diagram.edit.commands.IntermediateCreateCommand;
 import selfletbehavior.diagram.edit.commands.InvocationCreateCommand;
+import selfletbehavior.diagram.edit.commands.ServiceCreateCommand;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
 /**
@@ -23,25 +24,15 @@ public class BehaviorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public BehaviorItemSemanticEditPolicy() {
-		super(SelfletBehaviorElementTypes.Behavior_1000);
+		super(SelfletBehaviorElementTypes.Selflet_1000);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (SelfletBehaviorElementTypes.Intermediate_2001 == req
-				.getElementType()) {
-			return getGEFWrapper(new IntermediateCreateCommand(req));
-		}
-		if (SelfletBehaviorElementTypes.Init_2002 == req.getElementType()) {
-			return getGEFWrapper(new InitCreateCommand(req));
-		}
-		if (SelfletBehaviorElementTypes.Final_2003 == req.getElementType()) {
-			return getGEFWrapper(new FinalCreateCommand(req));
-		}
-		if (SelfletBehaviorElementTypes.Invocation_2004 == req.getElementType()) {
-			return getGEFWrapper(new InvocationCreateCommand(req));
+		if (SelfletBehaviorElementTypes.Service_2005 == req.getElementType()) {
+			return getGEFWrapper(new ServiceCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

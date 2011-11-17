@@ -18,10 +18,17 @@ import org.eclipse.swt.graphics.Image;
 
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
+import selfletbehavior.diagram.edit.parts.ComplexEditPart;
+import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
+import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
+import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
+import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
+import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.edit.parts.StateNextEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramEditorPlugin;
 
@@ -54,23 +61,63 @@ public class SelfletBehaviorElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Behavior_1000 = getElementType("SelfletBehavior.diagram.Behavior_1000"); //$NON-NLS-1$
+	public static final IElementType Selflet_1000 = getElementType("SelfletBehavior.diagram.Selflet_1000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Intermediate_2001 = getElementType("SelfletBehavior.diagram.Intermediate_2001"); //$NON-NLS-1$
+	public static final IElementType Service_2005 = getElementType("SelfletBehavior.diagram.Service_2005"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Init_2002 = getElementType("SelfletBehavior.diagram.Init_2002"); //$NON-NLS-1$
+	public static final IElementType Elementary_3001 = getElementType("SelfletBehavior.diagram.Elementary_3001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Final_2003 = getElementType("SelfletBehavior.diagram.Final_2003"); //$NON-NLS-1$
+	public static final IElementType Init_3002 = getElementType("SelfletBehavior.diagram.Init_3002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Invocation_2004 = getElementType("SelfletBehavior.diagram.Invocation_2004"); //$NON-NLS-1$
+	public static final IElementType Invocation_3003 = getElementType("SelfletBehavior.diagram.Invocation_3003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Intermediate_3004 = getElementType("SelfletBehavior.diagram.Intermediate_3004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Final_3005 = getElementType("SelfletBehavior.diagram.Final_3005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Complex_3006 = getElementType("SelfletBehavior.diagram.Complex_3006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Init_3007 = getElementType("SelfletBehavior.diagram.Init_3007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Invocation_3008 = getElementType("SelfletBehavior.diagram.Invocation_3008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Intermediate_3009 = getElementType("SelfletBehavior.diagram.Intermediate_3009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Final_3010 = getElementType("SelfletBehavior.diagram.Final_3010"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -187,19 +234,39 @@ public class SelfletBehaviorElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Behavior_1000,
-					SelfletbehaviorPackage.eINSTANCE.getBehavior());
+			elements.put(Selflet_1000,
+					SelfletbehaviorPackage.eINSTANCE.getSelflet());
 
-			elements.put(Intermediate_2001,
+			elements.put(Service_2005,
+					SelfletbehaviorPackage.eINSTANCE.getService());
+
+			elements.put(Elementary_3001,
+					SelfletbehaviorPackage.eINSTANCE.getElementary());
+
+			elements.put(Init_3002, SelfletbehaviorPackage.eINSTANCE.getInit());
+
+			elements.put(Invocation_3003,
+					SelfletbehaviorPackage.eINSTANCE.getInvocation());
+
+			elements.put(Intermediate_3004,
 					SelfletbehaviorPackage.eINSTANCE.getIntermediate());
 
-			elements.put(Init_2002, SelfletbehaviorPackage.eINSTANCE.getInit());
-
-			elements.put(Final_2003,
+			elements.put(Final_3005,
 					SelfletbehaviorPackage.eINSTANCE.getFinal());
 
-			elements.put(Invocation_2004,
+			elements.put(Complex_3006,
+					SelfletbehaviorPackage.eINSTANCE.getComplex());
+
+			elements.put(Init_3007, SelfletbehaviorPackage.eINSTANCE.getInit());
+
+			elements.put(Invocation_3008,
 					SelfletbehaviorPackage.eINSTANCE.getInvocation());
+
+			elements.put(Intermediate_3009,
+					SelfletbehaviorPackage.eINSTANCE.getIntermediate());
+
+			elements.put(Final_3010,
+					SelfletbehaviorPackage.eINSTANCE.getFinal());
 
 			elements.put(StateNext_4006,
 					SelfletbehaviorPackage.eINSTANCE.getState_Next());
@@ -220,11 +287,18 @@ public class SelfletBehaviorElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(Behavior_1000);
-			KNOWN_ELEMENT_TYPES.add(Intermediate_2001);
-			KNOWN_ELEMENT_TYPES.add(Init_2002);
-			KNOWN_ELEMENT_TYPES.add(Final_2003);
-			KNOWN_ELEMENT_TYPES.add(Invocation_2004);
+			KNOWN_ELEMENT_TYPES.add(Selflet_1000);
+			KNOWN_ELEMENT_TYPES.add(Service_2005);
+			KNOWN_ELEMENT_TYPES.add(Elementary_3001);
+			KNOWN_ELEMENT_TYPES.add(Init_3002);
+			KNOWN_ELEMENT_TYPES.add(Invocation_3003);
+			KNOWN_ELEMENT_TYPES.add(Intermediate_3004);
+			KNOWN_ELEMENT_TYPES.add(Final_3005);
+			KNOWN_ELEMENT_TYPES.add(Complex_3006);
+			KNOWN_ELEMENT_TYPES.add(Init_3007);
+			KNOWN_ELEMENT_TYPES.add(Invocation_3008);
+			KNOWN_ELEMENT_TYPES.add(Intermediate_3009);
+			KNOWN_ELEMENT_TYPES.add(Final_3010);
 			KNOWN_ELEMENT_TYPES.add(StateNext_4006);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -236,15 +310,29 @@ public class SelfletBehaviorElementTypes {
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
 		case BehaviorEditPart.VISUAL_ID:
-			return Behavior_1000;
-		case IntermediateEditPart.VISUAL_ID:
-			return Intermediate_2001;
+			return Selflet_1000;
+		case ServiceEditPart.VISUAL_ID:
+			return Service_2005;
+		case ElementaryEditPart.VISUAL_ID:
+			return Elementary_3001;
 		case InitEditPart.VISUAL_ID:
-			return Init_2002;
-		case FinalEditPart.VISUAL_ID:
-			return Final_2003;
+			return Init_3002;
 		case InvocationEditPart.VISUAL_ID:
-			return Invocation_2004;
+			return Invocation_3003;
+		case IntermediateEditPart.VISUAL_ID:
+			return Intermediate_3004;
+		case FinalEditPart.VISUAL_ID:
+			return Final_3005;
+		case ComplexEditPart.VISUAL_ID:
+			return Complex_3006;
+		case Init2EditPart.VISUAL_ID:
+			return Init_3007;
+		case Invocation2EditPart.VISUAL_ID:
+			return Invocation_3008;
+		case Intermediate2EditPart.VISUAL_ID:
+			return Intermediate_3009;
+		case Final2EditPart.VISUAL_ID:
+			return Final_3010;
 		case StateNextEditPart.VISUAL_ID:
 			return StateNext_4006;
 		}

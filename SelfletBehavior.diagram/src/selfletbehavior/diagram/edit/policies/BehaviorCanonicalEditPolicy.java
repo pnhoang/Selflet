@@ -31,10 +31,17 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
+import selfletbehavior.diagram.edit.parts.ComplexEditPart;
+import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
+import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
+import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
+import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
+import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramUpdater;
 import selfletbehavior.diagram.part.SelfletBehaviorLinkDescriptor;
 import selfletbehavior.diagram.part.SelfletBehaviorNodeDescriptor;
@@ -61,7 +68,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return SelfletbehaviorPackage.eINSTANCE.getBehavior_States();
+		return SelfletbehaviorPackage.eINSTANCE.getSelflet_Service();
 	}
 
 	/**
@@ -72,7 +79,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<SelfletBehaviorNodeDescriptor> childDescriptors = SelfletBehaviorDiagramUpdater
-				.getBehavior_1000SemanticChildren(viewObject);
+				.getSelflet_1000SemanticChildren(viewObject);
 		for (SelfletBehaviorNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -92,15 +99,8 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = SelfletBehaviorVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case IntermediateEditPart.VISUAL_ID:
-		case InitEditPart.VISUAL_ID:
-		case FinalEditPart.VISUAL_ID:
-		case InvocationEditPart.VISUAL_ID:
-			return true;
-		}
-		return false;
+		return ServiceEditPart.VISUAL_ID == SelfletBehaviorVisualIDRegistry
+				.getVisualID(view);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<SelfletBehaviorNodeDescriptor> childDescriptors = SelfletBehaviorDiagramUpdater
-				.getBehavior_1000SemanticChildren((View) getHost().getModel());
+				.getSelflet_1000SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -253,7 +253,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case BehaviorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getBehavior_1000ContainedLinks(view));
+						.getSelflet_1000ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -261,10 +261,21 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case IntermediateEditPart.VISUAL_ID: {
+		case ServiceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getIntermediate_2001ContainedLinks(view));
+						.getService_2005ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ElementaryEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getElementary_3001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -275,18 +286,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case InitEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getInit_2002ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case FinalEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(SelfletBehaviorDiagramUpdater
-						.getFinal_2003ContainedLinks(view));
+						.getInit_3002ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -297,7 +297,84 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case InvocationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getInvocation_2004ContainedLinks(view));
+						.getInvocation_3003ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case IntermediateEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getIntermediate_3004ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case FinalEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getFinal_3005ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ComplexEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getComplex_3006ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case Init2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getInit_3007ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case Invocation2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getInvocation_3008ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case Intermediate2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getIntermediate_3009ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case Final2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getFinal_3010ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

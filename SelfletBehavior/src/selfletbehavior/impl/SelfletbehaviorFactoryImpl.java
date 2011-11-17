@@ -66,6 +66,10 @@ public class SelfletbehaviorFactoryImpl extends EFactoryImpl implements Selfletb
 			case SelfletbehaviorPackage.FINAL: return createFinal();
 			case SelfletbehaviorPackage.INTERMEDIATE: return createIntermediate();
 			case SelfletbehaviorPackage.INVOCATION: return createInvocation();
+			case SelfletbehaviorPackage.ELEMENTARY: return createElementary();
+			case SelfletbehaviorPackage.COMPLEX: return createComplex();
+			case SelfletbehaviorPackage.SELFLET: return createSelflet();
+			case SelfletbehaviorPackage.SERVICE: return createService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -129,6 +133,46 @@ public class SelfletbehaviorFactoryImpl extends EFactoryImpl implements Selfletb
 	public Invocation createInvocation() {
 		InvocationImpl invocation = new InvocationImpl();
 		return invocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Elementary createElementary() {
+		ElementaryImpl elementary = new ElementaryImpl();
+		return elementary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Complex createComplex() {
+		ComplexImpl complex = new ComplexImpl();
+		return complex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Selflet createSelflet() {
+		SelfletImpl selflet = new SelfletImpl();
+		return selflet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Service createService() {
+		ServiceImpl service = new ServiceImpl();
+		return service;
 	}
 
 	/**

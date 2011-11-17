@@ -31,7 +31,7 @@ public class InvocationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public InvocationItemSemanticEditPolicy() {
-		super(SelfletBehaviorElementTypes.Invocation_2004);
+		super(SelfletBehaviorElementTypes.Invocation_3003);
 	}
 
 	/**

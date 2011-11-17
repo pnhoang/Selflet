@@ -32,23 +32,72 @@ public class SelfletBehaviorEditPartFactory implements EditPartFactory {
 			case BehaviorEditPart.VISUAL_ID:
 				return new BehaviorEditPart(view);
 
-			case IntermediateEditPart.VISUAL_ID:
-				return new IntermediateEditPart(view);
+			case ServiceEditPart.VISUAL_ID:
+				return new ServiceEditPart(view);
 
-			case IntermediateCallServiceEditPart.VISUAL_ID:
-				return new IntermediateCallServiceEditPart(view);
+			case ServiceNameEditPart.VISUAL_ID:
+				return new ServiceNameEditPart(view);
+
+			case ServiceDescriptionEditPart.VISUAL_ID:
+				return new ServiceDescriptionEditPart(view);
+
+			case ElementaryEditPart.VISUAL_ID:
+				return new ElementaryEditPart(view);
+
+			case ElementaryNameEditPart.VISUAL_ID:
+				return new ElementaryNameEditPart(view);
 
 			case InitEditPart.VISUAL_ID:
 				return new InitEditPart(view);
-
-			case FinalEditPart.VISUAL_ID:
-				return new FinalEditPart(view);
 
 			case InvocationEditPart.VISUAL_ID:
 				return new InvocationEditPart(view);
 
 			case InvocationDoActivityEditPart.VISUAL_ID:
 				return new InvocationDoActivityEditPart(view);
+
+			case IntermediateEditPart.VISUAL_ID:
+				return new IntermediateEditPart(view);
+
+			case IntermediateCallServiceEditPart.VISUAL_ID:
+				return new IntermediateCallServiceEditPart(view);
+
+			case FinalEditPart.VISUAL_ID:
+				return new FinalEditPart(view);
+
+			case ComplexEditPart.VISUAL_ID:
+				return new ComplexEditPart(view);
+
+			case ComplexNameEditPart.VISUAL_ID:
+				return new ComplexNameEditPart(view);
+
+			case Init2EditPart.VISUAL_ID:
+				return new Init2EditPart(view);
+
+			case Invocation2EditPart.VISUAL_ID:
+				return new Invocation2EditPart(view);
+
+			case InvocationDoActivity2EditPart.VISUAL_ID:
+				return new InvocationDoActivity2EditPart(view);
+
+			case Intermediate2EditPart.VISUAL_ID:
+				return new Intermediate2EditPart(view);
+
+			case IntermediateCallService2EditPart.VISUAL_ID:
+				return new IntermediateCallService2EditPart(view);
+
+			case Final2EditPart.VISUAL_ID:
+				return new Final2EditPart(view);
+
+			case ServiceServicesCompartmentEditPart.VISUAL_ID:
+				return new ServiceServicesCompartmentEditPart(view);
+
+			case ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID:
+				return new ElementaryElementaryBehaviorsCompartmentEditPart(
+						view);
+
+			case ComplexComplexBehaviorsCompartmentEditPart.VISUAL_ID:
+				return new ComplexComplexBehaviorsCompartmentEditPart(view);
 
 			case StateNextEditPart.VISUAL_ID:
 				return new StateNextEditPart(view);

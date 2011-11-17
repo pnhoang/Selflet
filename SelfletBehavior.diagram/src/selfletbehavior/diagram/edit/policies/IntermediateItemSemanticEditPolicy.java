@@ -31,7 +31,7 @@ public class IntermediateItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public IntermediateItemSemanticEditPolicy() {
-		super(SelfletBehaviorElementTypes.Intermediate_2001);
+		super(SelfletBehaviorElementTypes.Intermediate_3004);
 	}
 
 	/**

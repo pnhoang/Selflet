@@ -31,7 +31,7 @@ public class InitItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public InitItemSemanticEditPolicy() {
-		super(SelfletBehaviorElementTypes.Init_2002);
+		super(SelfletBehaviorElementTypes.Init_3002);
 	}
 
 	/**

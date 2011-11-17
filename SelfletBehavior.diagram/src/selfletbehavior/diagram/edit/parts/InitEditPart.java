@@ -35,7 +35,7 @@ public class InitEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 3002;
 
 	/**
 	 * @generated
@@ -202,16 +202,28 @@ public class InitEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMARelTypesOnSourceAndTarget(
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof IntermediateEditPart) {
+		if (targetEditPart instanceof selfletbehavior.diagram.edit.parts.InitEditPart) {
 			types.add(SelfletBehaviorElementTypes.StateNext_4006);
 		}
-		if (targetEditPart instanceof selfletbehavior.diagram.edit.parts.InitEditPart) {
+		if (targetEditPart instanceof InvocationEditPart) {
+			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		}
+		if (targetEditPart instanceof IntermediateEditPart) {
 			types.add(SelfletBehaviorElementTypes.StateNext_4006);
 		}
 		if (targetEditPart instanceof FinalEditPart) {
 			types.add(SelfletBehaviorElementTypes.StateNext_4006);
 		}
-		if (targetEditPart instanceof InvocationEditPart) {
+		if (targetEditPart instanceof Init2EditPart) {
+			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		}
+		if (targetEditPart instanceof Invocation2EditPart) {
+			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		}
+		if (targetEditPart instanceof Intermediate2EditPart) {
+			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		}
+		if (targetEditPart instanceof Final2EditPart) {
 			types.add(SelfletBehaviorElementTypes.StateNext_4006);
 		}
 		return types;
@@ -223,10 +235,14 @@ public class InitEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == SelfletBehaviorElementTypes.StateNext_4006) {
-			types.add(SelfletBehaviorElementTypes.Intermediate_2001);
-			types.add(SelfletBehaviorElementTypes.Init_2002);
-			types.add(SelfletBehaviorElementTypes.Final_2003);
-			types.add(SelfletBehaviorElementTypes.Invocation_2004);
+			types.add(SelfletBehaviorElementTypes.Init_3002);
+			types.add(SelfletBehaviorElementTypes.Invocation_3003);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
+			types.add(SelfletBehaviorElementTypes.Final_3005);
+			types.add(SelfletBehaviorElementTypes.Init_3007);
+			types.add(SelfletBehaviorElementTypes.Invocation_3008);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
+			types.add(SelfletBehaviorElementTypes.Final_3010);
 		}
 		return types;
 	}
@@ -246,10 +262,14 @@ public class InitEditPart extends ShapeNodeEditPart {
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == SelfletBehaviorElementTypes.StateNext_4006) {
-			types.add(SelfletBehaviorElementTypes.Intermediate_2001);
-			types.add(SelfletBehaviorElementTypes.Init_2002);
-			types.add(SelfletBehaviorElementTypes.Final_2003);
-			types.add(SelfletBehaviorElementTypes.Invocation_2004);
+			types.add(SelfletBehaviorElementTypes.Init_3002);
+			types.add(SelfletBehaviorElementTypes.Invocation_3003);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
+			types.add(SelfletBehaviorElementTypes.Final_3005);
+			types.add(SelfletBehaviorElementTypes.Init_3007);
+			types.add(SelfletBehaviorElementTypes.Invocation_3008);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
+			types.add(SelfletBehaviorElementTypes.Final_3010);
 		}
 		return types;
 	}

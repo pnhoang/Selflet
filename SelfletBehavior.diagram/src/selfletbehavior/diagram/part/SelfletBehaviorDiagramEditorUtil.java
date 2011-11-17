@@ -50,6 +50,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import selfletbehavior.Behavior;
+import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorFactory;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
 
@@ -176,7 +177,7 @@ public class SelfletBehaviorDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				Behavior model = createInitialModel();
+				Selflet model = createInitialModel();
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService
@@ -223,8 +224,8 @@ public class SelfletBehaviorDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Behavior createInitialModel() {
-		return SelfletbehaviorFactory.eINSTANCE.createBehavior();
+	private static Selflet createInitialModel() {
+		return SelfletbehaviorFactory.eINSTANCE.createSelflet();
 	}
 
 	/**
@@ -233,7 +234,7 @@ public class SelfletBehaviorDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static void attachModelToResource(Behavior model, Resource resource) {
+	private static void attachModelToResource(Selflet model, Resource resource) {
 		resource.getContents().add(model);
 	}
 

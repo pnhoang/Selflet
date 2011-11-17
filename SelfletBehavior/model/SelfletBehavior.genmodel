@@ -21,5 +21,15 @@
     <genClasses ecoreClass="SelfletBehavior.ecore#//Invocation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Invocation/doActivity"/>
     </genClasses>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Elementary"/>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Complex"/>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Selflet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Selflet/service"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Service">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Service/behavior"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Service/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Service/description"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -80,6 +80,42 @@ public interface SelfletbehaviorFactory extends EFactory {
 	Invocation createInvocation();
 
 	/**
+	 * Returns a new object of class '<em>Elementary</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Elementary</em>'.
+	 * @generated
+	 */
+	Elementary createElementary();
+
+	/**
+	 * Returns a new object of class '<em>Complex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complex</em>'.
+	 * @generated
+	 */
+	Complex createComplex();
+
+	/**
+	 * Returns a new object of class '<em>Selflet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Selflet</em>'.
+	 * @generated
+	 */
+	Selflet createSelflet();
+
+	/**
+	 * Returns a new object of class '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service</em>'.
+	 * @generated
+	 */
+	Service createService();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

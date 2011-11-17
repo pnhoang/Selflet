@@ -14,12 +14,16 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import selfletbehavior.Behavior;
+import selfletbehavior.Complex;
+import selfletbehavior.Elementary;
 import selfletbehavior.Final;
 import selfletbehavior.Init;
 import selfletbehavior.Intermediate;
 import selfletbehavior.Invocation;
+import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorFactory;
 import selfletbehavior.SelfletbehaviorPackage;
+import selfletbehavior.Service;
 import selfletbehavior.State;
 
 /**
@@ -70,6 +74,34 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 	 * @generated
 	 */
 	private EClass invocationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementaryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass selfletEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -236,6 +268,78 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getElementary() {
+		return elementaryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComplex() {
+		return complexEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSelflet() {
+		return selfletEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSelflet_Service() {
+		return (EReference)selfletEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getService() {
+		return serviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Behavior() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_Name() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_Description() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SelfletbehaviorFactory getSelfletbehaviorFactory() {
 		return (SelfletbehaviorFactory)getEFactoryInstance();
 	}
@@ -275,6 +379,18 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 
 		invocationEClass = createEClass(INVOCATION);
 		createEAttribute(invocationEClass, INVOCATION__DO_ACTIVITY);
+
+		elementaryEClass = createEClass(ELEMENTARY);
+
+		complexEClass = createEClass(COMPLEX);
+
+		selfletEClass = createEClass(SELFLET);
+		createEReference(selfletEClass, SELFLET__SERVICE);
+
+		serviceEClass = createEClass(SERVICE);
+		createEReference(serviceEClass, SERVICE__BEHAVIOR);
+		createEAttribute(serviceEClass, SERVICE__NAME);
+		createEAttribute(serviceEClass, SERVICE__DESCRIPTION);
 	}
 
 	/**
@@ -309,6 +425,8 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 		finalEClass.getESuperTypes().add(this.getState());
 		intermediateEClass.getESuperTypes().add(this.getState());
 		invocationEClass.getESuperTypes().add(this.getState());
+		elementaryEClass.getESuperTypes().add(this.getBehavior());
+		complexEClass.getESuperTypes().add(this.getBehavior());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(behaviorEClass, Behavior.class, "Behavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -327,6 +445,18 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 
 		initEClass(invocationEClass, Invocation.class, "Invocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInvocation_DoActivity(), ecorePackage.getEString(), "doActivity", null, 0, 1, Invocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(elementaryEClass, Elementary.class, "Elementary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(complexEClass, Complex.class, "Complex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(selfletEClass, Selflet.class, "Selflet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSelflet_Service(), this.getService(), null, "service", null, 0, -1, Selflet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getService_Behavior(), this.getBehavior(), null, "behavior", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_Description(), ecorePackage.getEString(), "description", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -31,7 +31,7 @@ public class FinalItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public FinalItemSemanticEditPolicy() {
-		super(SelfletBehaviorElementTypes.Final_2003);
+		super(SelfletBehaviorElementTypes.Final_3005);
 	}
 
 	/**

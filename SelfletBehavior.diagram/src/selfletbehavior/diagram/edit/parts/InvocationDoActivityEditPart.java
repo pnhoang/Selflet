@@ -56,7 +56,7 @@ public class InvocationDoActivityEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	 * @generated
@@ -300,7 +300,7 @@ public class InvocationDoActivityEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = SelfletBehaviorParserProvider
 					.getParser(
-							SelfletBehaviorElementTypes.Invocation_2004,
+							SelfletBehaviorElementTypes.Invocation_3003,
 							getParserElement(),
 							SelfletBehaviorVisualIDRegistry
 									.getType(selfletbehavior.diagram.edit.parts.InvocationDoActivityEditPart.VISUAL_ID));
