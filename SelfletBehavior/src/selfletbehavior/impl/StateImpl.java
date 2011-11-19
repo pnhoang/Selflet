@@ -8,6 +8,7 @@ package selfletbehavior.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,12 +16,15 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import selfletbehavior.Action;
+import selfletbehavior.Condition;
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.State;
 
@@ -31,6 +35,8 @@ import selfletbehavior.State;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link selfletbehavior.impl.StateImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link selfletbehavior.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link selfletbehavior.impl.StateImpl#getNext <em>Next</em>}</li>
  * </ul>
  * </p>
@@ -39,14 +45,41 @@ import selfletbehavior.State;
  */
 public class StateImpl extends EObjectImpl implements State {
 	/**
-	 * The cached value of the '{@link #getNext() <em>Next</em>}' reference list.
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected Action action;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNext()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<State> next;
+	protected EList<Condition> next;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,9 +105,73 @@ public class StateImpl extends EObjectImpl implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<State> getNext() {
+	public Action getAction() {
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAction(Action newAction, NotificationChain msgs) {
+		Action oldAction = action;
+		action = newAction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SelfletbehaviorPackage.STATE__ACTION, oldAction, newAction);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAction(Action newAction) {
+		if (newAction != action) {
+			NotificationChain msgs = null;
+			if (action != null)
+				msgs = ((InternalEObject)action).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfletbehaviorPackage.STATE__ACTION, null, msgs);
+			if (newAction != null)
+				msgs = ((InternalEObject)newAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfletbehaviorPackage.STATE__ACTION, null, msgs);
+			msgs = basicSetAction(newAction, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SelfletbehaviorPackage.STATE__ACTION, newAction, newAction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SelfletbehaviorPackage.STATE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Condition> getNext() {
 		if (next == null) {
-			next = new EObjectResolvingEList<State>(State.class, this, SelfletbehaviorPackage.STATE__NEXT);
+			next = new EObjectContainmentEList<Condition>(Condition.class, this, SelfletbehaviorPackage.STATE__NEXT);
 		}
 		return next;
 	}
@@ -85,8 +182,28 @@ public class StateImpl extends EObjectImpl implements State {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SelfletbehaviorPackage.STATE__ACTION:
+				return basicSetAction(null, msgs);
+			case SelfletbehaviorPackage.STATE__NEXT:
+				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SelfletbehaviorPackage.STATE__ACTION:
+				return getAction();
+			case SelfletbehaviorPackage.STATE__NAME:
+				return getName();
 			case SelfletbehaviorPackage.STATE__NEXT:
 				return getNext();
 		}
@@ -102,9 +219,15 @@ public class StateImpl extends EObjectImpl implements State {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SelfletbehaviorPackage.STATE__ACTION:
+				setAction((Action)newValue);
+				return;
+			case SelfletbehaviorPackage.STATE__NAME:
+				setName((String)newValue);
+				return;
 			case SelfletbehaviorPackage.STATE__NEXT:
 				getNext().clear();
-				getNext().addAll((Collection<? extends State>)newValue);
+				getNext().addAll((Collection<? extends Condition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -118,6 +241,12 @@ public class StateImpl extends EObjectImpl implements State {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SelfletbehaviorPackage.STATE__ACTION:
+				setAction((Action)null);
+				return;
+			case SelfletbehaviorPackage.STATE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case SelfletbehaviorPackage.STATE__NEXT:
 				getNext().clear();
 				return;
@@ -133,10 +262,30 @@ public class StateImpl extends EObjectImpl implements State {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SelfletbehaviorPackage.STATE__ACTION:
+				return action != null;
+			case SelfletbehaviorPackage.STATE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SelfletbehaviorPackage.STATE__NEXT:
 				return next != null && !next.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StateImpl

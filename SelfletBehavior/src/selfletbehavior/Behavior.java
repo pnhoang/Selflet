@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link selfletbehavior.Behavior#getName <em>Name</em>}</li>
- *   <li>{@link selfletbehavior.Behavior#getStates <em>States</em>}</li>
+ *   <li>{@link selfletbehavior.Behavior#getState <em>State</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,19 +55,19 @@ public interface Behavior extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>State</b></em>' containment reference list.
 	 * The list contents are of type {@link selfletbehavior.State}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>State</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>States</em>' containment reference list.
-	 * @see selfletbehavior.SelfletbehaviorPackage#getBehavior_States()
+	 * @return the value of the '<em>State</em>' containment reference list.
+	 * @see selfletbehavior.SelfletbehaviorPackage#getBehavior_State()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<State> getStates();
+	EList<State> getState();
 
 } // Behavior

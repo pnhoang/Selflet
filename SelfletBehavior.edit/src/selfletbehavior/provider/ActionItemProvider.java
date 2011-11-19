@@ -13,6 +13,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,19 +23,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import selfletbehavior.Invocation;
+import selfletbehavior.Action;
 import selfletbehavior.SelfletbehaviorPackage;
 
 /**
- * This is the item provider adapter for a {@link selfletbehavior.Invocation} object.
+ * This is the item provider adapter for a {@link selfletbehavior.Action} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InvocationItemProvider
-	extends StateItemProvider
+public class ActionItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -46,7 +49,7 @@ public class InvocationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InvocationItemProvider(AdapterFactory adapterFactory) {
+	public ActionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,19 +64,65 @@ public class InvocationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBodyPropertyDescriptor(object);
+			addActionFilePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns Invocation.gif.
+	 * This adds a property descriptor for the Body feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBodyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_body_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_body_feature", "_UI_Action_type"),
+				 SelfletbehaviorPackage.Literals.ACTION__BODY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Action File feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActionFilePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_actionFile_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_actionFile_feature", "_UI_Action_type"),
+				 SelfletbehaviorPackage.Literals.ACTION__ACTION_FILE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Action.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Invocation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Action"));
 	}
 
 	/**
@@ -84,10 +133,10 @@ public class InvocationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Invocation)object).getName();
+		String label = ((Action)object).getBody();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Invocation_type") :
-			getString("_UI_Invocation_type") + " " + label;
+			getString("_UI_Action_type") :
+			getString("_UI_Action_type") + " " + label;
 	}
 
 	/**
@@ -100,6 +149,13 @@ public class InvocationItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Action.class)) {
+			case SelfletbehaviorPackage.ACTION__BODY:
+			case SelfletbehaviorPackage.ACTION__ACTION_FILE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -113,6 +169,17 @@ public class InvocationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SelfletBehaviorEditPlugin.INSTANCE;
 	}
 
 }

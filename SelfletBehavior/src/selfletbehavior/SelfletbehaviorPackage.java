@@ -79,13 +79,13 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int BEHAVIOR__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * The feature id for the '<em><b>State</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR__STATES = 1;
+	int BEHAVIOR__STATE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Behavior</em>' class.
@@ -107,13 +107,31 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int STATE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__NEXT = 0;
+	int STATE__ACTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__NEXT = 2;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -122,7 +140,7 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 1;
+	int STATE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link selfletbehavior.impl.InitImpl <em>Init</em>}' class.
@@ -135,7 +153,25 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int INIT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT__ACTION = STATE__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT__NAME = STATE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -163,7 +199,25 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int FINAL = 3;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL__ACTION = STATE__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL__NAME = STATE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -191,7 +245,25 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int INTERMEDIATE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE__ACTION = STATE__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE__NAME = STATE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -200,22 +272,13 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int INTERMEDIATE__NEXT = STATE__NEXT;
 
 	/**
-	 * The feature id for the '<em><b>Call Service</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERMEDIATE__CALL_SERVICE = STATE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Intermediate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERMEDIATE_FEATURE_COUNT = STATE_FEATURE_COUNT + 1;
+	int INTERMEDIATE_FEATURE_COUNT = STATE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link selfletbehavior.impl.InvocationImpl <em>Invocation</em>}' class.
@@ -228,7 +291,25 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int INVOCATION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCATION__ACTION = STATE__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCATION__NAME = STATE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -237,22 +318,13 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int INVOCATION__NEXT = STATE__NEXT;
 
 	/**
-	 * The feature id for the '<em><b>Do Activity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INVOCATION__DO_ACTIVITY = STATE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Invocation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INVOCATION_FEATURE_COUNT = STATE_FEATURE_COUNT + 1;
+	int INVOCATION_FEATURE_COUNT = STATE_FEATURE_COUNT + 0;
 
 
 	/**
@@ -275,13 +347,13 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int ELEMENTARY__NAME = BEHAVIOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * The feature id for the '<em><b>State</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENTARY__STATES = BEHAVIOR__STATES;
+	int ELEMENTARY__STATE = BEHAVIOR__STATE;
 
 	/**
 	 * The number of structural features of the '<em>Elementary</em>' class.
@@ -312,13 +384,13 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int COMPLEX__NAME = BEHAVIOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * The feature id for the '<em><b>State</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX__STATES = BEHAVIOR__STATES;
+	int COMPLEX__STATE = BEHAVIOR__STATE;
 
 	/**
 	 * The number of structural features of the '<em>Complex</em>' class.
@@ -405,6 +477,90 @@ public interface SelfletbehaviorPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link selfletbehavior.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.impl.ConditionImpl
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__BODY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Condition File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__CONDITION_FILE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Target State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__TARGET_STATE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link selfletbehavior.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.impl.ActionImpl
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__BODY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Action File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTION_FILE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link selfletbehavior.Behavior <em>Behavior</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,15 +582,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EAttribute getBehavior_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link selfletbehavior.Behavior#getStates <em>States</em>}'.
+	 * Returns the meta object for the containment reference list '{@link selfletbehavior.Behavior#getState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>States</em>'.
-	 * @see selfletbehavior.Behavior#getStates()
+	 * @return the meta object for the containment reference list '<em>State</em>'.
+	 * @see selfletbehavior.Behavior#getState()
 	 * @see #getBehavior()
 	 * @generated
 	 */
-	EReference getBehavior_States();
+	EReference getBehavior_State();
 
 	/**
 	 * Returns the meta object for class '{@link selfletbehavior.State <em>State</em>}'.
@@ -447,10 +603,32 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EClass getState();
 
 	/**
-	 * Returns the meta object for the reference list '{@link selfletbehavior.State#getNext <em>Next</em>}'.
+	 * Returns the meta object for the containment reference '{@link selfletbehavior.State#getAction <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Next</em>'.
+	 * @return the meta object for the containment reference '<em>Action</em>'.
+	 * @see selfletbehavior.State#getAction()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_Action();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.State#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see selfletbehavior.State#getName()
+	 * @see #getState()
+	 * @generated
+	 */
+	EAttribute getState_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link selfletbehavior.State#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Next</em>'.
 	 * @see selfletbehavior.State#getNext()
 	 * @see #getState()
 	 * @generated
@@ -488,17 +666,6 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EClass getIntermediate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link selfletbehavior.Intermediate#getCallService <em>Call Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Call Service</em>'.
-	 * @see selfletbehavior.Intermediate#getCallService()
-	 * @see #getIntermediate()
-	 * @generated
-	 */
-	EAttribute getIntermediate_CallService();
-
-	/**
 	 * Returns the meta object for class '{@link selfletbehavior.Invocation <em>Invocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -507,17 +674,6 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInvocation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link selfletbehavior.Invocation#getDoActivity <em>Do Activity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Do Activity</em>'.
-	 * @see selfletbehavior.Invocation#getDoActivity()
-	 * @see #getInvocation()
-	 * @generated
-	 */
-	EAttribute getInvocation_DoActivity();
 
 	/**
 	 * Returns the meta object for class '{@link selfletbehavior.Elementary <em>Elementary</em>}'.
@@ -604,6 +760,81 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EAttribute getService_Description();
 
 	/**
+	 * Returns the meta object for class '{@link selfletbehavior.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition</em>'.
+	 * @see selfletbehavior.Condition
+	 * @generated
+	 */
+	EClass getCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Condition#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see selfletbehavior.Condition#getBody()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Body();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Condition#getConditionFile <em>Condition File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Condition File</em>'.
+	 * @see selfletbehavior.Condition#getConditionFile()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_ConditionFile();
+
+	/**
+	 * Returns the meta object for the reference '{@link selfletbehavior.Condition#getTargetState <em>Target State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target State</em>'.
+	 * @see selfletbehavior.Condition#getTargetState()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_TargetState();
+
+	/**
+	 * Returns the meta object for class '{@link selfletbehavior.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action</em>'.
+	 * @see selfletbehavior.Action
+	 * @generated
+	 */
+	EClass getAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Action#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see selfletbehavior.Action#getBody()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Body();
+
+	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Action#getActionFile <em>Action File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Action File</em>'.
+	 * @see selfletbehavior.Action#getActionFile()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_ActionFile();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,12 +875,12 @@ public interface SelfletbehaviorPackage extends EPackage {
 		EAttribute BEHAVIOR__NAME = eINSTANCE.getBehavior_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>State</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BEHAVIOR__STATES = eINSTANCE.getBehavior_States();
+		EReference BEHAVIOR__STATE = eINSTANCE.getBehavior_State();
 
 		/**
 		 * The meta object literal for the '{@link selfletbehavior.impl.StateImpl <em>State</em>}' class.
@@ -662,7 +893,23 @@ public interface SelfletbehaviorPackage extends EPackage {
 		EClass STATE = eINSTANCE.getState();
 
 		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ACTION = eINSTANCE.getState_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -700,14 +947,6 @@ public interface SelfletbehaviorPackage extends EPackage {
 		EClass INTERMEDIATE = eINSTANCE.getIntermediate();
 
 		/**
-		 * The meta object literal for the '<em><b>Call Service</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INTERMEDIATE__CALL_SERVICE = eINSTANCE.getIntermediate_CallService();
-
-		/**
 		 * The meta object literal for the '{@link selfletbehavior.impl.InvocationImpl <em>Invocation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -716,14 +955,6 @@ public interface SelfletbehaviorPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INVOCATION = eINSTANCE.getInvocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Do Activity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INVOCATION__DO_ACTIVITY = eINSTANCE.getInvocation_DoActivity();
 
 		/**
 		 * The meta object literal for the '{@link selfletbehavior.impl.ElementaryImpl <em>Elementary</em>}' class.
@@ -796,6 +1027,66 @@ public interface SelfletbehaviorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SERVICE__DESCRIPTION = eINSTANCE.getService_Description();
+
+		/**
+		 * The meta object literal for the '{@link selfletbehavior.impl.ConditionImpl <em>Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.impl.ConditionImpl
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getCondition()
+		 * @generated
+		 */
+		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__BODY = eINSTANCE.getCondition_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__CONDITION_FILE = eINSTANCE.getCondition_ConditionFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Target State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__TARGET_STATE = eINSTANCE.getCondition_TargetState();
+
+		/**
+		 * The meta object literal for the '{@link selfletbehavior.impl.ActionImpl <em>Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.impl.ActionImpl
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getAction()
+		 * @generated
+		 */
+		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__BODY = eINSTANCE.getAction_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Action File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ACTION_FILE = eINSTANCE.getAction_ActionFile();
 
 	}
 

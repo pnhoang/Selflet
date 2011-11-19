@@ -106,7 +106,7 @@ public class BehaviorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SelfletbehaviorPackage.Literals.BEHAVIOR__STATES);
+			childrenFeatures.add(SelfletbehaviorPackage.Literals.BEHAVIOR__STATE);
 		}
 		return childrenFeatures;
 	}
@@ -164,7 +164,7 @@ public class BehaviorItemProvider
 			case SelfletbehaviorPackage.BEHAVIOR__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SelfletbehaviorPackage.BEHAVIOR__STATES:
+			case SelfletbehaviorPackage.BEHAVIOR__STATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -184,27 +184,27 @@ public class BehaviorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATES,
+				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATE,
 				 SelfletbehaviorFactory.eINSTANCE.createState()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATES,
+				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATE,
 				 SelfletbehaviorFactory.eINSTANCE.createInit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATES,
+				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATE,
 				 SelfletbehaviorFactory.eINSTANCE.createFinal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATES,
+				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATE,
 				 SelfletbehaviorFactory.eINSTANCE.createIntermediate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATES,
+				(SelfletbehaviorPackage.Literals.BEHAVIOR__STATE,
 				 SelfletbehaviorFactory.eINSTANCE.createInvocation()));
 	}
 

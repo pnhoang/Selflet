@@ -70,6 +70,8 @@ public class SelfletbehaviorFactoryImpl extends EFactoryImpl implements Selfletb
 			case SelfletbehaviorPackage.COMPLEX: return createComplex();
 			case SelfletbehaviorPackage.SELFLET: return createSelflet();
 			case SelfletbehaviorPackage.SERVICE: return createService();
+			case SelfletbehaviorPackage.CONDITION: return createCondition();
+			case SelfletbehaviorPackage.ACTION: return createAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -173,6 +175,26 @@ public class SelfletbehaviorFactoryImpl extends EFactoryImpl implements Selfletb
 	public Service createService() {
 		ServiceImpl service = new ServiceImpl();
 		return service;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Condition createCondition() {
+		ConditionImpl condition = new ConditionImpl();
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action createAction() {
+		ActionImpl action = new ActionImpl();
+		return action;
 	}
 
 	/**

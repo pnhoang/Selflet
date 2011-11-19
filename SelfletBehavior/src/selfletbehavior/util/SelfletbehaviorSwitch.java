@@ -153,6 +153,18 @@ public class SelfletbehaviorSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SelfletbehaviorPackage.CONDITION: {
+				Condition condition = (Condition)theEObject;
+				T result = caseCondition(condition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SelfletbehaviorPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -304,6 +316,36 @@ public class SelfletbehaviorSwitch<T> {
 	 * @generated
 	 */
 	public T caseService(Service object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
 		return null;
 	}
 

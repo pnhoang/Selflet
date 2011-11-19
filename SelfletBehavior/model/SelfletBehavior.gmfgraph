@@ -13,13 +13,24 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="StateNextFigure"
-          targetDecoration="//@figures.0/@figures.0"/>
+          targetDecoration="//@figures.0/@figures.0">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="nextConditionLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="InitFigure">
       <actualFigure
           xsi:type="gmfgraph:Ellipse"
-          name="InitFigure"/>
+          name="InitFigure">
+        <preferredSize
+            dx="20"
+            dy="20"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="FinalFigure">
@@ -32,39 +43,65 @@
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="black"/>
+        <preferredSize
+            dx="20"
+            dy="20"/>
       </actualFigure>
     </descriptors>
     <descriptors
-        name="IntermediateFigure">
+        name="IntermediateStateFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="IntermediateFigure"
+          name="IntermediateStateFigure"
           cornerWidth="25"
           cornerHeight="25">
         <layout
-            xsi:type="gmfgraph:XYLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="250"
+            green="250"
+            blue="250"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="IntermediateCallServiceFigure"
+            name="StateNameLabelFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="InvocationFigure">
+        name="InvocationStateFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="InvocationFigure"
+          name="InvocationStateFigure"
           lineKind="LINE_DASH">
         <layout
-            xsi:type="gmfgraph:XYLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="250"
+            green="220"
+            blue="220"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="InvocationDoActivityFigure"
+            name="StateNameLabelFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
@@ -92,7 +129,6 @@
             text="&lt;...>">
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
-              alignment="BEGINNING"
               vertical="true"/>
         </children>
         <children
@@ -166,6 +202,15 @@
       <accessors
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors
+        name="SharedActionsCompartmentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="SharedActionsCompartment">
+        <layout
+            xsi:type="gmfgraph:StackLayout"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="Initial State"
@@ -175,10 +220,10 @@
       figure="FinalFigure"/>
   <nodes
       name="Intermediate State"
-      figure="IntermediateFigure"/>
+      figure="IntermediateStateFigure"/>
   <nodes
       name="Invocation State"
-      figure="InvocationFigure"/>
+      figure="InvocationStateFigure"/>
   <nodes
       name="Service"
       figure="ServiceFigure"/>
@@ -203,28 +248,33 @@
       name="ComplexBehaviorsCompartment"
       figure="ComplexBehaviorFigure"
       accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+  <compartments
+      name="SharedActionsCompartment"
+      figure="SharedActionsCompartmentFigure"/>
   <labels
-      name="callService"
-      figure="IntermediateFigure"
+      name="NextConditionBodyLabel"
+      figure="IntermediateStateFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
-      name="doActivity"
-      figure="InvocationFigure"
+      name="ActionBodyLabel"
+      figure="InvocationStateFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
-      name="serviceName"
+      name="ServiceNameLabel"
       figure="ServiceFigure"
       accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
-      name="serviceDescription"
+      name="ServiceDescriptionLabel"
       figure="ServiceFigure"
       accessor="//@figures.0/@descriptors.5/@accessors.1"/>
   <labels
-      name="elementaryBehaviorName"
+      name="ElementaryBehaviorNameLabel"
       figure="ElementaryBehaviorFigure"
       accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels
-      name="complexBehaviorName"
+      name="ComplexBehaviorNameLabel"
       figure="ComplexBehaviorFigure"
       accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels
+      name="StateNameLabel"/>
 </gmfgraph:Canvas>

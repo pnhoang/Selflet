@@ -306,6 +306,52 @@ public class SelfletbehaviorItemProviderAdapterFactory extends SelfletbehaviorAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link selfletbehavior.Condition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionItemProvider conditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link selfletbehavior.Condition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionAdapter() {
+		if (conditionItemProvider == null) {
+			conditionItemProvider = new ConditionItemProvider(this);
+		}
+
+		return conditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link selfletbehavior.Action} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionItemProvider actionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link selfletbehavior.Action}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionAdapter() {
+		if (actionItemProvider == null) {
+			actionItemProvider = new ActionItemProvider(this);
+		}
+
+		return actionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,6 +460,8 @@ public class SelfletbehaviorItemProviderAdapterFactory extends SelfletbehaviorAd
 		if (complexItemProvider != null) complexItemProvider.dispose();
 		if (selfletItemProvider != null) selfletItemProvider.dispose();
 		if (serviceItemProvider != null) serviceItemProvider.dispose();
+		if (conditionItemProvider != null) conditionItemProvider.dispose();
+		if (actionItemProvider != null) actionItemProvider.dispose();
 	}
 
 }

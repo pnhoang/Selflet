@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import selfletbehavior.Init;
 
 /**
  * This is the item provider adapter for a {@link selfletbehavior.Init} object.
@@ -78,7 +79,10 @@ public class InitItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Init_type");
+		String label = ((Init)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Init_type") :
+			getString("_UI_Init_type") + " " + label;
 	}
 
 	/**

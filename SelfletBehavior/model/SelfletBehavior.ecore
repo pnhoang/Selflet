@@ -5,20 +5,20 @@
     nsURI="http://selfletbehavior/1.0" nsPrefix="selfletbehavior">
   <eClassifiers xsi:type="ecore:EClass" name="Behavior">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
         eType="#//State" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//Action"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//Condition"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Init" eSuperTypes="#//State"/>
   <eClassifiers xsi:type="ecore:EClass" name="Final" eSuperTypes="#//State"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Intermediate" eSuperTypes="#//State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callService" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Invocation" eSuperTypes="#//State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doActivity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intermediate" eSuperTypes="#//State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Invocation" eSuperTypes="#//State"/>
   <eClassifiers xsi:type="ecore:EClass" name="Elementary" eSuperTypes="#//Behavior"/>
   <eClassifiers xsi:type="ecore:EClass" name="Complex" eSuperTypes="#//Behavior"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selflet">
@@ -30,5 +30,14 @@
         eType="#//Behavior" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditionFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetState" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

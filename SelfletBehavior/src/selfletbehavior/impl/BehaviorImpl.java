@@ -34,7 +34,7 @@ import selfletbehavior.State;
  * The following features are implemented:
  * <ul>
  *   <li>{@link selfletbehavior.impl.BehaviorImpl#getName <em>Name</em>}</li>
- *   <li>{@link selfletbehavior.impl.BehaviorImpl#getStates <em>States</em>}</li>
+ *   <li>{@link selfletbehavior.impl.BehaviorImpl#getState <em>State</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,14 +62,14 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
+	 * The cached value of the '{@link #getState() <em>State</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStates()
+	 * @see #getState()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<State> states;
+	protected EList<State> state;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,11 +116,11 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<State> getStates() {
-		if (states == null) {
-			states = new EObjectContainmentEList<State>(State.class, this, SelfletbehaviorPackage.BEHAVIOR__STATES);
+	public EList<State> getState() {
+		if (state == null) {
+			state = new EObjectContainmentEList<State>(State.class, this, SelfletbehaviorPackage.BEHAVIOR__STATE);
 		}
-		return states;
+		return state;
 	}
 
 	/**
@@ -131,8 +131,8 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SelfletbehaviorPackage.BEHAVIOR__STATES:
-				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+			case SelfletbehaviorPackage.BEHAVIOR__STATE:
+				return ((InternalEList<?>)getState()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -147,8 +147,8 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 		switch (featureID) {
 			case SelfletbehaviorPackage.BEHAVIOR__NAME:
 				return getName();
-			case SelfletbehaviorPackage.BEHAVIOR__STATES:
-				return getStates();
+			case SelfletbehaviorPackage.BEHAVIOR__STATE:
+				return getState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,9 +165,9 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 			case SelfletbehaviorPackage.BEHAVIOR__NAME:
 				setName((String)newValue);
 				return;
-			case SelfletbehaviorPackage.BEHAVIOR__STATES:
-				getStates().clear();
-				getStates().addAll((Collection<? extends State>)newValue);
+			case SelfletbehaviorPackage.BEHAVIOR__STATE:
+				getState().clear();
+				getState().addAll((Collection<? extends State>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,8 +184,8 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 			case SelfletbehaviorPackage.BEHAVIOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SelfletbehaviorPackage.BEHAVIOR__STATES:
-				getStates().clear();
+			case SelfletbehaviorPackage.BEHAVIOR__STATE:
+				getState().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -201,8 +201,8 @@ public class BehaviorImpl extends EObjectImpl implements Behavior {
 		switch (featureID) {
 			case SelfletbehaviorPackage.BEHAVIOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SelfletbehaviorPackage.BEHAVIOR__STATES:
-				return states != null && !states.isEmpty();
+			case SelfletbehaviorPackage.BEHAVIOR__STATE:
+				return state != null && !state.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

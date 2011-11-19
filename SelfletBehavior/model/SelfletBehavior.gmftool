@@ -28,8 +28,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Calling Service State"
-          description="Create new calling service state">
+          title="Intermediate State"
+          description="Create new intermediate state (calling service state)">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -77,7 +77,7 @@
         title="Connections">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Link"
+          title="State Link"
           description="Create new link from State to State">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>

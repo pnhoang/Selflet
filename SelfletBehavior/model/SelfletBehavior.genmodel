@@ -8,19 +8,17 @@
   <genPackages prefix="Selfletbehavior" disposableProviderFactory="true" ecorePackage="SelfletBehavior.ecore#/">
     <genClasses ecoreClass="SelfletBehavior.ecore#//Behavior">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Behavior/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Behavior/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Behavior/state"/>
     </genClasses>
     <genClasses ecoreClass="SelfletBehavior.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//State/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//State/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//State/next"/>
     </genClasses>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Init"/>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Final"/>
-    <genClasses ecoreClass="SelfletBehavior.ecore#//Intermediate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Intermediate/callService"/>
-    </genClasses>
-    <genClasses ecoreClass="SelfletBehavior.ecore#//Invocation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Invocation/doActivity"/>
-    </genClasses>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Intermediate"/>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Invocation"/>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Elementary"/>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Complex"/>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Selflet">
@@ -30,6 +28,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Service/behavior"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Service/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Service/description"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Condition/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Condition/conditionFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Condition/targetState"/>
+    </genClasses>
+    <genClasses ecoreClass="SelfletBehavior.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/actionFile"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
