@@ -6,13 +6,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
-import selfletbehavior.Behavior;
 import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorPackage;
+import selfletbehavior.diagram.edit.parts.Action2EditPart;
+import selfletbehavior.diagram.edit.parts.ActionEditPart;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexComplexBehaviorsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexNameEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionBodyEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryElementaryBehaviorsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryNameEditPart;
@@ -20,14 +23,12 @@ import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
-import selfletbehavior.diagram.edit.parts.IntermediateCallService2EditPart;
-import selfletbehavior.diagram.edit.parts.IntermediateCallServiceEditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
-import selfletbehavior.diagram.edit.parts.InvocationDoActivity2EditPart;
-import selfletbehavior.diagram.edit.parts.InvocationDoActivityEditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateNameEditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateSharedActionsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.InvocationNameEditPart;
+import selfletbehavior.diagram.edit.parts.InvocationSharedActionsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceDescriptionEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceNameEditPart;
@@ -165,13 +166,15 @@ public class SelfletBehaviorVisualIDRegistry {
 					domainElement.eClass())) {
 				return InvocationEditPart.VISUAL_ID;
 			}
-			if (SelfletbehaviorPackage.eINSTANCE.getIntermediate()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return IntermediateEditPart.VISUAL_ID;
-			}
 			if (SelfletbehaviorPackage.eINSTANCE.getFinal().isSuperTypeOf(
 					domainElement.eClass())) {
 				return FinalEditPart.VISUAL_ID;
+			}
+			break;
+		case InvocationSharedActionsCompartmentEditPart.VISUAL_ID:
+			if (SelfletbehaviorPackage.eINSTANCE.getAction().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ActionEditPart.VISUAL_ID;
 			}
 			break;
 		case ComplexComplexBehaviorsCompartmentEditPart.VISUAL_ID:
@@ -179,17 +182,19 @@ public class SelfletBehaviorVisualIDRegistry {
 					domainElement.eClass())) {
 				return Init2EditPart.VISUAL_ID;
 			}
-			if (SelfletbehaviorPackage.eINSTANCE.getInvocation().isSuperTypeOf(
-					domainElement.eClass())) {
-				return Invocation2EditPart.VISUAL_ID;
-			}
 			if (SelfletbehaviorPackage.eINSTANCE.getIntermediate()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return Intermediate2EditPart.VISUAL_ID;
+				return IntermediateEditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getFinal().isSuperTypeOf(
 					domainElement.eClass())) {
 				return Final2EditPart.VISUAL_ID;
+			}
+			break;
+		case IntermediateSharedActionsCompartmentEditPart.VISUAL_ID:
+			if (SelfletbehaviorPackage.eINSTANCE.getAction().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Action2EditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -242,12 +247,10 @@ public class SelfletBehaviorVisualIDRegistry {
 			}
 			break;
 		case InvocationEditPart.VISUAL_ID:
-			if (InvocationDoActivityEditPart.VISUAL_ID == nodeVisualID) {
+			if (InvocationNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case IntermediateEditPart.VISUAL_ID:
-			if (IntermediateCallServiceEditPart.VISUAL_ID == nodeVisualID) {
+			if (InvocationSharedActionsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -259,13 +262,11 @@ public class SelfletBehaviorVisualIDRegistry {
 				return true;
 			}
 			break;
-		case Invocation2EditPart.VISUAL_ID:
-			if (InvocationDoActivity2EditPart.VISUAL_ID == nodeVisualID) {
+		case IntermediateEditPart.VISUAL_ID:
+			if (IntermediateNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case Intermediate2EditPart.VISUAL_ID:
-			if (IntermediateCallService2EditPart.VISUAL_ID == nodeVisualID) {
+			if (IntermediateSharedActionsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -284,10 +285,12 @@ public class SelfletBehaviorVisualIDRegistry {
 			if (InvocationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (IntermediateEditPart.VISUAL_ID == nodeVisualID) {
+			if (FinalEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (FinalEditPart.VISUAL_ID == nodeVisualID) {
+			break;
+		case InvocationSharedActionsCompartmentEditPart.VISUAL_ID:
+			if (ActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -295,13 +298,20 @@ public class SelfletBehaviorVisualIDRegistry {
 			if (Init2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (Invocation2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (Intermediate2EditPart.VISUAL_ID == nodeVisualID) {
+			if (IntermediateEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (Final2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IntermediateSharedActionsCompartmentEditPart.VISUAL_ID:
+			if (Action2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ConditionEditPart.VISUAL_ID:
+			if (ConditionBodyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -315,6 +325,10 @@ public class SelfletBehaviorVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (SelfletbehaviorPackage.eINSTANCE.getCondition().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ConditionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

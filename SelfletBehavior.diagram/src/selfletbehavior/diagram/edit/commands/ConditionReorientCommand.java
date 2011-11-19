@@ -6,26 +6,21 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
+import selfletbehavior.Condition;
 import selfletbehavior.State;
 import selfletbehavior.diagram.edit.policies.SelfletBehaviorBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class StateNextReorientCommand extends EditElementCommand {
+public class ConditionReorientCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
 	private final int reorientDirection;
-
-	/**
-	 * @generated
-	 */
-	private final EObject referenceOwner;
 
 	/**
 	 * @generated
@@ -40,10 +35,9 @@ public class StateNextReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public StateNextReorientCommand(ReorientReferenceRelationshipRequest request) {
-		super(request.getLabel(), null, request);
+	public ConditionReorientCommand(ReorientRelationshipRequest request) {
+		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
-		referenceOwner = request.getReferenceOwner();
 		oldEnd = request.getOldRelationshipEnd();
 		newEnd = request.getNewRelationshipEnd();
 	}
@@ -52,7 +46,7 @@ public class StateNextReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (false == referenceOwner instanceof State) {
+		if (false == getElementToEdit() instanceof Condition) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -71,8 +65,9 @@ public class StateNextReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof State && newEnd instanceof State)) {
 			return false;
 		}
+		State target = getLink().getTargetState();
 		return SelfletBehaviorBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistStateNext_4006(getNewSource(), getOldTarget());
+				.canExistCondition_4007(getLink(), getNewSource(), target);
 	}
 
 	/**
@@ -82,8 +77,12 @@ public class StateNextReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof State && newEnd instanceof State)) {
 			return false;
 		}
+		if (!(getLink().eContainer() instanceof State)) {
+			return false;
+		}
+		State source = (State) getLink().eContainer();
 		return SelfletBehaviorBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistStateNext_4006(getOldSource(), getNewTarget());
+				.canExistCondition_4007(getLink(), source, getNewTarget());
 	}
 
 	/**
@@ -108,25 +107,31 @@ public class StateNextReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getNext().remove(getOldTarget());
-		getNewSource().getNext().add(getOldTarget());
-		return CommandResult.newOKCommandResult(referenceOwner);
+		getOldSource().getNext().remove(getLink());
+		getNewSource().getNext().add(getLink());
+		return CommandResult.newOKCommandResult(getLink());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getOldSource().getNext().remove(getOldTarget());
-		getOldSource().getNext().add(getNewTarget());
-		return CommandResult.newOKCommandResult(referenceOwner);
+		getLink().setTargetState(getNewTarget());
+		return CommandResult.newOKCommandResult(getLink());
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Condition getLink() {
+		return (Condition) getElementToEdit();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected State getOldSource() {
-		return (State) referenceOwner;
+		return (State) oldEnd;
 	}
 
 	/**

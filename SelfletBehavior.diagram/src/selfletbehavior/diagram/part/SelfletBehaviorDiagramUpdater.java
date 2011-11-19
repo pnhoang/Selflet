@@ -12,8 +12,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
+import selfletbehavior.Action;
 import selfletbehavior.Behavior;
 import selfletbehavior.Complex;
+import selfletbehavior.Condition;
 import selfletbehavior.Elementary;
 import selfletbehavior.Final;
 import selfletbehavior.Init;
@@ -23,22 +25,24 @@ import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.Service;
 import selfletbehavior.State;
+import selfletbehavior.diagram.edit.parts.Action2EditPart;
+import selfletbehavior.diagram.edit.parts.ActionEditPart;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexComplexBehaviorsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryElementaryBehaviorsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateSharedActionsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.InvocationSharedActionsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceServicesCompartmentEditPart;
-import selfletbehavior.diagram.edit.parts.StateNextEditPart;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
 /**
@@ -58,8 +62,12 @@ public class SelfletBehaviorDiagramUpdater {
 			return getServiceServicesCompartment_7001SemanticChildren(view);
 		case ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID:
 			return getElementaryElementaryBehaviorsCompartment_7002SemanticChildren(view);
+		case InvocationSharedActionsCompartmentEditPart.VISUAL_ID:
+			return getInvocationSharedActionsCompartment_7004SemanticChildren(view);
 		case ComplexComplexBehaviorsCompartmentEditPart.VISUAL_ID:
 			return getComplexComplexBehaviorsCompartment_7003SemanticChildren(view);
+		case IntermediateSharedActionsCompartmentEditPart.VISUAL_ID:
+			return getIntermediateSharedActionsCompartment_7005SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -135,7 +143,7 @@ public class SelfletBehaviorDiagramUpdater {
 		}
 		Elementary modelElement = (Elementary) containerView.getElement();
 		LinkedList<SelfletBehaviorNodeDescriptor> result = new LinkedList<SelfletBehaviorNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getStates().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getState().iterator(); it.hasNext();) {
 			State childElement = (State) it.next();
 			int visualID = SelfletBehaviorVisualIDRegistry.getNodeVisualID(
 					view, childElement);
@@ -149,15 +157,36 @@ public class SelfletBehaviorDiagramUpdater {
 						visualID));
 				continue;
 			}
-			if (visualID == IntermediateEditPart.VISUAL_ID) {
-				result.add(new SelfletBehaviorNodeDescriptor(childElement,
-						visualID));
-				continue;
-			}
 			if (visualID == FinalEditPart.VISUAL_ID) {
 				result.add(new SelfletBehaviorNodeDescriptor(childElement,
 						visualID));
 				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorNodeDescriptor> getInvocationSharedActionsCompartment_7004SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Invocation modelElement = (Invocation) containerView.getElement();
+		LinkedList<SelfletBehaviorNodeDescriptor> result = new LinkedList<SelfletBehaviorNodeDescriptor>();
+		{
+			Action childElement = modelElement.getAction();
+			int visualID = SelfletBehaviorVisualIDRegistry.getNodeVisualID(
+					view, childElement);
+			if (visualID == ActionEditPart.VISUAL_ID) {
+				result.add(new SelfletBehaviorNodeDescriptor(childElement,
+						visualID));
 			}
 		}
 		return result;
@@ -177,7 +206,7 @@ public class SelfletBehaviorDiagramUpdater {
 		}
 		Complex modelElement = (Complex) containerView.getElement();
 		LinkedList<SelfletBehaviorNodeDescriptor> result = new LinkedList<SelfletBehaviorNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getStates().iterator(); it.hasNext();) {
+		for (Iterator<?> it = modelElement.getState().iterator(); it.hasNext();) {
 			State childElement = (State) it.next();
 			int visualID = SelfletBehaviorVisualIDRegistry.getNodeVisualID(
 					view, childElement);
@@ -186,12 +215,7 @@ public class SelfletBehaviorDiagramUpdater {
 						visualID));
 				continue;
 			}
-			if (visualID == Invocation2EditPart.VISUAL_ID) {
-				result.add(new SelfletBehaviorNodeDescriptor(childElement,
-						visualID));
-				continue;
-			}
-			if (visualID == Intermediate2EditPart.VISUAL_ID) {
+			if (visualID == IntermediateEditPart.VISUAL_ID) {
 				result.add(new SelfletBehaviorNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -200,6 +224,32 @@ public class SelfletBehaviorDiagramUpdater {
 				result.add(new SelfletBehaviorNodeDescriptor(childElement,
 						visualID));
 				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorNodeDescriptor> getIntermediateSharedActionsCompartment_7005SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Intermediate modelElement = (Intermediate) containerView.getElement();
+		LinkedList<SelfletBehaviorNodeDescriptor> result = new LinkedList<SelfletBehaviorNodeDescriptor>();
+		{
+			Action childElement = modelElement.getAction();
+			int visualID = SelfletBehaviorVisualIDRegistry.getNodeVisualID(
+					view, childElement);
+			if (visualID == Action2EditPart.VISUAL_ID) {
+				result.add(new SelfletBehaviorNodeDescriptor(childElement,
+						visualID));
 			}
 		}
 		return result;
@@ -218,23 +268,25 @@ public class SelfletBehaviorDiagramUpdater {
 		case ElementaryEditPart.VISUAL_ID:
 			return getElementary_3001ContainedLinks(view);
 		case InitEditPart.VISUAL_ID:
-			return getInit_3002ContainedLinks(view);
+			return getInit_3011ContainedLinks(view);
 		case InvocationEditPart.VISUAL_ID:
-			return getInvocation_3003ContainedLinks(view);
-		case IntermediateEditPart.VISUAL_ID:
-			return getIntermediate_3004ContainedLinks(view);
+			return getInvocation_3012ContainedLinks(view);
+		case ActionEditPart.VISUAL_ID:
+			return getAction_3013ContainedLinks(view);
 		case FinalEditPart.VISUAL_ID:
-			return getFinal_3005ContainedLinks(view);
+			return getFinal_3014ContainedLinks(view);
 		case ComplexEditPart.VISUAL_ID:
 			return getComplex_3006ContainedLinks(view);
 		case Init2EditPart.VISUAL_ID:
-			return getInit_3007ContainedLinks(view);
-		case Invocation2EditPart.VISUAL_ID:
-			return getInvocation_3008ContainedLinks(view);
-		case Intermediate2EditPart.VISUAL_ID:
-			return getIntermediate_3009ContainedLinks(view);
+			return getInit_3015ContainedLinks(view);
+		case IntermediateEditPart.VISUAL_ID:
+			return getIntermediate_3016ContainedLinks(view);
+		case Action2EditPart.VISUAL_ID:
+			return getAction_3017ContainedLinks(view);
 		case Final2EditPart.VISUAL_ID:
-			return getFinal_3010ContainedLinks(view);
+			return getFinal_3018ContainedLinks(view);
+		case ConditionEditPart.VISUAL_ID:
+			return getCondition_4007ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -249,23 +301,25 @@ public class SelfletBehaviorDiagramUpdater {
 		case ElementaryEditPart.VISUAL_ID:
 			return getElementary_3001IncomingLinks(view);
 		case InitEditPart.VISUAL_ID:
-			return getInit_3002IncomingLinks(view);
+			return getInit_3011IncomingLinks(view);
 		case InvocationEditPart.VISUAL_ID:
-			return getInvocation_3003IncomingLinks(view);
-		case IntermediateEditPart.VISUAL_ID:
-			return getIntermediate_3004IncomingLinks(view);
+			return getInvocation_3012IncomingLinks(view);
+		case ActionEditPart.VISUAL_ID:
+			return getAction_3013IncomingLinks(view);
 		case FinalEditPart.VISUAL_ID:
-			return getFinal_3005IncomingLinks(view);
+			return getFinal_3014IncomingLinks(view);
 		case ComplexEditPart.VISUAL_ID:
 			return getComplex_3006IncomingLinks(view);
 		case Init2EditPart.VISUAL_ID:
-			return getInit_3007IncomingLinks(view);
-		case Invocation2EditPart.VISUAL_ID:
-			return getInvocation_3008IncomingLinks(view);
-		case Intermediate2EditPart.VISUAL_ID:
-			return getIntermediate_3009IncomingLinks(view);
+			return getInit_3015IncomingLinks(view);
+		case IntermediateEditPart.VISUAL_ID:
+			return getIntermediate_3016IncomingLinks(view);
+		case Action2EditPart.VISUAL_ID:
+			return getAction_3017IncomingLinks(view);
 		case Final2EditPart.VISUAL_ID:
-			return getFinal_3010IncomingLinks(view);
+			return getFinal_3018IncomingLinks(view);
+		case ConditionEditPart.VISUAL_ID:
+			return getCondition_4007IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -280,23 +334,25 @@ public class SelfletBehaviorDiagramUpdater {
 		case ElementaryEditPart.VISUAL_ID:
 			return getElementary_3001OutgoingLinks(view);
 		case InitEditPart.VISUAL_ID:
-			return getInit_3002OutgoingLinks(view);
+			return getInit_3011OutgoingLinks(view);
 		case InvocationEditPart.VISUAL_ID:
-			return getInvocation_3003OutgoingLinks(view);
-		case IntermediateEditPart.VISUAL_ID:
-			return getIntermediate_3004OutgoingLinks(view);
+			return getInvocation_3012OutgoingLinks(view);
+		case ActionEditPart.VISUAL_ID:
+			return getAction_3013OutgoingLinks(view);
 		case FinalEditPart.VISUAL_ID:
-			return getFinal_3005OutgoingLinks(view);
+			return getFinal_3014OutgoingLinks(view);
 		case ComplexEditPart.VISUAL_ID:
 			return getComplex_3006OutgoingLinks(view);
 		case Init2EditPart.VISUAL_ID:
-			return getInit_3007OutgoingLinks(view);
-		case Invocation2EditPart.VISUAL_ID:
-			return getInvocation_3008OutgoingLinks(view);
-		case Intermediate2EditPart.VISUAL_ID:
-			return getIntermediate_3009OutgoingLinks(view);
+			return getInit_3015OutgoingLinks(view);
+		case IntermediateEditPart.VISUAL_ID:
+			return getIntermediate_3016OutgoingLinks(view);
+		case Action2EditPart.VISUAL_ID:
+			return getAction_3017OutgoingLinks(view);
 		case Final2EditPart.VISUAL_ID:
-			return getFinal_3010OutgoingLinks(view);
+			return getFinal_3018OutgoingLinks(view);
+		case ConditionEditPart.VISUAL_ID:
+			return getCondition_4007OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -328,44 +384,41 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInit_3002ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInit_3011ContainedLinks(
 			View view) {
 		Init modelElement = (Init) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3003ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3012ContainedLinks(
 			View view) {
 		Invocation modelElement = (Invocation) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3004ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getAction_3013ContainedLinks(
 			View view) {
-		Intermediate modelElement = (Intermediate) view.getElement();
-		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getFinal_3005ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getFinal_3014ContainedLinks(
 			View view) {
 		Final modelElement = (Final) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
@@ -380,45 +433,50 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInit_3007ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInit_3015ContainedLinks(
 			View view) {
 		Init modelElement = (Init) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3008ContainedLinks(
-			View view) {
-		Invocation modelElement = (Invocation) view.getElement();
-		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3009ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3016ContainedLinks(
 			View view) {
 		Intermediate modelElement = (Intermediate) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getFinal_3010ContainedLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getAction_3017ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorLinkDescriptor> getFinal_3018ContainedLinks(
 			View view) {
 		Final modelElement = (Final) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorLinkDescriptor> getCondition_4007ContainedLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -440,13 +498,13 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInit_3002IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInit_3011IncomingLinks(
 			View view) {
 		Init modelElement = (Init) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
+		result.addAll(getIncomingTypeModelFacetLinks_Condition_4007(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -454,13 +512,13 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3003IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3012IncomingLinks(
 			View view) {
 		Invocation modelElement = (Invocation) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
+		result.addAll(getIncomingTypeModelFacetLinks_Condition_4007(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -468,27 +526,21 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3004IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getAction_3013IncomingLinks(
 			View view) {
-		Intermediate modelElement = (Intermediate) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
-				modelElement, crossReferences));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getFinal_3005IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getFinal_3014IncomingLinks(
 			View view) {
 		Final modelElement = (Final) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
+		result.addAll(getIncomingTypeModelFacetLinks_Condition_4007(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -504,13 +556,13 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInit_3007IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInit_3015IncomingLinks(
 			View view) {
 		Init modelElement = (Init) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
+		result.addAll(getIncomingTypeModelFacetLinks_Condition_4007(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -518,27 +570,13 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3008IncomingLinks(
-			View view) {
-		Invocation modelElement = (Invocation) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3009IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3016IncomingLinks(
 			View view) {
 		Intermediate modelElement = (Intermediate) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
+		result.addAll(getIncomingTypeModelFacetLinks_Condition_4007(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -546,15 +584,31 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getFinal_3010IncomingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getAction_3017IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorLinkDescriptor> getFinal_3018IncomingLinks(
 			View view) {
 		Final modelElement = (Final) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_State_Next_4006(
+		result.addAll(getIncomingTypeModelFacetLinks_Condition_4007(
 				modelElement, crossReferences));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorLinkDescriptor> getCondition_4007IncomingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -576,44 +630,41 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInit_3002OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInit_3011OutgoingLinks(
 			View view) {
 		Init modelElement = (Init) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3003OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3012OutgoingLinks(
 			View view) {
 		Invocation modelElement = (Invocation) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3004OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getAction_3013OutgoingLinks(
 			View view) {
-		Intermediate modelElement = (Intermediate) view.getElement();
-		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getFinal_3005OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getFinal_3014OutgoingLinks(
 			View view) {
 		Final modelElement = (Final) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
@@ -628,64 +679,73 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInit_3007OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getInit_3015OutgoingLinks(
 			View view) {
 		Init modelElement = (Init) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getInvocation_3008OutgoingLinks(
-			View view) {
-		Invocation modelElement = (Invocation) view.getElement();
-		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3009OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getIntermediate_3016OutgoingLinks(
 			View view) {
 		Intermediate modelElement = (Intermediate) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorLinkDescriptor> getFinal_3010OutgoingLinks(
+	public static List<SelfletBehaviorLinkDescriptor> getAction_3017OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<SelfletBehaviorLinkDescriptor> getFinal_3018OutgoingLinks(
 			View view) {
 		Final modelElement = (Final) view.getElement();
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_State_Next_4006(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Condition_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection<SelfletBehaviorLinkDescriptor> getIncomingFeatureModelFacetLinks_State_Next_4006(
-			State target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+	public static List<SelfletBehaviorLinkDescriptor> getCondition_4007OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<SelfletBehaviorLinkDescriptor> getContainedTypeModelFacetLinks_Condition_4007(
+			State container) {
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == SelfletbehaviorPackage.eINSTANCE
-					.getState_Next()) {
-				result.add(new SelfletBehaviorLinkDescriptor(setting
-						.getEObject(), target,
-						SelfletBehaviorElementTypes.StateNext_4006,
-						StateNextEditPart.VISUAL_ID));
+		for (Iterator<?> links = container.getNext().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Condition) {
+				continue;
 			}
+			Condition link = (Condition) linkObject;
+			if (ConditionEditPart.VISUAL_ID != SelfletBehaviorVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			State dst = link.getTargetState();
+			result.add(new SelfletBehaviorLinkDescriptor(container, dst, link,
+					SelfletBehaviorElementTypes.Condition_4007,
+					ConditionEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -693,15 +753,31 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<SelfletBehaviorLinkDescriptor> getOutgoingFeatureModelFacetLinks_State_Next_4006(
-			State source) {
+	private static Collection<SelfletBehaviorLinkDescriptor> getIncomingTypeModelFacetLinks_Condition_4007(
+			State target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<SelfletBehaviorLinkDescriptor> result = new LinkedList<SelfletBehaviorLinkDescriptor>();
-		for (Iterator<?> destinations = source.getNext().iterator(); destinations
-				.hasNext();) {
-			State destination = (State) destinations.next();
-			result.add(new SelfletBehaviorLinkDescriptor(source, destination,
-					SelfletBehaviorElementTypes.StateNext_4006,
-					StateNextEditPart.VISUAL_ID));
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != SelfletbehaviorPackage.eINSTANCE
+					.getCondition_TargetState()
+					|| false == setting.getEObject() instanceof Condition) {
+				continue;
+			}
+			Condition link = (Condition) setting.getEObject();
+			if (ConditionEditPart.VISUAL_ID != SelfletBehaviorVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			if (false == link.eContainer() instanceof State) {
+				continue;
+			}
+			State container = (State) link.eContainer();
+			result.add(new SelfletBehaviorLinkDescriptor(container, target,
+					link, SelfletBehaviorElementTypes.Condition_4007,
+					ConditionEditPart.VISUAL_ID));
+
 		}
 		return result;
 	}

@@ -22,9 +22,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import selfletbehavior.SelfletbehaviorPackage;
-import selfletbehavior.diagram.edit.parts.FinalEditPart;
-import selfletbehavior.diagram.edit.parts.InitEditPart;
-import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.Action2EditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramUpdater;
 import selfletbehavior.diagram.part.SelfletBehaviorNodeDescriptor;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
@@ -32,7 +30,7 @@ import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
 /**
  * @generated
  */
-public class ElementaryElementaryBehaviorsCompartmentCanonicalEditPolicy extends
+public class IntermediateSharedActionsCompartmentCanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -51,7 +49,7 @@ public class ElementaryElementaryBehaviorsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return SelfletbehaviorPackage.eINSTANCE.getBehavior_State();
+		return SelfletbehaviorPackage.eINSTANCE.getState_Action();
 	}
 
 	/**
@@ -62,7 +60,7 @@ public class ElementaryElementaryBehaviorsCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<SelfletBehaviorNodeDescriptor> childDescriptors = SelfletBehaviorDiagramUpdater
-				.getElementaryElementaryBehaviorsCompartment_7002SemanticChildren(viewObject);
+				.getIntermediateSharedActionsCompartment_7005SemanticChildren(viewObject);
 		for (SelfletBehaviorNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -82,10 +80,8 @@ public class ElementaryElementaryBehaviorsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = SelfletBehaviorVisualIDRegistry.getVisualID(view);
-		return visualID == InitEditPart.VISUAL_ID
-				|| visualID == InvocationEditPart.VISUAL_ID
-				|| visualID == FinalEditPart.VISUAL_ID;
+		return Action2EditPart.VISUAL_ID == SelfletBehaviorVisualIDRegistry
+				.getVisualID(view);
 	}
 
 	/**
@@ -97,7 +93,7 @@ public class ElementaryElementaryBehaviorsCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<SelfletBehaviorNodeDescriptor> childDescriptors = SelfletBehaviorDiagramUpdater
-				.getElementaryElementaryBehaviorsCompartment_7002SemanticChildren((View) getHost()
+				.getIntermediateSharedActionsCompartment_7005SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

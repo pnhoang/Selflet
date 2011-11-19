@@ -38,7 +38,7 @@ public class SelfletBehaviorPaletteFactory {
 		paletteContainer.setId("createNodes1Group"); //$NON-NLS-1$
 		paletteContainer.add(createInitialState1CreationTool());
 		paletteContainer.add(createFinalState2CreationTool());
-		paletteContainer.add(createCallingServiceState3CreationTool());
+		paletteContainer.add(createIntermediateState3CreationTool());
 		paletteContainer.add(createInvocationState4CreationTool());
 		paletteContainer.add(createService5CreationTool());
 		paletteContainer.add(createElementaryBehavior6CreationTool());
@@ -54,7 +54,7 @@ public class SelfletBehaviorPaletteFactory {
 		PaletteGroup paletteContainer = new PaletteGroup(
 				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createLink1CreationTool());
+		paletteContainer.add(createStateLink1CreationTool());
 		return paletteContainer;
 	}
 
@@ -63,14 +63,14 @@ public class SelfletBehaviorPaletteFactory {
 	 */
 	private ToolEntry createInitialState1CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(SelfletBehaviorElementTypes.Init_3002);
-		types.add(SelfletBehaviorElementTypes.Init_3007);
+		types.add(SelfletBehaviorElementTypes.Init_3011);
+		types.add(SelfletBehaviorElementTypes.Init_3015);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.InitialState1CreationTool_title,
 				Messages.InitialState1CreationTool_desc, types);
 		entry.setId("createInitialState1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Init_3002));
+				.getImageDescriptor(SelfletBehaviorElementTypes.Init_3011));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -80,14 +80,14 @@ public class SelfletBehaviorPaletteFactory {
 	 */
 	private ToolEntry createFinalState2CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(SelfletBehaviorElementTypes.Final_3005);
-		types.add(SelfletBehaviorElementTypes.Final_3010);
+		types.add(SelfletBehaviorElementTypes.Final_3014);
+		types.add(SelfletBehaviorElementTypes.Final_3018);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.FinalState2CreationTool_title,
 				Messages.FinalState2CreationTool_desc, types);
 		entry.setId("createFinalState2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Final_3005));
+				.getImageDescriptor(SelfletBehaviorElementTypes.Final_3014));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -95,15 +95,15 @@ public class SelfletBehaviorPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCallingServiceState3CreationTool() {
+	private ToolEntry createIntermediateState3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CallingServiceState3CreationTool_title,
-				Messages.CallingServiceState3CreationTool_desc,
+				Messages.IntermediateState3CreationTool_title,
+				Messages.IntermediateState3CreationTool_desc,
 				Collections
-						.singletonList(SelfletBehaviorElementTypes.Intermediate_3009));
-		entry.setId("createCallingServiceState3CreationTool"); //$NON-NLS-1$
+						.singletonList(SelfletBehaviorElementTypes.Intermediate_3016));
+		entry.setId("createIntermediateState3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Intermediate_3009));
+				.getImageDescriptor(SelfletBehaviorElementTypes.Intermediate_3016));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -112,15 +112,14 @@ public class SelfletBehaviorPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInvocationState4CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(SelfletBehaviorElementTypes.Invocation_3003);
-		types.add(SelfletBehaviorElementTypes.Invocation_3008);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.InvocationState4CreationTool_title,
-				Messages.InvocationState4CreationTool_desc, types);
+				Messages.InvocationState4CreationTool_desc,
+				Collections
+						.singletonList(SelfletBehaviorElementTypes.Invocation_3012));
 		entry.setId("createInvocationState4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Invocation_3003));
+				.getImageDescriptor(SelfletBehaviorElementTypes.Invocation_3012));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -176,15 +175,15 @@ public class SelfletBehaviorPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createLink1CreationTool() {
+	private ToolEntry createStateLink1CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Link1CreationTool_title,
-				Messages.Link1CreationTool_desc,
+				Messages.StateLink1CreationTool_title,
+				Messages.StateLink1CreationTool_desc,
 				Collections
-						.singletonList(SelfletBehaviorElementTypes.StateNext_4006));
-		entry.setId("createLink1CreationTool"); //$NON-NLS-1$
+						.singletonList(SelfletBehaviorElementTypes.Condition_4007));
+		entry.setId("createStateLink1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.StateNext_4006));
+				.getImageDescriptor(SelfletBehaviorElementTypes.Condition_4007));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

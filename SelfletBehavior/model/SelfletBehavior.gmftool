@@ -46,15 +46,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Service"
-          description="Create a new Selflet Service ">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Elementary Behavior"
           description="Create a new Selflet Elementary Behavior">
         <smallIcon
@@ -66,6 +57,15 @@
           xsi:type="gmftool:CreationTool"
           title="Complex Behavior"
           description="Create a new Selflet Complex Behavior">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Service"
+          description="Create a new Selflet Service ">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

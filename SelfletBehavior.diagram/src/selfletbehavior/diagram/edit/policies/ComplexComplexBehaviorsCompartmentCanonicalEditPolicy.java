@@ -24,8 +24,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramUpdater;
 import selfletbehavior.diagram.part.SelfletBehaviorNodeDescriptor;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
@@ -52,7 +51,7 @@ public class ComplexComplexBehaviorsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return SelfletbehaviorPackage.eINSTANCE.getBehavior_States();
+		return SelfletbehaviorPackage.eINSTANCE.getBehavior_State();
 	}
 
 	/**
@@ -84,14 +83,9 @@ public class ComplexComplexBehaviorsCompartmentCanonicalEditPolicy extends
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = SelfletBehaviorVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case Init2EditPart.VISUAL_ID:
-		case Invocation2EditPart.VISUAL_ID:
-		case Intermediate2EditPart.VISUAL_ID:
-		case Final2EditPart.VISUAL_ID:
-			return true;
-		}
-		return false;
+		return visualID == Init2EditPart.VISUAL_ID
+				|| visualID == IntermediateEditPart.VISUAL_ID
+				|| visualID == Final2EditPart.VISUAL_ID;
 	}
 
 	/**

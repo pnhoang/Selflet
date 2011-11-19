@@ -32,14 +32,13 @@ import org.eclipse.gmf.runtime.notation.View;
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
 import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramUpdater;
@@ -286,7 +285,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case InitEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getInit_3002ContainedLinks(view));
+						.getInit_3011ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -297,18 +296,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case InvocationEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getInvocation_3003ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case IntermediateEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(SelfletBehaviorDiagramUpdater
-						.getIntermediate_3004ContainedLinks(view));
+						.getInvocation_3012ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -319,7 +307,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case FinalEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getFinal_3005ContainedLinks(view));
+						.getFinal_3014ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -341,7 +329,7 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case Init2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getInit_3007ContainedLinks(view));
+						.getInit_3015ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -349,21 +337,10 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case Invocation2EditPart.VISUAL_ID: {
+		case IntermediateEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getInvocation_3008ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case Intermediate2EditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(SelfletBehaviorDiagramUpdater
-						.getIntermediate_3009ContainedLinks(view));
+						.getIntermediate_3016ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -374,7 +351,18 @@ public class BehaviorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case Final2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(SelfletBehaviorDiagramUpdater
-						.getFinal_3010ContainedLinks(view));
+						.getFinal_3018ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ConditionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(SelfletBehaviorDiagramUpdater
+						.getCondition_4007ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

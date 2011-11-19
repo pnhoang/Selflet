@@ -74,9 +74,9 @@
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="SelfletBehavior.gmfgraph#StateNameLabel"/>
+                    href="SelfletBehavior.gmfgraph#InvocationStateNameLabel"/>
                 <features
-                    href="SelfletBehavior.ecore#//Invocation/name"/>
+                    href="SelfletBehavior.ecore#//State/name"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -85,6 +85,8 @@
                   href="SelfletBehavior.gmfgraph#Invocation State"/>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="SelfletBehavior.ecore#//State/action"/>
                 <ownedChild>
                   <domainMetaElement
                       href="SelfletBehavior.ecore#//Action"/>
@@ -171,9 +173,9 @@
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="SelfletBehavior.gmfgraph#StateNameLabel"/>
+                    href="SelfletBehavior.gmfgraph#IntermediateStateNameLabel"/>
                 <features
-                    href="SelfletBehavior.ecore#//Intermediate/name"/>
+                    href="SelfletBehavior.ecore#//State/name"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -182,6 +184,8 @@
                   href="SelfletBehavior.gmfgraph#Intermediate State"/>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="SelfletBehavior.ecore#//State/action"/>
                 <ownedChild>
                   <domainMetaElement
                       href="SelfletBehavior.ecore#//Action"/>
@@ -237,12 +241,12 @@
     <labelMappings
         xsi:type="gmfmap:FeatureLabelMapping">
       <diagramLabel
-          href="SelfletBehavior.gmfgraph#NexConditionBodyLabel"/>
+          href="SelfletBehavior.gmfgraph#NextConditionBodyLabel"/>
       <features
           href="SelfletBehavior.ecore#//Condition/body"/>
     </labelMappings>
     <containmentFeature
-        href="SelfletBehavior.ecore#//Init/next"/>
+        href="SelfletBehavior.ecore#//State/next"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="SelfletBehavior.gmftool#//@palette/@tools.1/@tools.0"/>
@@ -251,48 +255,6 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="SelfletBehavior.ecore#//Condition/targetState"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="SelfletBehavior.ecore#//Condition"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="SelfletBehavior.gmfgraph#NexConditionBodyLabel"/>
-      <features
-          href="SelfletBehavior.ecore#//Condition/body"/>
-    </labelMappings>
-    <containmentFeature
-        href="SelfletBehavior.ecore#//Intermediate/next"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="SelfletBehavior.gmftool#//@palette/@tools.1/@tools.0"/>
-    <diagramLink
-        href="SelfletBehavior.gmfgraph#StateNext"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="SelfletBehavior.ecore#//Condition/targetState.2"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="SelfletBehavior.ecore#//Condition"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="SelfletBehavior.gmfgraph#NexConditionBodyLabel"/>
-      <features
-          href="SelfletBehavior.ecore#//Condition/body"/>
-    </labelMappings>
-    <containmentFeature
-        href="SelfletBehavior.ecore#//Invocation/next"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="SelfletBehavior.gmftool#//@palette/@tools.1/@tools.0"/>
-    <diagramLink
-        href="SelfletBehavior.gmfgraph#StateNext"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="SelfletBehavior.ecore#//Condition/targetState.1"/>
   </links>
   <diagram>
     <diagramCanvas

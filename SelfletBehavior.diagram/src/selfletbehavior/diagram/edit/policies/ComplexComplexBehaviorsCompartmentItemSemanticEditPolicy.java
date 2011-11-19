@@ -5,8 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import selfletbehavior.diagram.edit.commands.Final2CreateCommand;
 import selfletbehavior.diagram.edit.commands.Init2CreateCommand;
-import selfletbehavior.diagram.edit.commands.Intermediate2CreateCommand;
-import selfletbehavior.diagram.edit.commands.Invocation2CreateCommand;
+import selfletbehavior.diagram.edit.commands.IntermediateCreateCommand;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
 /**
@@ -26,17 +25,14 @@ public class ComplexComplexBehaviorsCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (SelfletBehaviorElementTypes.Init_3007 == req.getElementType()) {
+		if (SelfletBehaviorElementTypes.Init_3015 == req.getElementType()) {
 			return getGEFWrapper(new Init2CreateCommand(req));
 		}
-		if (SelfletBehaviorElementTypes.Invocation_3008 == req.getElementType()) {
-			return getGEFWrapper(new Invocation2CreateCommand(req));
-		}
-		if (SelfletBehaviorElementTypes.Intermediate_3009 == req
+		if (SelfletBehaviorElementTypes.Intermediate_3016 == req
 				.getElementType()) {
-			return getGEFWrapper(new Intermediate2CreateCommand(req));
+			return getGEFWrapper(new IntermediateCreateCommand(req));
 		}
-		if (SelfletBehaviorElementTypes.Final_3010 == req.getElementType()) {
+		if (SelfletBehaviorElementTypes.Final_3018 == req.getElementType()) {
 			return getGEFWrapper(new Final2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);

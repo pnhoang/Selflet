@@ -31,6 +31,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import selfletbehavior.Condition;
 import selfletbehavior.State;
 import selfletbehavior.diagram.edit.helpers.SelfletBehaviorBaseEditHelper;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramEditorPlugin;
@@ -328,20 +329,15 @@ public class SelfletBehaviorBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public boolean canCreateStateNext_4006(State source, State target) {
-			if (source != null) {
-				if (source.getNext().contains(target)) {
-					return false;
-				}
-			}
-
-			return canExistStateNext_4006(source, target);
+		public boolean canCreateCondition_4007(State source, State target) {
+			return canExistCondition_4007(null, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistStateNext_4006(State source, State target) {
+		public boolean canExistCondition_4007(Condition linkInstance,
+				State source, State target) {
 			return true;
 		}
 	}

@@ -28,9 +28,7 @@ import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.part.Messages;
@@ -59,20 +57,28 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			types.add(SelfletBehaviorElementTypes.Complex_3006);
 			return types;
 		}
+		if (editPart instanceof InvocationEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(SelfletBehaviorElementTypes.Action_3013);
+			return types;
+		}
+		if (editPart instanceof IntermediateEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(SelfletBehaviorElementTypes.Action_3017);
+			return types;
+		}
 		if (editPart instanceof ElementaryElementaryBehaviorsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
-			types.add(SelfletBehaviorElementTypes.Init_3002);
-			types.add(SelfletBehaviorElementTypes.Invocation_3003);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
-			types.add(SelfletBehaviorElementTypes.Final_3005);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(SelfletBehaviorElementTypes.Init_3011);
+			types.add(SelfletBehaviorElementTypes.Invocation_3012);
+			types.add(SelfletBehaviorElementTypes.Final_3014);
 			return types;
 		}
 		if (editPart instanceof ComplexComplexBehaviorsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
-			types.add(SelfletBehaviorElementTypes.Init_3007);
-			types.add(SelfletBehaviorElementTypes.Invocation_3008);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
-			types.add(SelfletBehaviorElementTypes.Final_3010);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(SelfletBehaviorElementTypes.Init_3015);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3016);
+			types.add(SelfletBehaviorElementTypes.Final_3018);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -91,22 +97,14 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((InvocationEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof IntermediateEditPart) {
-			return ((IntermediateEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
 		if (sourceEditPart instanceof FinalEditPart) {
 			return ((FinalEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof Init2EditPart) {
 			return ((Init2EditPart) sourceEditPart).getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof Invocation2EditPart) {
-			return ((Invocation2EditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof Intermediate2EditPart) {
-			return ((Intermediate2EditPart) sourceEditPart)
+		if (sourceEditPart instanceof IntermediateEditPart) {
+			return ((IntermediateEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof Final2EditPart) {
@@ -128,22 +126,14 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((InvocationEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
-		if (targetEditPart instanceof IntermediateEditPart) {
-			return ((IntermediateEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
-		}
 		if (targetEditPart instanceof FinalEditPart) {
 			return ((FinalEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof Init2EditPart) {
 			return ((Init2EditPart) targetEditPart).getMARelTypesOnTarget();
 		}
-		if (targetEditPart instanceof Invocation2EditPart) {
-			return ((Invocation2EditPart) targetEditPart)
-					.getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof Intermediate2EditPart) {
-			return ((Intermediate2EditPart) targetEditPart)
+		if (targetEditPart instanceof IntermediateEditPart) {
+			return ((IntermediateEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof Final2EditPart) {
@@ -169,10 +159,6 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((InvocationEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof IntermediateEditPart) {
-			return ((IntermediateEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof FinalEditPart) {
 			return ((FinalEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -181,12 +167,8 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((Init2EditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof Invocation2EditPart) {
-			return ((Invocation2EditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof Intermediate2EditPart) {
-			return ((Intermediate2EditPart) sourceEditPart)
+		if (sourceEditPart instanceof IntermediateEditPart) {
+			return ((IntermediateEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof Final2EditPart) {
@@ -211,10 +193,6 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((InvocationEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof IntermediateEditPart) {
-			return ((IntermediateEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
 		if (targetEditPart instanceof FinalEditPart) {
 			return ((FinalEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
@@ -223,12 +201,8 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((Init2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof Invocation2EditPart) {
-			return ((Invocation2EditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof Intermediate2EditPart) {
-			return ((Intermediate2EditPart) targetEditPart)
+		if (targetEditPart instanceof IntermediateEditPart) {
+			return ((IntermediateEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof Final2EditPart) {
@@ -253,10 +227,6 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((InvocationEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof IntermediateEditPart) {
-			return ((IntermediateEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
 		if (sourceEditPart instanceof FinalEditPart) {
 			return ((FinalEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
@@ -265,12 +235,8 @@ public class SelfletBehaviorModelingAssistantProvider extends
 			return ((Init2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof Invocation2EditPart) {
-			return ((Invocation2EditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof Intermediate2EditPart) {
-			return ((Intermediate2EditPart) sourceEditPart)
+		if (sourceEditPart instanceof IntermediateEditPart) {
+			return ((IntermediateEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof Final2EditPart) {

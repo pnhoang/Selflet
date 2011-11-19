@@ -5,16 +5,22 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
+import selfletbehavior.Condition;
+import selfletbehavior.SelfletbehaviorFactory;
 import selfletbehavior.State;
 import selfletbehavior.diagram.edit.policies.SelfletBehaviorBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class StateNextCreateCommand extends EditElementCommand {
+public class ConditionCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -29,7 +35,7 @@ public class StateNextCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public StateNextCreateCommand(CreateRelationshipRequest request,
+	public ConditionCreateCommand(CreateRelationshipRequest request,
 			EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
@@ -54,7 +60,7 @@ public class StateNextCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return SelfletBehaviorBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateStateNext_4006(getSource(), getTarget());
+				.canCreateCondition_4007(getSource(), getTarget());
 	}
 
 	/**
@@ -67,11 +73,37 @@ public class StateNextCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		if (getSource() != null && getTarget() != null) {
-			getSource().getNext().add(getTarget());
-		}
-		return CommandResult.newOKCommandResult();
+		Condition newElement = SelfletbehaviorFactory.eINSTANCE
+				.createCondition();
+		getSource().getNext().add(newElement);
+		newElement.setTargetState(getTarget());
+		doConfigure(newElement, monitor, info);
+		((CreateElementRequest) getRequest()).setNewElement(newElement);
+		return CommandResult.newOKCommandResult(newElement);
 
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void doConfigure(Condition newElement, IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		IElementType elementType = ((CreateElementRequest) getRequest())
+				.getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(
+				getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest())
+				.getClientContext());
+		configureRequest.addParameters(getRequest().getParameters());
+		configureRequest.setParameter(CreateRelationshipRequest.SOURCE,
+				getSource());
+		configureRequest.setParameter(CreateRelationshipRequest.TARGET,
+				getTarget());
+		ICommand configureCommand = elementType
+				.getEditCommand(configureRequest);
+		if (configureCommand != null && configureCommand.canExecute()) {
+			configureCommand.execute(monitor, info);
+		}
 	}
 
 	/**
@@ -94,4 +126,5 @@ public class StateNextCreateCommand extends EditElementCommand {
 	protected State getTarget() {
 		return (State) target;
 	}
+
 }

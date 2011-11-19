@@ -8,19 +8,16 @@ import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import selfletbehavior.diagram.edit.parts.ComplexComplexBehaviorsCompartmentEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionEditPart;
 import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
-import selfletbehavior.diagram.edit.parts.StateNextEditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
@@ -76,12 +73,10 @@ public class ComplexItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(incomingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(),
-										null, incomingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
+									.getVisualID(incomingLink) == ConditionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
 								cmd.add(new DeleteCommand(getEditingDomain(),
 										incomingLink));
 								continue;
@@ -91,12 +86,10 @@ public class ComplexItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(outgoingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(),
-										null, outgoingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
+									.getVisualID(outgoingLink) == ConditionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
 								cmd.add(new DeleteCommand(getEditingDomain(),
 										outgoingLink));
 								continue;
@@ -108,17 +101,15 @@ public class ComplexItemSemanticEditPolicy extends
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
-					case Invocation2EditPart.VISUAL_ID:
+					case IntermediateEditPart.VISUAL_ID:
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
 								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(incomingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(),
-										null, incomingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
+									.getVisualID(incomingLink) == ConditionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
 								cmd.add(new DeleteCommand(getEditingDomain(),
 										incomingLink));
 								continue;
@@ -128,49 +119,10 @@ public class ComplexItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(outgoingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(),
-										null, outgoingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										outgoingLink));
-								continue;
-							}
-						}
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case Intermediate2EditPart.VISUAL_ID:
-						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
-								.hasNext();) {
-							Edge incomingLink = (Edge) it.next();
-							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(incomingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(),
-										null, incomingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										incomingLink));
-								continue;
-							}
-						}
-						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
-								.hasNext();) {
-							Edge outgoingLink = (Edge) it.next();
-							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(outgoingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(),
-										null, outgoingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
+									.getVisualID(outgoingLink) == ConditionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
 								cmd.add(new DeleteCommand(getEditingDomain(),
 										outgoingLink));
 								continue;
@@ -187,12 +139,10 @@ public class ComplexItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(incomingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(),
-										null, incomingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
+									.getVisualID(incomingLink) == ConditionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
 								cmd.add(new DeleteCommand(getEditingDomain(),
 										incomingLink));
 								continue;
@@ -202,12 +152,10 @@ public class ComplexItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (SelfletBehaviorVisualIDRegistry
-									.getVisualID(outgoingLink) == StateNextEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(),
-										null, outgoingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
+									.getVisualID(outgoingLink) == ConditionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
 								cmd.add(new DeleteCommand(getEditingDomain(),
 										outgoingLink));
 								continue;

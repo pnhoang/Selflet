@@ -1,26 +1,38 @@
 package selfletbehavior.diagram.edit.parts;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.XYLayout;
-import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.handles.MoveHandle;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -29,6 +41,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import selfletbehavior.diagram.edit.policies.InvocationItemSemanticEditPolicy;
+import selfletbehavior.diagram.edit.policies.SelfletBehaviorTextSelectionEditPolicy;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
@@ -40,7 +53,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3003;
+	public static final int VISUAL_ID = 3012;
 
 	/**
 	 * @generated
@@ -63,6 +76,8 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new InvocationItemSemanticEditPolicy());
@@ -75,14 +90,16 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		XYLayoutEditPolicy lep = new XYLayoutEditPolicy() {
+
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = super.createChildEditPolicy(child);
-				if (result == null) {
-					return new ResizableShapeEditPolicy();
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new SelfletBehaviorTextSelectionEditPolicy();
+					}
 				}
-				return result;
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -92,24 +109,23 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new InvocationFigure();
+		return primaryShape = new InvocationStateFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public InvocationFigure getPrimaryShape() {
-		return (InvocationFigure) primaryShape;
+	public InvocationStateFigure getPrimaryShape() {
+		return (InvocationStateFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InvocationDoActivityEditPart) {
-			((InvocationDoActivityEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureInvocationDoActivityFigure());
+		if (childEditPart instanceof InvocationNameEditPart) {
+			((InvocationNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureInvocationStateNameLabelFigure());
 			return true;
 		}
 		return false;
@@ -119,7 +135,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InvocationDoActivityEditPart) {
+		if (childEditPart instanceof InvocationNameEditPart) {
 			return true;
 		}
 		return false;
@@ -185,16 +201,9 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
-			nodeShape.setLayoutManager(new FreeformLayout() {
-
-				public Object getConstraint(IFigure figure) {
-					Object result = constraints.get(figure);
-					if (result == null) {
-						result = new Rectangle(0, 0, -1, -1);
-					}
-					return result;
-				}
-			});
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(5);
+			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
@@ -250,7 +259,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(SelfletBehaviorVisualIDRegistry
-				.getType(InvocationDoActivityEditPart.VISUAL_ID));
+				.getType(InvocationNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -258,7 +267,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		types.add(SelfletBehaviorElementTypes.Condition_4007);
 		return types;
 	}
 
@@ -269,28 +278,22 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof InitEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof selfletbehavior.diagram.edit.parts.InvocationEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
-		}
-		if (targetEditPart instanceof IntermediateEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof FinalEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof Init2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
-		if (targetEditPart instanceof Invocation2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
-		}
-		if (targetEditPart instanceof Intermediate2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		if (targetEditPart instanceof IntermediateEditPart) {
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof Final2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		return types;
 	}
@@ -300,15 +303,13 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == SelfletBehaviorElementTypes.StateNext_4006) {
-			types.add(SelfletBehaviorElementTypes.Init_3002);
-			types.add(SelfletBehaviorElementTypes.Invocation_3003);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
-			types.add(SelfletBehaviorElementTypes.Final_3005);
-			types.add(SelfletBehaviorElementTypes.Init_3007);
-			types.add(SelfletBehaviorElementTypes.Invocation_3008);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
-			types.add(SelfletBehaviorElementTypes.Final_3010);
+		if (relationshipType == SelfletBehaviorElementTypes.Condition_4007) {
+			types.add(SelfletBehaviorElementTypes.Init_3011);
+			types.add(SelfletBehaviorElementTypes.Invocation_3012);
+			types.add(SelfletBehaviorElementTypes.Final_3014);
+			types.add(SelfletBehaviorElementTypes.Init_3015);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3016);
+			types.add(SelfletBehaviorElementTypes.Final_3018);
 		}
 		return types;
 	}
@@ -318,7 +319,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		types.add(SelfletBehaviorElementTypes.Condition_4007);
 		return types;
 	}
 
@@ -327,15 +328,13 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == SelfletBehaviorElementTypes.StateNext_4006) {
-			types.add(SelfletBehaviorElementTypes.Init_3002);
-			types.add(SelfletBehaviorElementTypes.Invocation_3003);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
-			types.add(SelfletBehaviorElementTypes.Final_3005);
-			types.add(SelfletBehaviorElementTypes.Init_3007);
-			types.add(SelfletBehaviorElementTypes.Invocation_3008);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
-			types.add(SelfletBehaviorElementTypes.Final_3010);
+		if (relationshipType == SelfletBehaviorElementTypes.Condition_4007) {
+			types.add(SelfletBehaviorElementTypes.Init_3011);
+			types.add(SelfletBehaviorElementTypes.Invocation_3012);
+			types.add(SelfletBehaviorElementTypes.Final_3014);
+			types.add(SelfletBehaviorElementTypes.Init_3015);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3016);
+			types.add(SelfletBehaviorElementTypes.Final_3018);
 		}
 		return types;
 	}
@@ -343,20 +342,48 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class InvocationFigure extends RectangleFigure {
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
+			if (type == SelfletBehaviorElementTypes.Action_3013) {
+				return getChildBySemanticHint(SelfletBehaviorVisualIDRegistry
+						.getType(InvocationSharedActionsCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
+	}
+
+	/**
+	 * @generated
+	 */
+	public class InvocationStateFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureInvocationDoActivityFigure;
+		private WrappingLabel fFigureInvocationStateNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public InvocationFigure() {
-			this.setLayoutManager(new XYLayout());
+		public InvocationStateFigure() {
+
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
+
+			this.setLayoutManager(layoutThis);
+
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setForegroundColor(ColorConstants.black);
+			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
@@ -365,20 +392,25 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureInvocationDoActivityFigure = new WrappingLabel();
-			fFigureInvocationDoActivityFigure.setText("<...>");
+			fFigureInvocationStateNameLabelFigure = new WrappingLabel();
+			fFigureInvocationStateNameLabelFigure.setText("<...>");
 
-			this.add(fFigureInvocationDoActivityFigure);
+			this.add(fFigureInvocationStateNameLabelFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureInvocationDoActivityFigure() {
-			return fFigureInvocationDoActivityFigure;
+		public WrappingLabel getFigureInvocationStateNameLabelFigure() {
+			return fFigureInvocationStateNameLabelFigure;
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 250, 220, 220);
 
 }

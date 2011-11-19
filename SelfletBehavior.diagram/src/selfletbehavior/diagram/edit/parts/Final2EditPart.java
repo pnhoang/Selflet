@@ -9,6 +9,7 @@ import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -36,7 +37,7 @@ public class Final2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3010;
+	public static final int VISUAL_ID = 3018;
 
 	/**
 	 * @generated
@@ -111,7 +112,7 @@ public class Final2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(20, 20);
 		return result;
 	}
 
@@ -193,7 +194,7 @@ public class Final2EditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		types.add(SelfletBehaviorElementTypes.Condition_4007);
 		return types;
 	}
 
@@ -204,28 +205,22 @@ public class Final2EditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof InitEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof InvocationEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
-		}
-		if (targetEditPart instanceof IntermediateEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof FinalEditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof Init2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
-		if (targetEditPart instanceof Invocation2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
-		}
-		if (targetEditPart instanceof Intermediate2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		if (targetEditPart instanceof IntermediateEditPart) {
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		if (targetEditPart instanceof selfletbehavior.diagram.edit.parts.Final2EditPart) {
-			types.add(SelfletBehaviorElementTypes.StateNext_4006);
+			types.add(SelfletBehaviorElementTypes.Condition_4007);
 		}
 		return types;
 	}
@@ -235,15 +230,13 @@ public class Final2EditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == SelfletBehaviorElementTypes.StateNext_4006) {
-			types.add(SelfletBehaviorElementTypes.Init_3002);
-			types.add(SelfletBehaviorElementTypes.Invocation_3003);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
-			types.add(SelfletBehaviorElementTypes.Final_3005);
-			types.add(SelfletBehaviorElementTypes.Init_3007);
-			types.add(SelfletBehaviorElementTypes.Invocation_3008);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
-			types.add(SelfletBehaviorElementTypes.Final_3010);
+		if (relationshipType == SelfletBehaviorElementTypes.Condition_4007) {
+			types.add(SelfletBehaviorElementTypes.Init_3011);
+			types.add(SelfletBehaviorElementTypes.Invocation_3012);
+			types.add(SelfletBehaviorElementTypes.Final_3014);
+			types.add(SelfletBehaviorElementTypes.Init_3015);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3016);
+			types.add(SelfletBehaviorElementTypes.Final_3018);
 		}
 		return types;
 	}
@@ -253,7 +246,7 @@ public class Final2EditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(SelfletBehaviorElementTypes.StateNext_4006);
+		types.add(SelfletBehaviorElementTypes.Condition_4007);
 		return types;
 	}
 
@@ -262,15 +255,13 @@ public class Final2EditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == SelfletBehaviorElementTypes.StateNext_4006) {
-			types.add(SelfletBehaviorElementTypes.Init_3002);
-			types.add(SelfletBehaviorElementTypes.Invocation_3003);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3004);
-			types.add(SelfletBehaviorElementTypes.Final_3005);
-			types.add(SelfletBehaviorElementTypes.Init_3007);
-			types.add(SelfletBehaviorElementTypes.Invocation_3008);
-			types.add(SelfletBehaviorElementTypes.Intermediate_3009);
-			types.add(SelfletBehaviorElementTypes.Final_3010);
+		if (relationshipType == SelfletBehaviorElementTypes.Condition_4007) {
+			types.add(SelfletBehaviorElementTypes.Init_3011);
+			types.add(SelfletBehaviorElementTypes.Invocation_3012);
+			types.add(SelfletBehaviorElementTypes.Final_3014);
+			types.add(SelfletBehaviorElementTypes.Init_3015);
+			types.add(SelfletBehaviorElementTypes.Intermediate_3016);
+			types.add(SelfletBehaviorElementTypes.Final_3018);
 		}
 		return types;
 	}
@@ -286,6 +277,8 @@ public class Final2EditPart extends ShapeNodeEditPart {
 		public FinalFigure() {
 			this.setForegroundColor(ColorConstants.black);
 			this.setBackgroundColor(ColorConstants.black);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20),
+					getMapMode().DPtoLP(20)));
 		}
 
 	}

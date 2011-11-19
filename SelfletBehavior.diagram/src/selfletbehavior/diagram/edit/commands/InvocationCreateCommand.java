@@ -58,7 +58,7 @@ public class InvocationCreateCommand extends EditElementCommand {
 				.createInvocation();
 
 		Behavior owner = (Behavior) getElementToEdit();
-		owner.getStates().add(newElement);
+		owner.getState().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

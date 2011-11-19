@@ -112,7 +112,7 @@ public class ComplexEditPart extends ShapeNodeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ComplexNameEditPart) {
 			((ComplexNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureComplexBehaviorName());
+					.getFigureComplexBehaviorNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof ComplexComplexBehaviorsCompartmentEditPart) {
@@ -277,7 +277,7 @@ public class ComplexEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureComplexBehaviorName;
+		private WrappingLabel fFigureComplexBehaviorNameFigure;
 		/**
 		 * @generated
 		 */
@@ -301,10 +301,10 @@ public class ComplexEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureComplexBehaviorName = new WrappingLabel();
-			fFigureComplexBehaviorName.setText("<...>");
+			fFigureComplexBehaviorNameFigure = new WrappingLabel();
+			fFigureComplexBehaviorNameFigure.setText("<...>");
 
-			this.add(fFigureComplexBehaviorName, BorderLayout.TOP);
+			this.add(fFigureComplexBehaviorNameFigure, BorderLayout.TOP);
 
 			fFigureComplexBehaviorCompartmentFigure = new RectangleFigure();
 
@@ -316,8 +316,8 @@ public class ComplexEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureComplexBehaviorName() {
-			return fFigureComplexBehaviorName;
+		public WrappingLabel getFigureComplexBehaviorNameFigure() {
+			return fFigureComplexBehaviorNameFigure;
 		}
 
 		/**

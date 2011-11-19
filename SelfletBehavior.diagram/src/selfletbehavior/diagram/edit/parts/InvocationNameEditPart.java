@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
@@ -13,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
@@ -22,9 +20,12 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
@@ -50,13 +51,13 @@ import selfletbehavior.diagram.providers.SelfletBehaviorParserProvider;
 /**
  * @generated
  */
-public class InvocationDoActivityEditPart extends CompartmentEditPart implements
+public class InvocationNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 5011;
 
 	/**
 	 * @generated
@@ -81,7 +82,7 @@ public class InvocationDoActivityEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public InvocationDoActivityEditPart(View view) {
+	public InvocationNameEditPart(View view) {
 		super(view);
 	}
 
@@ -300,10 +301,10 @@ public class InvocationDoActivityEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = SelfletBehaviorParserProvider
 					.getParser(
-							SelfletBehaviorElementTypes.Invocation_3003,
+							SelfletBehaviorElementTypes.Invocation_3012,
 							getParserElement(),
 							SelfletBehaviorVisualIDRegistry
-									.getType(selfletbehavior.diagram.edit.parts.InvocationDoActivityEditPart.VISUAL_ID));
+									.getType(selfletbehavior.diagram.edit.parts.InvocationNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -398,7 +399,6 @@ public class InvocationDoActivityEditPart extends CompartmentEditPart implements
 		refreshFontColor();
 		refreshUnderline();
 		refreshStrikeThrough();
-		refreshBounds();
 	}
 
 	/**
@@ -535,32 +535,8 @@ public class InvocationDoActivityEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	protected void refreshBounds() {
-		int width = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
-				.getSize_Width())).intValue();
-		int height = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
-				.getSize_Height())).intValue();
-		Dimension size = new Dimension(width, height);
-		int x = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
-				.getLocation_X())).intValue();
-		int y = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
-				.getLocation_Y())).intValue();
-		Point loc = new Point(x, y);
-		((GraphicalEditPart) getParent()).setLayoutConstraint(this,
-				getFigure(), new Rectangle(loc, size));
-	}
-
-	/**
-	 * @generated
-	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
-		if (NotationPackage.eINSTANCE.getSize_Width().equals(feature)
-				|| NotationPackage.eINSTANCE.getSize_Height().equals(feature)
-				|| NotationPackage.eINSTANCE.getLocation_X().equals(feature)
-				|| NotationPackage.eINSTANCE.getLocation_Y().equals(feature)) {
-			refreshBounds();
-		}
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
 			Integer c = (Integer) event.getNewValue();
 			setFontColor(DiagramColorRegistry.getInstance().getColor(c));

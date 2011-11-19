@@ -7,10 +7,6 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
-import selfletbehavior.diagram.edit.commands.FinalCreateCommand;
-import selfletbehavior.diagram.edit.commands.InitCreateCommand;
-import selfletbehavior.diagram.edit.commands.IntermediateCreateCommand;
-import selfletbehavior.diagram.edit.commands.InvocationCreateCommand;
 import selfletbehavior.diagram.edit.commands.ServiceCreateCommand;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 

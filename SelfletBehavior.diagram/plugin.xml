@@ -213,8 +213,8 @@
       <viewProvider class="selfletbehavior.diagram.providers.SelfletBehaviorViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="SelfletBehavior"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2005,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4006"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2005,3001,3011,3012,3013,3014,3006,3015,3016,3017,3018"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4007"/>
       </viewProvider>
    </extension>
 
@@ -226,16 +226,16 @@
             <method name="getType()" value="SelfletBehavior"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2005,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010"/>
+            <method name="getType()" value="2005,3001,3011,3012,3013,3014,3006,3015,3016,3017,3018"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4006"/>
+            <method name="getType()" value="4007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5009,5010,5005,5003,5004,5008,5006,5007"/>
+            <method name="getType()" value="5009,5010,5005,5011,5008,5012"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003"/>
+            <method name="getType()" value="7001,7002,7004,7003,7005"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -299,42 +299,42 @@
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
          <metamodelType
-               id="SelfletBehavior.diagram.Init_3002"
-               name="%metatype.name.Init_3002"
+               id="SelfletBehavior.diagram.Init_3011"
+               name="%metatype.name.Init_3011"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Init"
                edithelper="selfletbehavior.diagram.edit.helpers.InitEditHelper">
-            <param name="semanticHint" value="3002"/>
+            <param name="semanticHint" value="3011"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
          <metamodelType
-               id="SelfletBehavior.diagram.Invocation_3003"
-               name="%metatype.name.Invocation_3003"
+               id="SelfletBehavior.diagram.Invocation_3012"
+               name="%metatype.name.Invocation_3012"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Invocation"
                edithelper="selfletbehavior.diagram.edit.helpers.InvocationEditHelper">
-            <param name="semanticHint" value="3003"/>
+            <param name="semanticHint" value="3012"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
          <metamodelType
-               id="SelfletBehavior.diagram.Intermediate_3004"
-               name="%metatype.name.Intermediate_3004"
+               id="SelfletBehavior.diagram.Action_3013"
+               name="%metatype.name.Action_3013"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Intermediate"
-               edithelper="selfletbehavior.diagram.edit.helpers.IntermediateEditHelper">
-            <param name="semanticHint" value="3004"/>
+               eclass="Action"
+               edithelper="selfletbehavior.diagram.edit.helpers.ActionEditHelper">
+            <param name="semanticHint" value="3013"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
          <metamodelType
-               id="SelfletBehavior.diagram.Final_3005"
-               name="%metatype.name.Final_3005"
+               id="SelfletBehavior.diagram.Final_3014"
+               name="%metatype.name.Final_3014"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Final"
                edithelper="selfletbehavior.diagram.edit.helpers.FinalEditHelper">
-            <param name="semanticHint" value="3005"/>
+            <param name="semanticHint" value="3014"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
@@ -349,48 +349,50 @@
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
          <specializationType
-               id="SelfletBehavior.diagram.Init_3007"
-               name="%metatype.name.Init_3007"
+               id="SelfletBehavior.diagram.Init_3015"
+               name="%metatype.name.Init_3015"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="SelfletBehavior.diagram.Init_3002"/>
-            <param name="semanticHint" value="3007"/>
+            <specializes id="SelfletBehavior.diagram.Init_3011"/>
+            <param name="semanticHint" value="3015"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://selfletbehavior/1.0">
+         <metamodelType
+               id="SelfletBehavior.diagram.Intermediate_3016"
+               name="%metatype.name.Intermediate_3016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Intermediate"
+               edithelper="selfletbehavior.diagram.edit.helpers.IntermediateEditHelper">
+            <param name="semanticHint" value="3016"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://selfletbehavior/1.0">
+         <specializationType
+               id="SelfletBehavior.diagram.Action_3017"
+               name="%metatype.name.Action_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="SelfletBehavior.diagram.Action_3013"/>
+            <param name="semanticHint" value="3017"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
          <specializationType
-               id="SelfletBehavior.diagram.Invocation_3008"
-               name="%metatype.name.Invocation_3008"
+               id="SelfletBehavior.diagram.Final_3018"
+               name="%metatype.name.Final_3018"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="SelfletBehavior.diagram.Invocation_3003"/>
-            <param name="semanticHint" value="3008"/>
+            <specializes id="SelfletBehavior.diagram.Final_3014"/>
+            <param name="semanticHint" value="3018"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://selfletbehavior/1.0">
-         <specializationType
-               id="SelfletBehavior.diagram.Intermediate_3009"
-               name="%metatype.name.Intermediate_3009"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="SelfletBehavior.diagram.Intermediate_3004"/>
-            <param name="semanticHint" value="3009"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://selfletbehavior/1.0">
-         <specializationType
-               id="SelfletBehavior.diagram.Final_3010"
-               name="%metatype.name.Final_3010"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="SelfletBehavior.diagram.Final_3005"/>
-            <param name="semanticHint" value="3010"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://selfletbehavior/1.0">
-         <specializationType
-               id="SelfletBehavior.diagram.StateNext_4006"
-               name="%metatype.name.StateNext_4006"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4006"/>
-         </specializationType>
+         <metamodelType
+               id="SelfletBehavior.diagram.Condition_4007"
+               name="%metatype.name.Condition_4007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Condition"
+               edithelper="selfletbehavior.diagram.edit.helpers.ConditionEditHelper">
+            <param name="semanticHint" value="4007"/>
+         </metamodelType>
       </metamodel>
    </extension>
 
@@ -407,16 +409,16 @@
          <elementType ref="SelfletBehavior.diagram.Selflet_1000"/>
          <elementType ref="SelfletBehavior.diagram.Service_2005"/>
          <elementType ref="SelfletBehavior.diagram.Elementary_3001"/>
-         <elementType ref="SelfletBehavior.diagram.Init_3002"/>
-         <elementType ref="SelfletBehavior.diagram.Invocation_3003"/>
-         <elementType ref="SelfletBehavior.diagram.Intermediate_3004"/>
-         <elementType ref="SelfletBehavior.diagram.Final_3005"/>
+         <elementType ref="SelfletBehavior.diagram.Init_3011"/>
+         <elementType ref="SelfletBehavior.diagram.Invocation_3012"/>
+         <elementType ref="SelfletBehavior.diagram.Action_3013"/>
+         <elementType ref="SelfletBehavior.diagram.Final_3014"/>
          <elementType ref="SelfletBehavior.diagram.Complex_3006"/>
-         <elementType ref="SelfletBehavior.diagram.Init_3007"/>
-         <elementType ref="SelfletBehavior.diagram.Invocation_3008"/>
-         <elementType ref="SelfletBehavior.diagram.Intermediate_3009"/>
-         <elementType ref="SelfletBehavior.diagram.Final_3010"/>
-         <elementType ref="SelfletBehavior.diagram.StateNext_4006"/>
+         <elementType ref="SelfletBehavior.diagram.Init_3015"/>
+         <elementType ref="SelfletBehavior.diagram.Intermediate_3016"/>
+         <elementType ref="SelfletBehavior.diagram.Action_3017"/>
+         <elementType ref="SelfletBehavior.diagram.Final_3018"/>
+         <elementType ref="SelfletBehavior.diagram.Condition_4007"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

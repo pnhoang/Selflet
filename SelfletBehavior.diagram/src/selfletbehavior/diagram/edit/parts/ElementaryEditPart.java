@@ -112,7 +112,7 @@ public class ElementaryEditPart extends ShapeNodeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ElementaryNameEditPart) {
 			((ElementaryNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureElementaryBehaviorName());
+					.getFigureElementaryBehaviorNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof ElementaryElementaryBehaviorsCompartmentEditPart) {
@@ -277,7 +277,7 @@ public class ElementaryEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureElementaryBehaviorName;
+		private WrappingLabel fFigureElementaryBehaviorNameFigure;
 		/**
 		 * @generated
 		 */
@@ -301,10 +301,10 @@ public class ElementaryEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureElementaryBehaviorName = new WrappingLabel();
-			fFigureElementaryBehaviorName.setText("<...>");
+			fFigureElementaryBehaviorNameFigure = new WrappingLabel();
+			fFigureElementaryBehaviorNameFigure.setText("<...>");
 
-			this.add(fFigureElementaryBehaviorName, BorderLayout.TOP);
+			this.add(fFigureElementaryBehaviorNameFigure, BorderLayout.TOP);
 
 			fFigureElementaryBehaviorCompartmentFigure = new RectangleFigure();
 
@@ -316,8 +316,8 @@ public class ElementaryEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureElementaryBehaviorName() {
-			return fFigureElementaryBehaviorName;
+		public WrappingLabel getFigureElementaryBehaviorNameFigure() {
+			return fFigureElementaryBehaviorNameFigure;
 		}
 
 		/**

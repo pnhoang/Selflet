@@ -57,7 +57,7 @@ public class Init2CreateCommand extends EditElementCommand {
 		Init newElement = SelfletbehaviorFactory.eINSTANCE.createInit();
 
 		Behavior owner = (Behavior) getElementToEdit();
-		owner.getStates().add(newElement);
+		owner.getState().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

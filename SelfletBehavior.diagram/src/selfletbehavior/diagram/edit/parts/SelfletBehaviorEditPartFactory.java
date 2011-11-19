@@ -53,14 +53,11 @@ public class SelfletBehaviorEditPartFactory implements EditPartFactory {
 			case InvocationEditPart.VISUAL_ID:
 				return new InvocationEditPart(view);
 
-			case InvocationDoActivityEditPart.VISUAL_ID:
-				return new InvocationDoActivityEditPart(view);
+			case InvocationNameEditPart.VISUAL_ID:
+				return new InvocationNameEditPart(view);
 
-			case IntermediateEditPart.VISUAL_ID:
-				return new IntermediateEditPart(view);
-
-			case IntermediateCallServiceEditPart.VISUAL_ID:
-				return new IntermediateCallServiceEditPart(view);
+			case ActionEditPart.VISUAL_ID:
+				return new ActionEditPart(view);
 
 			case FinalEditPart.VISUAL_ID:
 				return new FinalEditPart(view);
@@ -74,17 +71,14 @@ public class SelfletBehaviorEditPartFactory implements EditPartFactory {
 			case Init2EditPart.VISUAL_ID:
 				return new Init2EditPart(view);
 
-			case Invocation2EditPart.VISUAL_ID:
-				return new Invocation2EditPart(view);
+			case IntermediateEditPart.VISUAL_ID:
+				return new IntermediateEditPart(view);
 
-			case InvocationDoActivity2EditPart.VISUAL_ID:
-				return new InvocationDoActivity2EditPart(view);
+			case IntermediateNameEditPart.VISUAL_ID:
+				return new IntermediateNameEditPart(view);
 
-			case Intermediate2EditPart.VISUAL_ID:
-				return new Intermediate2EditPart(view);
-
-			case IntermediateCallService2EditPart.VISUAL_ID:
-				return new IntermediateCallService2EditPart(view);
+			case Action2EditPart.VISUAL_ID:
+				return new Action2EditPart(view);
 
 			case Final2EditPart.VISUAL_ID:
 				return new Final2EditPart(view);
@@ -96,11 +90,20 @@ public class SelfletBehaviorEditPartFactory implements EditPartFactory {
 				return new ElementaryElementaryBehaviorsCompartmentEditPart(
 						view);
 
+			case InvocationSharedActionsCompartmentEditPart.VISUAL_ID:
+				return new InvocationSharedActionsCompartmentEditPart(view);
+
 			case ComplexComplexBehaviorsCompartmentEditPart.VISUAL_ID:
 				return new ComplexComplexBehaviorsCompartmentEditPart(view);
 
-			case StateNextEditPart.VISUAL_ID:
-				return new StateNextEditPart(view);
+			case IntermediateSharedActionsCompartmentEditPart.VISUAL_ID:
+				return new IntermediateSharedActionsCompartmentEditPart(view);
+
+			case ConditionEditPart.VISUAL_ID:
+				return new ConditionEditPart(view);
+
+			case ConditionBodyEditPart.VISUAL_ID:
+				return new ConditionBodyEditPart(view);
 
 			}
 		}

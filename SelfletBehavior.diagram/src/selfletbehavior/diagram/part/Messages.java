@@ -273,12 +273,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CallingServiceState3CreationTool_title;
+	public static String IntermediateState3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CallingServiceState3CreationTool_desc;
+	public static String IntermediateState3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -323,12 +323,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Link1CreationTool_title;
+	public static String StateLink1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Link1CreationTool_desc;
+	public static String StateLink1CreationTool_desc;
 
 	/**
 	 * @generated
@@ -343,7 +343,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String InvocationSharedActionsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String ComplexComplexBehaviorsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String IntermediateSharedActionsCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -353,97 +363,77 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Init_3002_incominglinks;
+	public static String NavigatorGroupName_Final_3018_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Init_3002_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Invocation_3003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Invocation_3003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Init_3007_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Init_3007_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_StateNext_4006_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_StateNext_4006_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Invocation_3008_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Invocation_3008_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Final_3005_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Final_3005_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Intermediate_3004_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Intermediate_3004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Intermediate_3009_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Intermediate_3009_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Final_3010_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Final_3010_outgoinglinks;
+	public static String NavigatorGroupName_Final_3018_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Selflet_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Intermediate_3016_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Intermediate_3016_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Init_3015_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Init_3015_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Invocation_3012_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Invocation_3012_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Init_3011_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Init_3011_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Condition_4007_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Condition_4007_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Final_3014_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Final_3014_outgoinglinks;
 
 	/**
 	 * @generated

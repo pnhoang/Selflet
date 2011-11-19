@@ -346,7 +346,7 @@ public class ServiceEditPart extends ShapeNodeEditPart {
 			fFigureServiceDescriptionFigure = new WrappingLabel();
 			fFigureServiceDescriptionFigure.setText("<...>");
 
-			this.add(fFigureServiceDescriptionFigure, BorderLayout.TOP);
+			this.add(fFigureServiceDescriptionFigure, BorderLayout.CENTER);
 
 			fFigureServiceCompartmentFigure = new RectangleFigure();
 

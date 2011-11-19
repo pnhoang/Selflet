@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.notation.DecorationNode;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -42,10 +43,14 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import selfletbehavior.diagram.edit.parts.Action2EditPart;
+import selfletbehavior.diagram.edit.parts.ActionEditPart;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexComplexBehaviorsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexEditPart;
 import selfletbehavior.diagram.edit.parts.ComplexNameEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionBodyEditPart;
+import selfletbehavior.diagram.edit.parts.ConditionEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryElementaryBehaviorsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ElementaryNameEditPart;
@@ -53,19 +58,16 @@ import selfletbehavior.diagram.edit.parts.Final2EditPart;
 import selfletbehavior.diagram.edit.parts.FinalEditPart;
 import selfletbehavior.diagram.edit.parts.Init2EditPart;
 import selfletbehavior.diagram.edit.parts.InitEditPart;
-import selfletbehavior.diagram.edit.parts.Intermediate2EditPart;
-import selfletbehavior.diagram.edit.parts.IntermediateCallService2EditPart;
-import selfletbehavior.diagram.edit.parts.IntermediateCallServiceEditPart;
 import selfletbehavior.diagram.edit.parts.IntermediateEditPart;
-import selfletbehavior.diagram.edit.parts.Invocation2EditPart;
-import selfletbehavior.diagram.edit.parts.InvocationDoActivity2EditPart;
-import selfletbehavior.diagram.edit.parts.InvocationDoActivityEditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateNameEditPart;
+import selfletbehavior.diagram.edit.parts.IntermediateSharedActionsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.InvocationEditPart;
+import selfletbehavior.diagram.edit.parts.InvocationNameEditPart;
+import selfletbehavior.diagram.edit.parts.InvocationSharedActionsCompartmentEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceDescriptionEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceNameEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceServicesCompartmentEditPart;
-import selfletbehavior.diagram.edit.parts.StateNextEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
 
 /**
@@ -166,12 +168,12 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 				case ElementaryEditPart.VISUAL_ID:
 				case InitEditPart.VISUAL_ID:
 				case InvocationEditPart.VISUAL_ID:
-				case IntermediateEditPart.VISUAL_ID:
+				case ActionEditPart.VISUAL_ID:
 				case FinalEditPart.VISUAL_ID:
 				case ComplexEditPart.VISUAL_ID:
+				case IntermediateEditPart.VISUAL_ID:
 				case Init2EditPart.VISUAL_ID:
-				case Invocation2EditPart.VISUAL_ID:
-				case Intermediate2EditPart.VISUAL_ID:
+				case Action2EditPart.VISUAL_ID:
 				case Final2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != SelfletBehaviorVisualIDRegistry
@@ -189,12 +191,12 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 				|| ElementaryEditPart.VISUAL_ID == visualID
 				|| InitEditPart.VISUAL_ID == visualID
 				|| InvocationEditPart.VISUAL_ID == visualID
-				|| IntermediateEditPart.VISUAL_ID == visualID
+				|| ActionEditPart.VISUAL_ID == visualID
 				|| FinalEditPart.VISUAL_ID == visualID
 				|| ComplexEditPart.VISUAL_ID == visualID
 				|| Init2EditPart.VISUAL_ID == visualID
-				|| Invocation2EditPart.VISUAL_ID == visualID
-				|| Intermediate2EditPart.VISUAL_ID == visualID
+				|| IntermediateEditPart.VISUAL_ID == visualID
+				|| Action2EditPart.VISUAL_ID == visualID
 				|| Final2EditPart.VISUAL_ID == visualID;
 	}
 
@@ -261,31 +263,31 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 			return createElementary_3001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case InitEditPart.VISUAL_ID:
-			return createInit_3002(domainElement, containerView, index,
+			return createInit_3011(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case InvocationEditPart.VISUAL_ID:
-			return createInvocation_3003(domainElement, containerView, index,
+			return createInvocation_3012(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case IntermediateEditPart.VISUAL_ID:
-			return createIntermediate_3004(domainElement, containerView, index,
+		case ActionEditPart.VISUAL_ID:
+			return createAction_3013(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case FinalEditPart.VISUAL_ID:
-			return createFinal_3005(domainElement, containerView, index,
+			return createFinal_3014(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ComplexEditPart.VISUAL_ID:
 			return createComplex_3006(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Init2EditPart.VISUAL_ID:
-			return createInit_3007(domainElement, containerView, index,
+			return createInit_3015(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case Invocation2EditPart.VISUAL_ID:
-			return createInvocation_3008(domainElement, containerView, index,
+		case IntermediateEditPart.VISUAL_ID:
+			return createIntermediate_3016(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case Intermediate2EditPart.VISUAL_ID:
-			return createIntermediate_3009(domainElement, containerView, index,
+		case Action2EditPart.VISUAL_ID:
+			return createAction_3017(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case Final2EditPart.VISUAL_ID:
-			return createFinal_3010(domainElement, containerView, index,
+			return createFinal_3018(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -301,9 +303,9 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case StateNextEditPart.VISUAL_ID:
-			return createStateNext_4006(containerView, index, persisted,
-					preferencesHint);
+		case ConditionEditPart.VISUAL_ID:
+			return createCondition_4007(getSemanticElement(semanticAdapter),
+					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
@@ -416,7 +418,7 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createInit_3002(EObject domainElement, View containerView,
+	public Node createInit_3011(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -458,14 +460,13 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createInvocation_3003(EObject domainElement,
+	public Node createInvocation_3012(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(SelfletBehaviorVisualIDRegistry
 				.getType(InvocationEditPart.VISUAL_ID));
@@ -488,67 +489,35 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node,
+		Node label5011 = createLabel(node,
 				SelfletBehaviorVisualIDRegistry
-						.getType(InvocationDoActivityEditPart.VISUAL_ID));
+						.getType(InvocationNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				SelfletBehaviorVisualIDRegistry
+						.getType(InvocationSharedActionsCompartmentEditPart.VISUAL_ID),
+				false, false, true, true);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createIntermediate_3004(EObject domainElement,
-			View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+	public Node createAction_3013(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
 		node.setType(SelfletBehaviorVisualIDRegistry
-				.getType(IntermediateEditPart.VISUAL_ID));
+				.getType(ActionEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node,
-				SelfletBehaviorVisualIDRegistry
-						.getType(IntermediateCallServiceEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createFinal_3005(EObject domainElement, View containerView,
+	public Node createFinal_3014(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
@@ -632,7 +601,7 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createInit_3007(EObject domainElement, View containerView,
+	public Node createInit_3015(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -674,57 +643,17 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createInvocation_3008(EObject domainElement,
+	public Node createIntermediate_3016(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(SelfletBehaviorVisualIDRegistry
-				.getType(Invocation2EditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5006 = createLabel(node,
-				SelfletBehaviorVisualIDRegistry
-						.getType(InvocationDoActivity2EditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createIntermediate_3009(EObject domainElement,
-			View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(SelfletBehaviorVisualIDRegistry
-				.getType(Intermediate2EditPart.VISUAL_ID));
+				.getType(IntermediateEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -750,21 +679,35 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5007 = createLabel(node,
+		Node label5012 = createLabel(node,
 				SelfletBehaviorVisualIDRegistry
-						.getType(IntermediateCallService2EditPart.VISUAL_ID));
+						.getType(IntermediateNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				SelfletBehaviorVisualIDRegistry
+						.getType(IntermediateSharedActionsCompartmentEditPart.VISUAL_ID),
+				false, false, true, true);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createFinal_3010(EObject domainElement, View containerView,
+	public Node createAction_3017(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(SelfletBehaviorVisualIDRegistry
+				.getType(Action2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createFinal_3018(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
@@ -798,8 +741,8 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createStateNext_4006(View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Edge createCondition_4007(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
@@ -812,8 +755,8 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(SelfletBehaviorVisualIDRegistry
-				.getType(StateNextEditPart.VISUAL_ID));
-		edge.setElement(null);
+				.getType(ConditionEditPart.VISUAL_ID));
+		edge.setElement(domainElement);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
@@ -844,6 +787,14 @@ public class SelfletBehaviorViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
+		Node label6001 = createLabel(edge,
+				SelfletBehaviorVisualIDRegistry
+						.getType(ConditionBodyEditPart.VISUAL_ID));
+		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6001 = (Location) label6001.getLayoutConstraint();
+		location6001.setX(0);
+		location6001.setY(40);
 		return edge;
 	}
 

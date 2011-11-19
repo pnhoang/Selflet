@@ -7,17 +7,15 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import selfletbehavior.diagram.edit.commands.StateNextCreateCommand;
-import selfletbehavior.diagram.edit.commands.StateNextReorientCommand;
-import selfletbehavior.diagram.edit.parts.StateNextEditPart;
+import selfletbehavior.diagram.edit.commands.ConditionCreateCommand;
+import selfletbehavior.diagram.edit.commands.ConditionReorientCommand;
+import selfletbehavior.diagram.edit.parts.ConditionEditPart;
 import selfletbehavior.diagram.part.SelfletBehaviorVisualIDRegistry;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
@@ -31,7 +29,7 @@ public class FinalItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public FinalItemSemanticEditPolicy() {
-		super(SelfletBehaviorElementTypes.Final_3005);
+		super(SelfletBehaviorElementTypes.Final_3014);
 	}
 
 	/**
@@ -44,22 +42,20 @@ public class FinalItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (SelfletBehaviorVisualIDRegistry.getVisualID(incomingLink) == StateNextEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
+			if (SelfletBehaviorVisualIDRegistry.getVisualID(incomingLink) == ConditionEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (SelfletBehaviorVisualIDRegistry.getVisualID(outgoingLink) == StateNextEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						outgoingLink.getSource().getElement(), null,
-						outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
+			if (SelfletBehaviorVisualIDRegistry.getVisualID(outgoingLink) == ConditionEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
@@ -91,8 +87,8 @@ public class FinalItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (SelfletBehaviorElementTypes.StateNext_4006 == req.getElementType()) {
-			return getGEFWrapper(new StateNextCreateCommand(req,
+		if (SelfletBehaviorElementTypes.Condition_4007 == req.getElementType()) {
+			return getGEFWrapper(new ConditionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -103,26 +99,26 @@ public class FinalItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (SelfletBehaviorElementTypes.StateNext_4006 == req.getElementType()) {
-			return getGEFWrapper(new StateNextCreateCommand(req,
+		if (SelfletBehaviorElementTypes.Condition_4007 == req.getElementType()) {
+			return getGEFWrapper(new ConditionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
 
 	/**
-	 * Returns command to reorient EReference based link. New link target or source
+	 * Returns command to reorient EClass based link. New link target or source
 	 * should be the domain model element associated with this node.
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientReferenceRelationshipCommand(
-			ReorientReferenceRelationshipRequest req) {
+	protected Command getReorientRelationshipCommand(
+			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case StateNextEditPart.VISUAL_ID:
-			return getGEFWrapper(new StateNextReorientCommand(req));
+		case ConditionEditPart.VISUAL_ID:
+			return getGEFWrapper(new ConditionReorientCommand(req));
 		}
-		return super.getReorientReferenceRelationshipCommand(req);
+		return super.getReorientRelationshipCommand(req);
 	}
 
 }

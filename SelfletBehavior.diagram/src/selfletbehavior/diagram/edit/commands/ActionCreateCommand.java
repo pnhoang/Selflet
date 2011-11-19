@@ -12,19 +12,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import selfletbehavior.Behavior;
-import selfletbehavior.Intermediate;
+import selfletbehavior.Action;
 import selfletbehavior.SelfletbehaviorFactory;
+import selfletbehavior.State;
 
 /**
  * @generated
  */
-public class Intermediate2CreateCommand extends EditElementCommand {
+public class ActionCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public Intermediate2CreateCommand(CreateElementRequest req) {
+	public ActionCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -45,6 +45,10 @@ public class Intermediate2CreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
+		State container = (State) getElementToEdit();
+		if (container.getAction() != null) {
+			return false;
+		}
 		return true;
 
 	}
@@ -54,11 +58,10 @@ public class Intermediate2CreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Intermediate newElement = SelfletbehaviorFactory.eINSTANCE
-				.createIntermediate();
+		Action newElement = SelfletbehaviorFactory.eINSTANCE.createAction();
 
-		Behavior owner = (Behavior) getElementToEdit();
-		owner.getStates().add(newElement);
+		State owner = (State) getElementToEdit();
+		owner.setAction(newElement);
 
 		doConfigure(newElement, monitor, info);
 
@@ -69,9 +72,8 @@ public class Intermediate2CreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Intermediate newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
+	protected void doConfigure(Action newElement, IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(

@@ -57,7 +57,7 @@ public class Final2CreateCommand extends EditElementCommand {
 		Final newElement = SelfletbehaviorFactory.eINSTANCE.createFinal();
 
 		Behavior owner = (Behavior) getElementToEdit();
-		owner.getStates().add(newElement);
+		owner.getState().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

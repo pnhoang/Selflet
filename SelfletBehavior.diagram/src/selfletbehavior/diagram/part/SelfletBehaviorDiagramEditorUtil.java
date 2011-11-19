@@ -49,7 +49,6 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
-import selfletbehavior.Behavior;
 import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorFactory;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
