@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selfletbehavior:Selflet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:selfletbehavior="http://selfletbehavior/1.0">
+  <service name="Service 1" description="Implementations of Service 1">
+    <behavior xsi:type="selfletbehavior:Elementary" name="Elementary Behavior 1">
+      <state xsi:type="selfletbehavior:Init">
+        <next targetState="//@service.0/@behavior.0/@state.1"/>
+      </state>
+      <state xsi:type="selfletbehavior:Invocation" name="do /Action1.java">
+        <next targetState="//@service.0/@behavior.0/@state.2"/>
+      </state>
+      <state xsi:type="selfletbehavior:Final"/>
+    </behavior>
+    <behavior xsi:type="selfletbehavior:Complex" name="Complex Behavior 1">
+      <state xsi:type="selfletbehavior:Init">
+        <next targetState="//@service.0/@behavior.1/@state.1"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="need Sense Consumption">
+        <next body="[consumption_over.xml]" targetState="//@service.0/@behavior.1/@state.2"/>
+        <next body="[consumption_normal.xml]" targetState="//@service.0/@behavior.1/@state.3"/>
+        <next body="[consumption_lack.xml]" targetState="//@service.0/@behavior.1/@state.4"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="overConsumption">
+        <next targetState="//@service.0/@behavior.1/@state.1"/>
+      </state>
+      <state xsi:type="selfletbehavior:Final"/>
+      <state xsi:type="selfletbehavior:Intermediate" name="lackConsumption">
+        <next targetState="//@service.0/@behavior.1/@state.5"/>
+      </state>
+      <state xsi:type="selfletbehavior:Final"/>
+    </behavior>
+    <behavior xsi:type="selfletbehavior:Complex" name="Complex Behavior 2">
+      <state xsi:type="selfletbehavior:Init">
+        <next targetState="//@service.0/@behavior.2/@state.1"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Local Video Search">
+        <next body="found=false" targetState="//@service.0/@behavior.2/@state.2"/>
+        <next body="found=true" targetState="//@service.0/@behavior.2/@state.3"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Remote Video Search">
+        <next targetState="//@service.0/@behavior.2/@state.3"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Display Size Check">
+        <next body="change=true" targetState="//@service.0/@behavior.2/@state.4"/>
+        <next body="change=false" targetState="//@service.0/@behavior.2/@state.5"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Resolution Conversion">
+        <next targetState="//@service.0/@behavior.2/@state.5"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Subtitles Check">
+        <next body="addSubs=true" targetState="//@service.0/@behavior.2/@state.6"/>
+        <next body="addSubs=false" targetState="//@service.0/@behavior.2/@state.7"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Add Subtitles">
+        <next targetState="//@service.0/@behavior.2/@state.7"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Check Coding">
+        <next body="change=true" targetState="//@service.0/@behavior.2/@state.8"/>
+        <next body="change=false" targetState="//@service.0/@behavior.2/@state.9"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Transcoding">
+        <next targetState="//@service.0/@behavior.2/@state.9"/>
+      </state>
+      <state xsi:type="selfletbehavior:Intermediate" name="Send">
+        <next targetState="//@service.0/@behavior.2/@state.10"/>
+      </state>
+      <state xsi:type="selfletbehavior:Final"/>
+    </behavior>
+  </service>
+</selfletbehavior:Selflet>
