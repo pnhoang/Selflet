@@ -63,11 +63,11 @@ public class SelfletBehaviorDiagramUpdater {
 		case ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID:
 			return getElementaryElementaryBehaviorsCompartment_7002SemanticChildren(view);
 		case InvocationSharedActionsCompartmentEditPart.VISUAL_ID:
-			return getInvocationSharedActionsCompartment_7004SemanticChildren(view);
+			return getInvocationInvocationActionCompartment_7004SemanticChildren(view);
 		case ComplexComplexBehaviorsCompartmentEditPart.VISUAL_ID:
 			return getComplexComplexBehaviorsCompartment_7003SemanticChildren(view);
 		case IntermediateSharedActionsCompartmentEditPart.VISUAL_ID:
-			return getIntermediateSharedActionsCompartment_7005SemanticChildren(view);
+			return getIntermediateIntermediateActionCompartment_7005SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -169,7 +169,7 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorNodeDescriptor> getInvocationSharedActionsCompartment_7004SemanticChildren(
+	public static List<SelfletBehaviorNodeDescriptor> getInvocationInvocationActionCompartment_7004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -232,7 +232,7 @@ public class SelfletBehaviorDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<SelfletBehaviorNodeDescriptor> getIntermediateSharedActionsCompartment_7005SemanticChildren(
+	public static List<SelfletBehaviorNodeDescriptor> getIntermediateIntermediateActionCompartment_7005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();

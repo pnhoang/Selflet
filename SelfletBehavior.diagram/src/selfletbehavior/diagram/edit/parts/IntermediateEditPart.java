@@ -1,12 +1,11 @@
 package selfletbehavior.diagram.edit.parts;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -14,21 +13,15 @@ import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -127,6 +120,14 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 							.getFigureIntermediateStateNameLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof IntermediateSharedActionsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureIntermediateActionCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((IntermediateSharedActionsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -135,6 +136,14 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof IntermediateNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof IntermediateSharedActionsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureIntermediateActionCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((IntermediateSharedActionsCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -164,6 +173,10 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof IntermediateSharedActionsCompartmentEditPart) {
+			return getPrimaryShape()
+					.getFigureIntermediateActionCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -365,6 +378,10 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureIntermediateStateNameLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFigureIntermediateActionCompartmentFigure;
 
 		/**
 		 * @generated
@@ -396,6 +413,12 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureIntermediateStateNameLabelFigure);
 
+			fFigureIntermediateActionCompartmentFigure = new RectangleFigure();
+
+			this.add(fFigureIntermediateActionCompartmentFigure);
+			fFigureIntermediateActionCompartmentFigure
+					.setLayoutManager(new StackLayout());
+
 		}
 
 		/**
@@ -403,6 +426,13 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureIntermediateStateNameLabelFigure() {
 			return fFigureIntermediateStateNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureIntermediateActionCompartmentFigure() {
+			return fFigureIntermediateActionCompartmentFigure;
 		}
 
 	}

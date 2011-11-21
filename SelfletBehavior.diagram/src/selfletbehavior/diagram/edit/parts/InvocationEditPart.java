@@ -1,36 +1,27 @@
 package selfletbehavior.diagram.edit.parts;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -128,6 +119,14 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 					.getFigureInvocationStateNameLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof InvocationSharedActionsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureInvocationActionCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((InvocationSharedActionsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -136,6 +135,14 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof InvocationNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof InvocationSharedActionsCompartmentEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureInvocationActionCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((InvocationSharedActionsCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -165,6 +172,10 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof InvocationSharedActionsCompartmentEditPart) {
+			return getPrimaryShape()
+					.getFigureInvocationActionCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -366,6 +377,10 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureInvocationStateNameLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFigureInvocationActionCompartmentFigure;
 
 		/**
 		 * @generated
@@ -397,6 +412,12 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureInvocationStateNameLabelFigure);
 
+			fFigureInvocationActionCompartmentFigure = new RectangleFigure();
+
+			this.add(fFigureInvocationActionCompartmentFigure);
+			fFigureInvocationActionCompartmentFigure
+					.setLayoutManager(new StackLayout());
+
 		}
 
 		/**
@@ -404,6 +425,13 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureInvocationStateNameLabelFigure() {
 			return fFigureInvocationStateNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureInvocationActionCompartmentFigure() {
+			return fFigureInvocationActionCompartmentFigure;
 		}
 
 	}

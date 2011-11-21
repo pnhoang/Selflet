@@ -8,6 +8,7 @@ import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gef.palette.PaletteSeparator;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
@@ -24,25 +25,40 @@ public class SelfletBehaviorPaletteFactory {
 	 * @generated
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
-		paletteRoot.add(createNodes1Group());
-		paletteRoot.add(createConnections2Group());
+		paletteRoot.add(createDefault1Group());
+		paletteRoot.add(createNodes2Group());
+		paletteRoot.add(createConnections3Group());
+	}
+
+	/**
+	 * Creates "Default" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createDefault1Group() {
+		PaletteGroup paletteContainer = new PaletteGroup(
+				Messages.Default1Group_title);
+		paletteContainer.setId("createDefault1Group"); //$NON-NLS-1$
+		paletteContainer.setDescription(Messages.Default1Group_desc);
+		paletteContainer.add(new PaletteSeparator());
+		return paletteContainer;
 	}
 
 	/**
 	 * Creates "Nodes" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createNodes1Group() {
+	private PaletteContainer createNodes2Group() {
 		PaletteGroup paletteContainer = new PaletteGroup(
-				Messages.Nodes1Group_title);
-		paletteContainer.setId("createNodes1Group"); //$NON-NLS-1$
+				Messages.Nodes2Group_title);
+		paletteContainer.setId("createNodes2Group"); //$NON-NLS-1$
 		paletteContainer.add(createInitialState1CreationTool());
 		paletteContainer.add(createFinalState2CreationTool());
 		paletteContainer.add(createIntermediateState3CreationTool());
 		paletteContainer.add(createInvocationState4CreationTool());
-		paletteContainer.add(createService5CreationTool());
-		paletteContainer.add(createElementaryBehavior6CreationTool());
-		paletteContainer.add(createComplexBehavior7CreationTool());
+		paletteContainer.add(createElementaryBehavior5CreationTool());
+		paletteContainer.add(createComplexBehavior6CreationTool());
+		paletteContainer.add(createService7CreationTool());
+		paletteContainer.add(createAction8CreationTool());
 		return paletteContainer;
 	}
 
@@ -50,11 +66,11 @@ public class SelfletBehaviorPaletteFactory {
 	 * Creates "Connections" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createConnections2Group() {
+	private PaletteContainer createConnections3Group() {
 		PaletteGroup paletteContainer = new PaletteGroup(
-				Messages.Connections2Group_title);
-		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createStateLink1CreationTool());
+				Messages.Connections3Group_title);
+		paletteContainer.setId("createConnections3Group"); //$NON-NLS-1$
+		paletteContainer.add(createStateConnection1CreationTool());
 		return paletteContainer;
 	}
 
@@ -127,29 +143,13 @@ public class SelfletBehaviorPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createService5CreationTool() {
+	private ToolEntry createElementaryBehavior5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Service5CreationTool_title,
-				Messages.Service5CreationTool_desc,
-				Collections
-						.singletonList(SelfletBehaviorElementTypes.Service_2005));
-		entry.setId("createService5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Service_2005));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createElementaryBehavior6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ElementaryBehavior6CreationTool_title,
-				Messages.ElementaryBehavior6CreationTool_desc,
+				Messages.ElementaryBehavior5CreationTool_title,
+				Messages.ElementaryBehavior5CreationTool_desc,
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Elementary_3001));
-		entry.setId("createElementaryBehavior6CreationTool"); //$NON-NLS-1$
+		entry.setId("createElementaryBehavior5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
 				.getImageDescriptor(SelfletBehaviorElementTypes.Elementary_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -159,13 +159,13 @@ public class SelfletBehaviorPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createComplexBehavior7CreationTool() {
+	private ToolEntry createComplexBehavior6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ComplexBehavior7CreationTool_title,
-				Messages.ComplexBehavior7CreationTool_desc,
+				Messages.ComplexBehavior6CreationTool_title,
+				Messages.ComplexBehavior6CreationTool_desc,
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Complex_3006));
-		entry.setId("createComplexBehavior7CreationTool"); //$NON-NLS-1$
+		entry.setId("createComplexBehavior6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
 				.getImageDescriptor(SelfletBehaviorElementTypes.Complex_3006));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -175,13 +175,46 @@ public class SelfletBehaviorPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createStateLink1CreationTool() {
+	private ToolEntry createService7CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Service7CreationTool_title,
+				Messages.Service7CreationTool_desc,
+				Collections
+						.singletonList(SelfletBehaviorElementTypes.Service_2005));
+		entry.setId("createService7CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(SelfletBehaviorElementTypes
+				.getImageDescriptor(SelfletBehaviorElementTypes.Service_2005));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createAction8CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(SelfletBehaviorElementTypes.Action_3013);
+		types.add(SelfletBehaviorElementTypes.Action_3017);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Action8CreationTool_title,
+				Messages.Action8CreationTool_desc, types);
+		entry.setId("createAction8CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(SelfletBehaviorElementTypes
+				.getImageDescriptor(SelfletBehaviorElementTypes.Action_3013));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createStateConnection1CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.StateLink1CreationTool_title,
-				Messages.StateLink1CreationTool_desc,
+				Messages.StateConnection1CreationTool_title,
+				Messages.StateConnection1CreationTool_desc,
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Condition_4007));
-		entry.setId("createStateLink1CreationTool"); //$NON-NLS-1$
+		entry.setId("createStateConnection1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(SelfletBehaviorElementTypes
 				.getImageDescriptor(SelfletBehaviorElementTypes.Condition_4007));
 		entry.setLargeIcon(entry.getSmallIcon());

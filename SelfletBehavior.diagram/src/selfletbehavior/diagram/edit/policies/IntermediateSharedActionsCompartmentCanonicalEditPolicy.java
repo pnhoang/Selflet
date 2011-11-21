@@ -60,7 +60,7 @@ public class IntermediateSharedActionsCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<SelfletBehaviorNodeDescriptor> childDescriptors = SelfletBehaviorDiagramUpdater
-				.getIntermediateSharedActionsCompartment_7005SemanticChildren(viewObject);
+				.getIntermediateIntermediateActionCompartment_7005SemanticChildren(viewObject);
 		for (SelfletBehaviorNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -93,7 +93,7 @@ public class IntermediateSharedActionsCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<SelfletBehaviorNodeDescriptor> childDescriptors = SelfletBehaviorDiagramUpdater
-				.getIntermediateSharedActionsCompartment_7005SemanticChildren((View) getHost()
+				.getIntermediateIntermediateActionCompartment_7005SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

@@ -27,7 +27,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="SelfletBehavior.gmfgraph#Service"/>
       <children
@@ -47,7 +47,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="SelfletBehavior.gmfgraph#Elementary Behavior"/>
           <children
@@ -97,6 +97,9 @@
                     <features
                         href="SelfletBehavior.ecore#//Action/body"/>
                   </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.7"/>
                   <diagramNode
                       href="SelfletBehavior.gmfgraph#ActionBodyLabel"/>
                 </ownedChild>
@@ -104,7 +107,7 @@
               <compartments
                   children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild/@children.0">
                 <compartment
-                    href="SelfletBehavior.gmfgraph#SharedActionsCompartment"/>
+                    href="SelfletBehavior.gmfgraph#InvocationActionCompartment"/>
               </compartments>
             </ownedChild>
           </children>
@@ -146,7 +149,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="SelfletBehavior.gmfgraph#Complex Behavior"/>
           <children
@@ -196,6 +199,9 @@
                     <features
                         href="SelfletBehavior.ecore#//Action/body"/>
                   </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.7"/>
                   <diagramNode
                       href="SelfletBehavior.gmfgraph#ActionBodyLabel"/>
                 </ownedChild>
@@ -203,7 +209,7 @@
               <compartments
                   children="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.0">
                 <compartment
-                    href="SelfletBehavior.gmfgraph#SharedActionsCompartment"/>
+                    href="SelfletBehavior.gmfgraph#IntermediateActionCompartment"/>
               </compartments>
             </ownedChild>
           </children>
@@ -249,7 +255,7 @@
         href="SelfletBehavior.ecore#//State/next"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="SelfletBehavior.gmftool#//@palette/@tools.1/@tools.0"/>
+        href="SelfletBehavior.gmftool#//@palette/@tools.2/@tools.0"/>
     <diagramLink
         href="SelfletBehavior.gmfgraph#StateNext"/>
     <linkMetaFeature

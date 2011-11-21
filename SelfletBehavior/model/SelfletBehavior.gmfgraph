@@ -72,9 +72,17 @@
             xsi:type="gmfgraph:Label"
             name="IntermediateStateNameLabelFigure"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="IntermediateActionCompartmentFigure">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="InvocationStateFigure">
@@ -103,9 +111,17 @@
             xsi:type="gmfgraph:Label"
             name="InvocationStateNameLabelFigure"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="InvocationActionCompartmentFigure">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ServiceFigure">
@@ -203,26 +219,18 @@
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
-        name="SharedActionsCompartmentFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="SharedActionsCompartmentFigure">
-        <layout
-            xsi:type="gmfgraph:StackLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ActionBodyLabelFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
         name="StateNameLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="StateNameLabelFigure"
           text="&lt;...>"/>
+    </descriptors>
+    <descriptors
+        name="ActionBodyLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ActionBodyLabelFigure"
+          text=""/>
     </descriptors>
   </figures>
   <nodes
@@ -262,16 +270,17 @@
       figure="ComplexBehaviorFigure"
       accessor="//@figures.0/@descriptors.7/@accessors.1"/>
   <compartments
-      name="SharedActionsCompartment"
-      figure="SharedActionsCompartmentFigure"/>
+      name="IntermediateActionCompartment"
+      figure="InvocationStateFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <compartments
+      name="InvocationActionCompartment"
+      figure="InvocationStateFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
   <labels
       name="NextConditionBodyLabel"
       figure="StateNextFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
-  <labels
-      name="ActionBodyLabel"
-      figure="SharedActionsCompartmentFigure"
-      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
       name="ServiceNameLabel"
       figure="ServiceFigure"
@@ -296,4 +305,7 @@
       name="InvocationStateNameLabel"
       figure="InvocationStateFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="ActionBodyLabel"
+      figure="ActionBodyLabelFigure"/>
 </gmfgraph:Canvas>
