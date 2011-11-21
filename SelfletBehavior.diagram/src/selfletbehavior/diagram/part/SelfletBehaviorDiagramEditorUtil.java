@@ -156,7 +156,7 @@ public class SelfletBehaviorDiagramEditorUtil {
 
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
+	 * @generated NOT
 	 */
 	public static Resource createDiagram(URI diagramURI, URI modelURI,
 			IProgressMonitor progressMonitor) {
@@ -171,6 +171,7 @@ public class SelfletBehaviorDiagramEditorUtil {
 		final Resource modelResource = editingDomain.getResourceSet()
 				.createResource(modelURI);
 		final String diagramName = diagramURI.lastSegment();
+		final String modelName = modelURI.lastSegment();
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				editingDomain,
 				Messages.SelfletBehaviorDiagramEditorUtil_CreateDiagramCommandLabel,
@@ -178,7 +179,7 @@ public class SelfletBehaviorDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				Selflet model = createInitialModel();
+				Selflet model = createInitialModel(modelName);
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService
@@ -225,10 +226,11 @@ public class SelfletBehaviorDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	private static Selflet createInitialModel() {
+	private static Selflet createInitialModel(String modelName) {
 		Selflet selflet = SelfletbehaviorFactory.eINSTANCE.createSelflet();
 		Service service = SelfletbehaviorFactory.eINSTANCE.createService();
-		service.setName("Hello world Service");
+		service.setName(modelName);
+		service.setDescription("Implementations of Service: " + modelName);
 		selflet.getService().add(service);
 		return selflet;
 	}
