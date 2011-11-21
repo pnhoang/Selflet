@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+     <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="it.polimi.selfletclipse.perspectives.Perspective"
+            icon="src/it/polimi/selfletclipse/resources/img/releng_gears.gif"
+            id="SelfLetClipse.perspective"
+            name="SelfLet Development">
+      </perspective>
+   </extension>
+   <extension
+         id="selfletclipse.wizardNewProject"
+         name="SelfLet"
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="SelfletClipse.category"
+            name="SelfLet">
+      </category>
+      <wizard
+            category="SelfletClipse.category"
+            class="it.polimi.selfletclipse.wizards.NewSelfletWizard"
+            icon="src/it/polimi/selfletclipse/resources/img/releng_gears.gif"
+            id="SelfletClipse.projectWizard"
+            name="Selflet"
+            project="true">
+      </wizard>
+
+   </extension>
+   <extension
+         id="selfletclipse.wizardNewBehavior"
+         name="Behavior"
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="SelfletClipse.category"
+            class="it.polimi.selfletclipse.wizards.NewBehaviorWizard"
+            icon="src/it/polimi/selfletclipse/resources/img/StateMachine.gif"
+            id="SelfLetClipse.behaviorWizard"
+            name="Selflet Behavior">
+      </wizard>
+   </extension>
+   <extension
+         id="selfletclipse.marker"
+         name="marker"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="false">
+      </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="SelfLetClipse.ViewArcCondition"
+            name="Selflet Arc Condition">
+      </category>
+      <view
+            class="it.polimi.selfletclipse.views.ViewArcCondition"
+            id="SelfLetClipse.ViewArcCondition"
+            name="SelfLet Arc Condition"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="SelfletClipse.category"
+            class="it.polimi.selfletclipse.wizards.NewGoalWizard"
+            icon="src/it/polimi/selfletclipse/resources/img/SynchState.gif"
+            id="SelfLetClipse.goalWizard"
+            name="Selflet Goal">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="selfletclipse.importWizards.sampleCategory"
+            name="Selflet">
+      </category>
+      <wizard
+            category="selfletclipse.importWizards.sampleCategory"
+            class="it.polimi.selfletclipse.importWizards.AbilityImportWizard"
+            icon="src/it/polimi/selfletclipse/resources/img/sample.gif"
+            id="selfletclipse.importWizards.AbilityImportWizard"
+            name="Import Ability">
+         <description>
+            Import a file from the local file system into the workspace.
+         </description>
+      </wizard>
+   </extension>
+</plugin>

@@ -1,0 +1,12 @@
+<condition>
+	<or>
+		<equals>
+			<output />
+			<value type="string" value="ERROR" />
+		</equals>
+		<equals>
+			<output />
+			<value type="string" value="EMPTY_FIELD" />
+		</equals>
+	</or>
+</condition>

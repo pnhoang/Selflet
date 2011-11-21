@@ -1,0 +1,14 @@
+<!ELEMENT goal (input,output,offermode,isActive)>
+	<!ATTLIST goal name CDATA #REQUIRED>
+	
+	<!ELEMENT input (param*)>
+		<!ELEMENT param EMPTY>
+			<!ATTLIST param name CDATA #REQUIRED>
+			<!ATTLIST param type CDATA #REQUIRED>
+		
+	<!ELEMENT output (param)>
+	
+	<!ELEMENT offermode (CanDo,CanTeach,Both,KnowsWhoCanBoth,KnowsWhoCanDo,KnowsWhoCanTeach,None)>
+	
+	<!ELEMENT isActive (true|false)>
+

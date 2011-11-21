@@ -1,0 +1,76 @@
+<!ELEMENT selflet (properties,resources)>
+	<!ATTLIST selflet name CDATA #REQUIRED>
+	
+<!-- First part: properties of the selflet -->
+
+<!ELEMENT properties (author,description,(active|passive),reds,lime,knowledge?,type?)>
+	<!ELEMENT author (#PCDATA)>
+	<!ELEMENT description (#PCDATA)>
+
+	<!ELEMENT active EMPTY>
+		<!ATTLIST active mainGoal CDATA #REQUIRED>
+	<!ELEMENT passive EMPTY>
+
+	<!ELEMENT reds (address,port)>
+		<!ELEMENT address (#PCDATA)>
+		<!ELEMENT port    (#PCDATA)>
+
+	<!ELEMENT lime (port)>
+	
+	<!-- Initial knowledge settings -->
+
+	<!ELEMENT knowledge (selfletProperty+)>
+	<!ELEMENT type      (selfletProperty+)>
+	
+	<!ELEMENT selfletProperty EMPTY>
+		<!ATTLIST selfletProperty name CDATA #REQUIRED>
+		<!ATTLIST selfletProperty type CDATA #REQUIRED>
+		<!ATTLIST selfletProperty value CDATA #REQUIRED>
+
+		
+<!-- Second part: resources of the selflet -->
+
+<!ELEMENT resources (abilities,actions,behaviors,conditions,goals,rules)>
+
+	<!-- Abilities -->
+	<!ELEMENT abilities (ability*)>
+		<!ELEMENT ability (service,method+)>
+			<!-- 
+				The service element is the interface containing the invoked method
+				the name attribute of method element is the called method
+				the paramType element represents the type of an argument (there can be many from 0 to n arguments)
+			-->
+			<!ELEMENT service (#PCDATA)>
+			<!ELEMENT method  (paramType*)>
+				<!ATTLIST method name CDATA #REQUIRED>
+			<!ELEMENT paramType (#PCDATA)>
+
+		<!ATTLIST ability file CDATA #REQUIRED>
+		
+	<!-- Actions -->
+	<!ELEMENT actions (action*)>
+		<!ELEMENT action EMPTY>
+			<!ATTLIST action file CDATA #REQUIRED>
+	
+	<!-- Behaviors -->
+	<!ELEMENT behaviors (behavior*)>
+		<!ELEMENT behavior EMPTY>
+			<!ATTLIST behavior file CDATA #REQUIRED>
+			
+	<!-- Conditions -->
+	<!ELEMENT conditions (condition*)>
+		<!ELEMENT condition EMPTY>
+			<!ATTLIST condition file CDATA #REQUIRED>
+
+	<!-- Goals -->
+	<!ELEMENT goals (goal*)>
+		<!ELEMENT goal EMPTY>
+			<!ATTLIST goal file CDATA #REQUIRED>
+
+	<!-- Rules -->
+	<!ELEMENT rules (rule*)>
+		<!ELEMENT rule EMPTY>
+			<!ATTLIST rule file CDATA #REQUIRED>
+
+
+

@@ -1,0 +1,12 @@
+<condition>
+	<and>
+		<notEquals>
+			<output />
+			<value type="string" value="ERROR" />
+		</notEquals>
+		<notEquals>
+			<output />
+			<value type="string" value="EMPTY_FIELD" />
+		</notEquals>
+	</and>
+</condition>
