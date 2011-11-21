@@ -674,11 +674,6 @@
             genNodes="//@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Service"
-            description="Create a new Selflet Service "
-            genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Action"
             description="Create a new Action file or script"
             genNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.8"/>

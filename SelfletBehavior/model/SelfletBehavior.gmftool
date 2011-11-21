@@ -64,15 +64,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Service"
-          description="Create a new Selflet Service ">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Action"
           description="Create a new Action file or script">
         <smallIcon

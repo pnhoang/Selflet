@@ -50,6 +50,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import selfletbehavior.Selflet;
+import selfletbehavior.SelfletbehaviorPackage;
+import selfletbehavior.Service;
 import selfletbehavior.SelfletbehaviorFactory;
 import selfletbehavior.diagram.edit.parts.BehaviorEditPart;
 
@@ -221,10 +223,14 @@ public class SelfletBehaviorDiagramEditorUtil {
 	 * Create a new instance of domain element associated with canvas.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	private static Selflet createInitialModel() {
-		return SelfletbehaviorFactory.eINSTANCE.createSelflet();
+		Selflet selflet = SelfletbehaviorFactory.eINSTANCE.createSelflet();
+		Service service = SelfletbehaviorFactory.eINSTANCE.createService();
+		service.setName("Hello world Service");
+		selflet.getService().add(service);
+		return selflet;
 	}
 
 	/**

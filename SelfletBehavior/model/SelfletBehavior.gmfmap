@@ -25,9 +25,6 @@
         <features
             href="SelfletBehavior.ecore#//Service/description"/>
       </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="SelfletBehavior.gmfgraph#Service"/>
       <children
@@ -99,7 +96,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.7"/>
+                      href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.6"/>
                   <diagramNode
                       href="SelfletBehavior.gmfgraph#ActionBodyLabel"/>
                 </ownedChild>
@@ -201,7 +198,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.7"/>
+                      href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.6"/>
                   <diagramNode
                       href="SelfletBehavior.gmfgraph#ActionBodyLabel"/>
                 </ownedChild>
