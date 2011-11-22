@@ -12,312 +12,301 @@ import it.polimi.selfletclipse.wizards.InsertGoal.InsertGoalModel;
 import it.polimi.selfletclipse.wizards.NewSelflet.SelfletWizardModel;
 
 import java.io.InputStream;
-import java.util.Collection;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.argouml.argoeclipse.internal.core.model.Register;
-import org.argouml.argoeclipse.internal.ui.editor.ArgoEditorInput;
-import org.argouml.argoeclipse.internal.ui.editor.DiagramEditor;
-import org.argouml.argoeclipse.internal.ui.model.InitUI;
-import org.argouml.kernel.Project;
-import org.argouml.kernel.ProjectManager;
-import org.argouml.model.Model;
-import org.argouml.model.ModelManagementHelper;
-import org.argouml.ui.ProjectBrowser;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.ui.IPathEditorInput;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.internal.Workbench;
-import org.omg.uml.behavioralelements.commonbehavior.Action;
-import org.omg.uml.behavioralelements.statemachines.State;
-import org.omg.uml.foundation.datatypes.ActionExpression;
 
 @SuppressWarnings("restriction")
 public class NewSelfletWizardWriter {
 
-    private static final Logger LOG = Logger
-	    .getLogger(NewSelfletWizardWriter.class);
+	private static final Logger LOG = Logger
+	.getLogger(NewSelfletWizardWriter.class);
 
-    private SelfLetProject project = null;
-    private SelfletWizardModel selfletModel;
-    private InsertGoalModel insertGoalModel;
+	private SelfLetProject project = null;
+	private SelfletWizardModel selfletModel;
+	private InsertGoalModel insertGoalModel;
 
-    public NewSelfletWizardWriter(SelfletWizardModel selfletModel,
-	    InsertGoalModel insertGoalModel) {
-	if (selfletModel == null)
-	    throw new NullPointerException();
-	this.selfletModel = selfletModel;
-	this.insertGoalModel = insertGoalModel;
-    }
-
-    /**
-     * Write the selflet into the workspace.
-     * */
-    public void write() {
-
-	IProject projectResource = createEclipseProject();
-	instantiateSelfletProject(projectResource);
-
-	createProjectDirectories(projectResource);
-
-	SelfLetProjectManager.loadProject(project);
-
-	if (project.isActiveSelflet()) {
-	    String mainGoalName = insertGoalModel.getGoalName();
-	    createDefaultBehavior(mainGoalName);
-	    createDefaultBehaviorAction(mainGoalName);
-	    createWaitAction();
-	    createErrorConditions();
-	    createGoalFile();
+	public NewSelfletWizardWriter(SelfletWizardModel selfletModel,
+			InsertGoalModel insertGoalModel) {
+		if (selfletModel == null)
+			throw new NullPointerException();
+		this.selfletModel = selfletModel;
+		this.insertGoalModel = insertGoalModel;
 	}
 
-	writeSelfletConfigurationFile();
+	/**
+	 * Write the selflet into the workspace.
+	 * */
+	public void write() {
 
-	// WorkspaceManager.addProject(project);
-    }
+		IProject projectResource = createEclipseProject();
+		instantiateSelfletProject(projectResource);
 
-    private void instantiateSelfletProject(IProject projectResource) {
-	project = new SelfLetProject(selfletModel.getProjectName(),
-		projectResource);
+		createProjectDirectories(projectResource);
 
-	project.setActiveSelflet(selfletModel.isActiveSelflet());
-	project.setAuthor(selfletModel.getAuthorName());
-	project.setMainGoal(insertGoalModel.getGoal());
-	project.setREDsAddress(selfletModel.getREDsAddress());
-	project.setREDsPort(selfletModel.getREDsPort());
-	project.setLimePort(selfletModel.getLimePort());
-	project.setDescription(selfletModel.getDescription());
-    }
+		SelfLetProjectManager.loadProject(project);
 
-    private void writeSelfletConfigurationFile() {
+		if (project.isActiveSelflet()) {
+			String mainGoalName = insertGoalModel.getGoalName();
+			createDefaultBehavior(mainGoalName);
+			createDefaultBehaviorAction(mainGoalName);
+			createWaitAction();
+			createErrorConditions();
+			createGoalFile();
+		}
 
-	WorkspaceManager.refreshResourcesTree();
-	SelfLetProjectManager.loadProject(project);
+		writeSelfletConfigurationFile();
 
-	try {
-	    WorkspaceWriter.writeSelfletConfigurationFile(project);
-	} catch (WriteErrorException e) {
-	    // TODO
+		// WorkspaceManager.addProject(project);
 	}
-    }
 
-    private void createGoalFile() {
-	WorkspaceManager.refreshResourcesTree();
+	private void instantiateSelfletProject(IProject projectResource) {
+		project = new SelfLetProject(selfletModel.getProjectName(),
+				projectResource);
 
-	Goal goal = project.getMainGoal();
-	try {
-	    WorkspaceWriter.writeGoalFile(goal, project.getName());
-	} catch (WriteErrorException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+		project.setActiveSelflet(selfletModel.isActiveSelflet());
+		project.setAuthor(selfletModel.getAuthorName());
+		project.setMainGoal(insertGoalModel.getGoal());
+		project.setREDsAddress(selfletModel.getREDsAddress());
+		project.setREDsPort(selfletModel.getREDsPort());
+		project.setLimePort(selfletModel.getLimePort());
+		project.setDescription(selfletModel.getDescription());
 	}
-    }
 
-    private IProject createEclipseProject() {
+	private void writeSelfletConfigurationFile() {
 
-	WorkspaceManager.refreshResourcesTree();
+		WorkspaceManager.refreshResourcesTree();
+		SelfLetProjectManager.loadProject(project);
 
-	IProject projectResource = SelfLetPlugin.root.getProject(selfletModel
-		.getProjectName());
-
-	try {
-
-	    if (!projectResource.exists()) {
-		projectResource.create(new NullProgressMonitor());
-		LOG.debug("Created new project: " + projectResource.getName());
-	    } else {
-		// TODO
-	    }
-	    projectResource.open(new NullProgressMonitor());
-	} catch (CoreException e) {
-	    e.printStackTrace();
-	}
-	return projectResource;
-
-    }
-
-    private void createProjectDirectories(IProject prj) {
-
-	LOG.info("Creating project directories ");
-
-	String[] folderNames = WorkspaceManager.folderNames;
-
-	IFolder[] folders = new IFolder[folderNames.length];
-
-	for (int i = 0; i < folderNames.length; i++) {
-
-	    folders[i] = prj.getFolder(folderNames[i]);
-	    if (!folders[i].exists())
 		try {
-		    folders[i].create(true, true, null);
-		} catch (CoreException e) {
-		    LOG.error("Error in creating directories in project "
-			    + prj.getName());
+			WorkspaceWriter.writeSelfletConfigurationFile(project);
+		} catch (WriteErrorException e) {
+			// TODO
 		}
 	}
 
-    }
+	private void createGoalFile() {
+		WorkspaceManager.refreshResourcesTree();
 
-    private void createDefaultBehavior(String mainGoal) {
+		Goal goal = project.getMainGoal();
+		try {
+			WorkspaceWriter.writeGoalFile(goal, project.getName());
+		} catch (WriteErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
-	LOG.info("Creating default behavior for " + mainGoal);
-	/* Create file in the project */
-	IFile file = project.getProjectResource().getFile(
+	private IProject createEclipseProject() {
+
+		WorkspaceManager.refreshResourcesTree();
+
+		IProject projectResource = SelfLetPlugin.root.getProject(selfletModel
+				.getProjectName());
+
+		try {
+
+			if (!projectResource.exists()) {
+				projectResource.create(new NullProgressMonitor());
+				LOG.debug("Created new project: " + projectResource.getName());
+			} else {
+				// TODO
+			}
+			projectResource.open(new NullProgressMonitor());
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return projectResource;
+
+	}
+
+	private void createProjectDirectories(IProject prj) {
+
+		LOG.info("Creating project directories ");
+
+		String[] folderNames = WorkspaceManager.folderNames;
+
+		IFolder[] folders = new IFolder[folderNames.length];
+
+		for (int i = 0; i < folderNames.length; i++) {
+
+			folders[i] = prj.getFolder(folderNames[i]);
+			if (!folders[i].exists())
+				try {
+					folders[i].create(true, true, null);
+				} catch (CoreException e) {
+					LOG.error("Error in creating directories in project "
+							+ prj.getName());
+				}
+		}
+
+	}
+
+	private void createDefaultBehavior(String mainGoal) {
+
+		//TODO: HOANG
+		//CREATE THE BEHAVIOR FILE BASED ON GMF 
+
+		
+		/*
+		LOG.info("Creating default behavior for " + mainGoal);
+		/* Create file in the project 
+		IFile file = project.getProjectResource().getFile(
 		"behaviors/defaultBehavior.zargo");
 
-	InputStream g = getClass().getResourceAsStream(
+		InputStream g = getClass().getResourceAsStream(
 		"/it/polimi/selfletclipse/resources/defaultBehavior.zargo");
 
-	FileUtils.createFileFromInputStream(file, g);
+		FileUtils.createFileFromInputStream(file, g);
 
-	InitUI.initialize();
-	/* Open the project in a new editor window */
-	IWorkbenchWindow window = Workbench.getInstance()
+		InitUI.initialize();
+		/* Open the project in a new editor window 
+		IWorkbenchWindow window = Workbench.getInstance()
 		.getActiveWorkbenchWindow();
 
-	IPathEditorInput input = new ArgoEditorInput(file);
-	IWorkbenchPage activePage = window.getActivePage();
+		IPathEditorInput input = new ArgoEditorInput(file);
+		IWorkbenchPage activePage = window.getActivePage();
 
-	if (Register.getInstance().isRegistered(Register.EDITOR)) {
-	    // If the editor is already open
-	    DiagramEditor ed = (DiagramEditor) Register.getInstance()
-		    .getRegistered(Register.EDITOR);
-	    ed.setPartName(input.getName());
-	    ed.setInput(input);
-	    // ed.doSave(null);
-	} else {
-	    try {
-		activePage.openEditor(input,
-			"org.argouml.argoeclipse.internal.ui"
-				+ ".editor.DiagramEditor");
-	    } catch (PartInitException e) {
-		e.printStackTrace();
-	    }
+		if (Register.getInstance().isRegistered(Register.EDITOR)) {
+			// If the editor is already open
+			DiagramEditor ed = (DiagramEditor) Register.getInstance()
+			.getRegistered(Register.EDITOR);
+			ed.setPartName(input.getName());
+			ed.setInput(input);
+			// ed.doSave(null);
+		} else {
+			try {
+				activePage.openEditor(input,
+						"org.argouml.argoeclipse.internal.ui"
+						+ ".editor.DiagramEditor");
+			} catch (PartInitException e) {
+				e.printStackTrace();
+			}
+		}
+
+		/*
+		 * This function modifies the diagram for the default behavior. It
+		 * changes the content of the initial behavior state
+		 
+		changeMainGoal(mainGoal);
+
+		try {
+			file.refreshLocal(IResource.DEPTH_ZERO, null);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}*/
+
 	}
 
-	/*
-	 * This function modifies the diagram for the default behavior. It
-	 * changes the content of the initial behavior state
-	 */
-	changeMainGoal(mainGoal);
+	@SuppressWarnings("unchecked")
+	private void changeMainGoal(String mainGoal) {
+		
+		//TODO: HOANG
+		//CREATE THE BEHAVIOR FILE BASED ON GMF
+		
+		/*
+		LOG.debug("Changing the main goal in the default behavior");
+		Project p = ProjectManager.getManager().getCurrentProject();
+		ModelManagementHelper helper = Model.getModelManagementHelper();
 
-	try {
-	    file.refreshLocal(IResource.DEPTH_ZERO, null);
-	} catch (CoreException e) {
-	    e.printStackTrace();
-	}
-
-    }
-
-    @SuppressWarnings("unchecked")
-    private void changeMainGoal(String mainGoal) {
-
-	LOG.debug("Changing the main goal in the default behavior");
-	Project p = ProjectManager.getManager().getCurrentProject();
-	ModelManagementHelper helper = Model.getModelManagementHelper();
-
-	/* Get all State object in the diagram */
-	Collection cont = helper.getAllModelElementsOfKind(p
-		.getCurrentNamespace(),
+		/* Get all State object in the diagram 
+		Collection cont = helper.getAllModelElementsOfKind(p
+				.getCurrentNamespace(),
 		"org.omg.uml.behavioralelements.statemachines.State");
 
-	Iterator<Object> itr = cont.iterator();
+		Iterator<Object> itr = cont.iterator();
 
-	while (itr.hasNext()) {
-	    Object object = itr.next();
-	    if (Model.getFacade().isAState(object)) {
-		if (object instanceof State) {
-		    State ss = (State) object;
-		    if (ss.getName().contains("initialBehavior")) {
+		while (itr.hasNext()) {
+			Object object = itr.next();
+			if (Model.getFacade().isAState(object)) {
+				if (object instanceof State) {
+					State ss = (State) object;
+					if (ss.getName().contains("initialBehavior")) {
 
-			/* Modify the content */
-			Action a = ss.getDoActivity();
-			ActionExpression script = a.getScript();
-			script.setBody("need" + mainGoal + ".java");
-			script.setLanguage("javassist");
+						/* Modify the content 
+						Action a = ss.getDoActivity();
+						ActionExpression script = a.getScript();
+						script.setBody("need" + mainGoal + ".java");
+						script.setLanguage("javassist");
 
-			Model.getStateMachinesHelper().setDoActivity(ss, a);
-		    }
+						Model.getStateMachinesHelper().setDoActivity(ss, a);
+					}
+				}
+			}
 		}
-	    }
+
+		ProjectBrowser.getInstance().trySave(true);*/
+
 	}
 
-	ProjectBrowser.getInstance().trySave(true);
+	/* Create the initial action file for the default behavior */
+	private void createDefaultBehaviorAction(String mainGoal) {
+		LOG.info("Creating action for the default behavior");
 
-    }
+		String path = "actions/need" + mainGoal + ".java";
+		IFile file = FileUtils.createFileInProject(
+				project.getProjectResource(), path);
 
-    /* Create the initial action file for the default behavior */
-    private void createDefaultBehaviorAction(String mainGoal) {
-	LOG.info("Creating action for the default behavior");
+		String s = new String("{\n"
+				+ "	//TODO Automatically generated by SelfLetClipse plugin\n"
+				+ "	IActionExecutor ae = $9;\n" + "	String output = null;\n"
+				+ "	output = ae.needGoal(\"" + mainGoal + "\");\n"
+				+ "	return output;\n" + "}");
 
-	String path = "actions/need" + mainGoal + ".java";
-	IFile file = FileUtils.createFileInProject(
-		project.getProjectResource(), path);
+		FileUtils.writeFile(file, s);
 
-	String s = new String("{\n"
-		+ "	//TODO Automatically generated by SelfLetClipse plugin\n"
-		+ "	IActionExecutor ae = $9;\n" + "	String output = null;\n"
-		+ "	output = ae.needGoal(\"" + mainGoal + "\");\n"
-		+ "	return output;\n" + "}");
+	}
 
-	FileUtils.writeFile(file, s);
+	private void createWaitAction() {
+		LOG.info("Creating action for the wait state");
 
-    }
+		IFile file = FileUtils.createFileInProject(
+				project.getProjectResource(), "actions/wait.java");
 
-    private void createWaitAction() {
-	LOG.info("Creating action for the wait state");
+		String s = "{\n";
+		s = s.concat("\ttry {\n");
+		s = s.concat("\t\tThread.sleep(2000L);\n");
+		s = s.concat("\t}\n");
+		s = s.concat("\tcatch (InterruptedException e) {\n");
+		s = s.concat("\t}\n");
+		s = s.concat("\treturn  \"ok_wait_done\";\n");
+		s = s.concat("}\n");
 
-	IFile file = FileUtils.createFileInProject(
-		project.getProjectResource(), "actions/wait.java");
+		FileUtils.writeFile(file, s);
 
-	String s = "{\n";
-	s = s.concat("\ttry {\n");
-	s = s.concat("\t\tThread.sleep(2000L);\n");
-	s = s.concat("\t}\n");
-	s = s.concat("\tcatch (InterruptedException e) {\n");
-	s = s.concat("\t}\n");
-	s = s.concat("\treturn  \"ok_wait_done\";\n");
-	s = s.concat("}\n");
+	}
 
-	FileUtils.writeFile(file, s);
+	private void createErrorConditions() {
+		LOG.info("Creating conditions for the default behavior");
 
-    }
+		boolean err = true;
+		InputStream g = null;
 
-    private void createErrorConditions() {
-	LOG.info("Creating conditions for the default behavior");
-
-	boolean err = true;
-	InputStream g = null;
-
-	/* Create errorCondition.xml in the project */
-	IFile file = FileUtils.createFileInProject(
-		project.getProjectResource(), "conditions/errorCondition.xml");
-	g = getClass().getResourceAsStream(
+		/* Create errorCondition.xml in the project */
+		IFile file = FileUtils.createFileInProject(
+				project.getProjectResource(), "conditions/errorCondition.xml");
+		g = getClass().getResourceAsStream(
 		"/it/polimi/selfletclipse/resources/errorCondition.xml");
-	if (g != null)
-	    err = FileUtils.createFileFromInputStream(file, g);
+		if (g != null)
+			err = FileUtils.createFileFromInputStream(file, g);
 
-	/* Create notErrorCondition.xml in the project */
-	file = FileUtils.createFileInProject(project.getProjectResource(),
+		/* Create notErrorCondition.xml in the project */
+		file = FileUtils.createFileInProject(project.getProjectResource(),
 		"conditions/notErrorCondition.xml");
-	if (g != null)
-	    g = getClass().getResourceAsStream(
-		    "/it/polimi/selfletclipse/resources/notErrorCondition.xml");
-	err = err || FileUtils.createFileFromInputStream(file, g);
+		if (g != null)
+			g = getClass().getResourceAsStream(
+					"/it/polimi/selfletclipse/resources/notErrorCondition.xml");
+		err = err || FileUtils.createFileFromInputStream(file, g);
 
-	if (err) {
-	    LOG.error("Error in creating condition file");
-	    return;
+		if (err) {
+			LOG.error("Error in creating condition file");
+			return;
+		}
+
 	}
-
-    }
 
 }

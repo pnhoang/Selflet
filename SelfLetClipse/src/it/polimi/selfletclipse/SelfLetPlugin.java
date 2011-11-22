@@ -3,7 +3,6 @@ package it.polimi.selfletclipse;
 import it.polimi.selfletclipse.markers.MarkersManager;
 
 import org.apache.log4j.Logger;
-import org.argouml.argoeclipse.internal.ui.model.InitUI;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -18,8 +17,7 @@ public class SelfLetPlugin {
 
 	private static boolean initialized = false;
 	private static MarkersManager markersManager = null;
-	private static TargetListenerManager targetListener = null;
-
+	
 	public static IWorkspace workspace = null;
 
 	public static IWorkspaceRoot root = null;
@@ -61,21 +59,11 @@ public class SelfLetPlugin {
 		LOG.debug("Loading markers manager");
 		markersManager = MarkersManager.getInstance();
 
-		LOG.debug("Loading target manager");
-		targetListener = TargetListenerManager.getInstance();
-
-		LOG.debug("Loading ArgoUML interface manager");
-
-		InitUI.initialize();
 
 	}
 
 	public static MarkersManager getMarkersManager() {
 		return markersManager;
-	}
-
-	public static TargetListenerManager getTargetListener() {
-		return targetListener;
 	}
 
 	public static WorkspaceManager getWorkspaceManager() {

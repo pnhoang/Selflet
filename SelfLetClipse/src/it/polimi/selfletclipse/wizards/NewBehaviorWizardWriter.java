@@ -16,14 +16,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.argouml.argoeclipse.internal.core.model.Register;
-import org.argouml.argoeclipse.internal.ui.editor.ArgoEditorInput;
-import org.argouml.argoeclipse.internal.ui.editor.DiagramEditor;
-import org.argouml.argoeclipse.internal.ui.model.InitUI;
-import org.argouml.kernel.Project;
-import org.argouml.kernel.ProjectManager;
-import org.argouml.model.Model;
-import org.argouml.model.ModelManagementHelper;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -32,9 +24,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.internal.Workbench;
-import org.omg.uml.behavioralelements.commonbehavior.Action;
-import org.omg.uml.behavioralelements.statemachines.State;
-import org.omg.uml.foundation.datatypes.ActionExpression;
 
 /**
  * @author Nicola
@@ -230,7 +219,15 @@ public class NewBehaviorWizardWriter {
 
 	private void createBehaviorFile(String name, IFile file, boolean complex) {
 
-		// try {
+		//TODO: HOANG
+		//CREATE THE BEHAVIOR FILE BASED ON GMF 
+
+		
+		
+		
+		/*
+		  		// try {
+		 
 		// ArgoProject.saveProject();
 		// } catch (SaveException e1) {
 		// e1.printStackTrace();
@@ -250,7 +247,7 @@ public class NewBehaviorWizardWriter {
 		FileUtils.createFileFromInputStream(file, g);
 		InitUI.initialize();
 
-		/* Open the created file in a new editor page */
+		// Open the created file in a new editor page 
 		IPathEditorInput input = new ArgoEditorInput(file);
 		IWorkbenchPage activePage = window.getActivePage();
 
@@ -273,13 +270,18 @@ public class NewBehaviorWizardWriter {
 		}
 
 		if (!complex && name != null)
-			changeAbilityName(name);
+			changeAbilityName(name);*/
 
 	}
 
 	@SuppressWarnings("unchecked")
 	private void changeAbilityName(String name) {
 
+		
+		//TODO: HOANG
+		//CREATE THE BEHAVIOR FILE BASED ON GMF
+		
+		/*
 		Project p = ProjectManager.getManager().getCurrentProject();
 		ModelManagementHelper helper = Model.getModelManagementHelper();
 
@@ -307,7 +309,7 @@ public class NewBehaviorWizardWriter {
 					}
 				}
 			}
-		}
+		}*/
 
 	}
 
