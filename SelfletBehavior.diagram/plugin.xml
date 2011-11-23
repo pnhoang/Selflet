@@ -44,7 +44,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/SelfletbehaviorDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="SelfletClipse.category"
   	     class="selfletbehavior.diagram.part.SelfletBehaviorCreationWizard"
   	     id="selfletbehavior.diagram.part.SelfletBehaviorCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
