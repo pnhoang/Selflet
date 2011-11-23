@@ -39,5 +39,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abilityFile" eType="#//FileReference"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="FileReference" instanceClassName="selfletbehavior.FileReference"/>
 </ecore:EPackage>

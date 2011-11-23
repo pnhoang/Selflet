@@ -66,6 +66,7 @@ public class ActionItemProvider
 
 			addBodyPropertyDescriptor(object);
 			addActionFilePropertyDescriptor(object);
+			addAbilityFilePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,28 @@ public class ActionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Ability File feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAbilityFilePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_abilityFile_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_abilityFile_feature", "_UI_Action_type"),
+				 SelfletbehaviorPackage.Literals.ACTION__ABILITY_FILE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Action.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,6 +176,7 @@ public class ActionItemProvider
 		switch (notification.getFeatureID(Action.class)) {
 			case SelfletbehaviorPackage.ACTION__BODY:
 			case SelfletbehaviorPackage.ACTION__ACTION_FILE:
+			case SelfletbehaviorPackage.ACTION__ABILITY_FILE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

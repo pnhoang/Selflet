@@ -8,6 +8,7 @@ package selfletbehavior;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -551,13 +552,33 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int ACTION__ACTION_FILE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Ability File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ABILITY_FILE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 2;
+	int ACTION_FEATURE_COUNT = 3;
+
+
+	/**
+	 * The meta object id for the '<em>File Reference</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see selfletbehavior.FileReference
+	 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getFileReference()
+	 * @generated
+	 */
+	int FILE_REFERENCE = 12;
 
 
 	/**
@@ -835,6 +856,28 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EAttribute getAction_ActionFile();
 
 	/**
+	 * Returns the meta object for the attribute '{@link selfletbehavior.Action#getAbilityFile <em>Ability File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ability File</em>'.
+	 * @see selfletbehavior.Action#getAbilityFile()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_AbilityFile();
+
+	/**
+	 * Returns the meta object for data type '{@link selfletbehavior.FileReference <em>File Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>File Reference</em>'.
+	 * @see selfletbehavior.FileReference
+	 * @model instanceClass="selfletbehavior.FileReference"
+	 * @generated
+	 */
+	EDataType getFileReference();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1087,6 +1130,24 @@ public interface SelfletbehaviorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION__ACTION_FILE = eINSTANCE.getAction_ActionFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Ability File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ABILITY_FILE = eINSTANCE.getAction_AbilityFile();
+
+		/**
+		 * The meta object literal for the '<em>File Reference</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see selfletbehavior.FileReference
+		 * @see selfletbehavior.impl.SelfletbehaviorPackageImpl#getFileReference()
+		 * @generated
+		 */
+		EDataType FILE_REFERENCE = eINSTANCE.getFileReference();
 
 	}
 

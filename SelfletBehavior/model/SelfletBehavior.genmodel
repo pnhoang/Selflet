@@ -6,6 +6,7 @@
     complianceLevel="6.0" copyrightFields="false">
   <foreignModel>SelfletBehavior.ecore</foreignModel>
   <genPackages prefix="Selfletbehavior" disposableProviderFactory="true" ecorePackage="SelfletBehavior.ecore#/">
+    <genDataTypes ecoreDataType="SelfletBehavior.ecore#//FileReference"/>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Behavior">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Behavior/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Behavior/state"/>
@@ -37,6 +38,7 @@
     <genClasses ecoreClass="SelfletBehavior.ecore#//Action">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/body"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/actionFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/abilityFile"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

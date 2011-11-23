@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import selfletbehavior.Action;
+import selfletbehavior.FileReference;
 import selfletbehavior.SelfletbehaviorPackage;
 
 /**
@@ -25,6 +26,7 @@ import selfletbehavior.SelfletbehaviorPackage;
  * <ul>
  *   <li>{@link selfletbehavior.impl.ActionImpl#getBody <em>Body</em>}</li>
  *   <li>{@link selfletbehavior.impl.ActionImpl#getActionFile <em>Action File</em>}</li>
+ *   <li>{@link selfletbehavior.impl.ActionImpl#getAbilityFile <em>Ability File</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +72,26 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * @ordered
 	 */
 	protected String actionFile = ACTION_FILE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAbilityFile() <em>Ability File</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbilityFile()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final FileReference ABILITY_FILE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAbilityFile() <em>Ability File</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbilityFile()
+	 * @generated
+	 * @ordered
+	 */
+	protected FileReference abilityFile = ABILITY_FILE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +159,27 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FileReference getAbilityFile() {
+		return abilityFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAbilityFile(FileReference newAbilityFile) {
+		FileReference oldAbilityFile = abilityFile;
+		abilityFile = newAbilityFile;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SelfletbehaviorPackage.ACTION__ABILITY_FILE, oldAbilityFile, abilityFile));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -144,6 +187,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return getBody();
 			case SelfletbehaviorPackage.ACTION__ACTION_FILE:
 				return getActionFile();
+			case SelfletbehaviorPackage.ACTION__ABILITY_FILE:
+				return getAbilityFile();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +206,9 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return;
 			case SelfletbehaviorPackage.ACTION__ACTION_FILE:
 				setActionFile((String)newValue);
+				return;
+			case SelfletbehaviorPackage.ACTION__ABILITY_FILE:
+				setAbilityFile((FileReference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +228,9 @@ public class ActionImpl extends EObjectImpl implements Action {
 			case SelfletbehaviorPackage.ACTION__ACTION_FILE:
 				setActionFile(ACTION_FILE_EDEFAULT);
 				return;
+			case SelfletbehaviorPackage.ACTION__ABILITY_FILE:
+				setAbilityFile(ABILITY_FILE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +247,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
 			case SelfletbehaviorPackage.ACTION__ACTION_FILE:
 				return ACTION_FILE_EDEFAULT == null ? actionFile != null : !ACTION_FILE_EDEFAULT.equals(actionFile);
+			case SelfletbehaviorPackage.ACTION__ABILITY_FILE:
+				return ABILITY_FILE_EDEFAULT == null ? abilityFile != null : !ABILITY_FILE_EDEFAULT.equals(abilityFile);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,6 +267,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 		result.append(body);
 		result.append(", actionFile: ");
 		result.append(actionFile);
+		result.append(", abilityFile: ");
+		result.append(abilityFile);
 		result.append(')');
 		return result.toString();
 	}

@@ -8,6 +8,7 @@ package selfletbehavior.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -18,6 +19,7 @@ import selfletbehavior.Behavior;
 import selfletbehavior.Complex;
 import selfletbehavior.Condition;
 import selfletbehavior.Elementary;
+import selfletbehavior.FileReference;
 import selfletbehavior.Final;
 import selfletbehavior.Init;
 import selfletbehavior.Intermediate;
@@ -118,6 +120,13 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 	 * @generated
 	 */
 	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType fileReferenceEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -419,6 +428,24 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAction_AbilityFile() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getFileReference() {
+		return fileReferenceEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SelfletbehaviorFactory getSelfletbehaviorFactory() {
 		return (SelfletbehaviorFactory)getEFactoryInstance();
 	}
@@ -479,6 +506,10 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__BODY);
 		createEAttribute(actionEClass, ACTION__ACTION_FILE);
+		createEAttribute(actionEClass, ACTION__ABILITY_FILE);
+
+		// Create data types
+		fileReferenceEDataType = createEDataType(FILE_REFERENCE);
 	}
 
 	/**
@@ -554,6 +585,10 @@ public class SelfletbehaviorPackageImpl extends EPackageImpl implements Selfletb
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAction_Body(), ecorePackage.getEString(), "body", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ActionFile(), ecorePackage.getEString(), "actionFile", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_AbilityFile(), this.getFileReference(), "abilityFile", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(fileReferenceEDataType, FileReference.class, "FileReference", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link selfletbehavior.Action#getBody <em>Body</em>}</li>
  *   <li>{@link selfletbehavior.Action#getActionFile <em>Action File</em>}</li>
+ *   <li>{@link selfletbehavior.Action#getAbilityFile <em>Ability File</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,31 @@ public interface Action extends EObject {
 	 * @generated
 	 */
 	void setActionFile(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Ability File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ability File</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ability File</em>' attribute.
+	 * @see #setAbilityFile(FileReference)
+	 * @see selfletbehavior.SelfletbehaviorPackage#getAction_AbilityFile()
+	 * @model dataType="selfletbehavior.FileReference"
+	 * @generated
+	 */
+	FileReference getAbilityFile();
+
+	/**
+	 * Sets the value of the '{@link selfletbehavior.Action#getAbilityFile <em>Ability File</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ability File</em>' attribute.
+	 * @see #getAbilityFile()
+	 * @generated
+	 */
+	void setAbilityFile(FileReference value);
 
 } // Action

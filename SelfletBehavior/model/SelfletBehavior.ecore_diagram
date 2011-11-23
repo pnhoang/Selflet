@@ -204,6 +204,15 @@
     <element xmi:type="ecore:EClass" href="SelfletBehavior.ecore#//Action"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YdRyYhK8EeGvccBHG6bmZQ" x="344"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="_3Fh6sBYBEeGVWOgUEtj2MQ" type="2004" fontName="Lucida Grande">
+    <children xmi:type="notation:DecorationNode" xmi:id="_3FihwBYBEeGVWOgUEtj2MQ" type="5004"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_3FihwRYBEeGVWOgUEtj2MQ" type="7010">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_3FihwhYBEeGVWOgUEtj2MQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_3FihwxYBEeGVWOgUEtj2MQ"/>
+    </children>
+    <element xmi:type="ecore:EDataType" href="SelfletBehavior.ecore#//FileReference"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3Fh6sRYBEeGVWOgUEtj2MQ" x="603" y="29"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_YWwTkRK8EeGvccBHG6bmZQ"/>
   <element xmi:type="ecore:EPackage" href="SelfletBehavior.ecore#/"/>
   <edges xmi:type="notation:Connector" xmi:id="_YdzWwBK8EeGvccBHG6bmZQ" type="4003" source="_YdGzMBK8EeGvccBHG6bmZQ" target="_YdNg6RK8EeGvccBHG6bmZQ">
