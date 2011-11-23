@@ -26,7 +26,7 @@ public class SelfletBehaviorPropertySection extends AdvancedPropertySection
 		implements IPropertySourceProvider {
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
@@ -37,7 +37,7 @@ public class SelfletBehaviorPropertySection extends AdvancedPropertySection
 			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
 					IItemPropertySource.class);
 			if (ips != null) {
-				return new PropertySource(object, ips);
+				return new CustomisedPropertySource(object, ips);
 			}
 		}
 		if (object instanceof IAdaptable) {
