@@ -83,8 +83,7 @@ public class SelfletBehaviorNewDiagramFileWizard extends Wizard {
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(SelfletBehaviorDiagramEditorUtil
-				.getUniqueFileName(filePath, fileName,
-						"selfletbehavior_diagram")); //$NON-NLS-1$
+				.getUniqueFileName(filePath, fileName, "service_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.SelfletBehaviorNewDiagramFileWizard_RootSelectionPageName);

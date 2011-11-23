@@ -235,98 +235,6 @@ public class SelfletBehaviorNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
 
-		case InitEditPart.VISUAL_ID: {
-			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Init_3011_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Init_3011_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ConditionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ConditionEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ElementaryEditPart.VISUAL_ID: {
-			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					SelfletBehaviorVisualIDRegistry
-							.getType(InitEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					SelfletBehaviorVisualIDRegistry
-							.getType(InvocationEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					SelfletBehaviorVisualIDRegistry
-							.getType(FinalEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FinalEditPart.VISUAL_ID: {
-			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Final_3014_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Final_3014_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ConditionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(ConditionEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
 		case ComplexEditPart.VISUAL_ID: {
 			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -386,6 +294,64 @@ public class SelfletBehaviorNavigatorContentProvider implements
 			return result.toArray();
 		}
 
+		case Final2EditPart.VISUAL_ID: {
+			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
+					Messages.NavigatorGroupName_Final_3018_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
+					Messages.NavigatorGroupName_Final_3018_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ConditionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ConditionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case Init2EditPart.VISUAL_ID: {
+			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
+					Messages.NavigatorGroupName_Init_3015_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
+					Messages.NavigatorGroupName_Init_3015_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ConditionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ConditionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
 		case IntermediateEditPart.VISUAL_ID: {
 			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -424,32 +390,37 @@ public class SelfletBehaviorNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case Final2EditPart.VISUAL_ID: {
+		case ElementaryEditPart.VISUAL_ID: {
 			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Final_3018_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Final_3018_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
 					SelfletBehaviorVisualIDRegistry
-							.getType(ConditionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+							.getType(ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					SelfletBehaviorVisualIDRegistry
-							.getType(ConditionEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
+							.getType(InitEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					SelfletBehaviorVisualIDRegistry
+							.getType(InvocationEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					SelfletBehaviorVisualIDRegistry
+							.getType(FinalEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
@@ -532,14 +503,52 @@ public class SelfletBehaviorNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case Init2EditPart.VISUAL_ID: {
+		case InvocationEditPart.VISUAL_ID: {
 			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Init_3015_incominglinks,
+					Messages.NavigatorGroupName_Invocation_3012_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Init_3015_outgoinglinks,
+					Messages.NavigatorGroupName_Invocation_3012_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(InvocationSharedActionsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					SelfletBehaviorVisualIDRegistry
+							.getType(ActionEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ConditionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					SelfletBehaviorVisualIDRegistry
+							.getType(ConditionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case InitEditPart.VISUAL_ID: {
+			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
+					Messages.NavigatorGroupName_Init_3011_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
+					Messages.NavigatorGroupName_Init_3011_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
@@ -561,25 +570,16 @@ public class SelfletBehaviorNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case InvocationEditPart.VISUAL_ID: {
+		case FinalEditPart.VISUAL_ID: {
 			LinkedList<SelfletBehaviorAbstractNavigatorItem> result = new LinkedList<SelfletBehaviorAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			SelfletBehaviorNavigatorGroup incominglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Invocation_3012_incominglinks,
+					Messages.NavigatorGroupName_Final_3014_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			SelfletBehaviorNavigatorGroup outgoinglinks = new SelfletBehaviorNavigatorGroup(
-					Messages.NavigatorGroupName_Invocation_3012_outgoinglinks,
+					Messages.NavigatorGroupName_Final_3014_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					SelfletBehaviorVisualIDRegistry
-							.getType(InvocationSharedActionsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					SelfletBehaviorVisualIDRegistry
-							.getType(ActionEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					SelfletBehaviorVisualIDRegistry
 							.getType(ConditionEditPart.VISUAL_ID));

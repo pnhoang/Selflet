@@ -4,13 +4,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="selfletbehavior_diagram"/>
+      <fileTypes type="text" extension="service_diagram"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="selfletbehavior_diagram"
+         type="service_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -21,7 +21,7 @@
          id="selfletbehavior.diagram.part.SelfletBehaviorDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/SelfletbehaviorDiagramFile.gif"
-         extensions="selfletbehavior_diagram"
+         extensions="service_diagram"
          default="true"
          class="selfletbehavior.diagram.part.SelfletBehaviorDiagramEditor"
          matchingStrategy="selfletbehavior.diagram.part.SelfletBehaviorMatchingStrategy"
@@ -55,7 +55,7 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="SelfletBehavior.diagram.InitDiagram"
-            nameFilter="*.selfletbehavior"
+            nameFilter="*.service"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
@@ -463,7 +463,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="selfletbehavior_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="service_diagram"/>
                </and>
                <instanceof value="selfletbehavior.diagram.navigator.SelfletBehaviorAbstractNavigatorItem"/>
             </or>
@@ -480,7 +480,7 @@
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="selfletbehavior_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="service_diagram"/>
                   </and>
                   <instanceof value="selfletbehavior.diagram.navigator.SelfletBehaviorAbstractNavigatorItem"/>
                </or>
@@ -499,7 +499,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="selfletbehavior"/>
+        	      <test property="org.eclipse.core.resources.extension" value="service"/>
                </and>
                <instanceof value="selfletbehavior.diagram.navigator.SelfletBehaviorDomainNavigatorItem"/>
             </or>

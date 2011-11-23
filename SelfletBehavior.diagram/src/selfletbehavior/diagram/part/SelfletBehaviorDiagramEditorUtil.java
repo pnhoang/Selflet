@@ -224,6 +224,16 @@ public class SelfletBehaviorDiagramEditorUtil {
 	 * Create a new instance of domain element associated with canvas.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static Selflet createInitialModel() {
+		return SelfletbehaviorFactory.eINSTANCE.createSelflet();
+	}
+
+	/**
+	 * Create a new instance of domain element associated with canvas.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	private static Selflet createInitialModel(String modelName) {

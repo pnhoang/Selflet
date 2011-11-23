@@ -373,6 +373,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Invocation_3012_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Invocation_3012_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_Init_3015_incominglinks;
 
 	/**
@@ -383,52 +393,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Final_3014_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Final_3014_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Intermediate_3016_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Intermediate_3016_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Init_3011_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Init_3011_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Condition_4007_target;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Condition_4007_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Invocation_3012_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Invocation_3012_outgoinglinks;
 
 	/**
 	 * @generated
@@ -444,6 +414,36 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Final_3018_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Intermediate_3016_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Intermediate_3016_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Final_3014_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Final_3014_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Init_3011_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Init_3011_outgoinglinks;
 
 	/**
 	 * @generated

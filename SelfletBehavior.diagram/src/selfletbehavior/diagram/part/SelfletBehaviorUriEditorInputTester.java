@@ -17,7 +17,7 @@ public class SelfletBehaviorUriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "selfletbehavior_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "service_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

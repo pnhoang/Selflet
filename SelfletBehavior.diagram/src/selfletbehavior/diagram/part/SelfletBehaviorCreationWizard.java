@@ -102,7 +102,7 @@ public class SelfletBehaviorCreationWizard extends Wizard implements INewWizard 
 	 */
 	public void addPages() {
 		diagramModelFilePage = new SelfletBehaviorCreationWizardPage(
-				"DiagramModelFile", getSelection(), "selfletbehavior_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DiagramModelFile", getSelection(), "service_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage
 				.setTitle(Messages.SelfletBehaviorCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
@@ -110,16 +110,16 @@ public class SelfletBehaviorCreationWizard extends Wizard implements INewWizard 
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new SelfletBehaviorCreationWizardPage(
-				"DomainModelFile", getSelection(), "selfletbehavior") { //$NON-NLS-1$ //$NON-NLS-2$
+				"DomainModelFile", getSelection(), "service") { //$NON-NLS-1$ //$NON-NLS-2$
 
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
 					fileName = fileName.substring(0, fileName.length()
-							- ".selfletbehavior_diagram".length()); //$NON-NLS-1$
+							- ".service_diagram".length()); //$NON-NLS-1$
 					setFileName(SelfletBehaviorDiagramEditorUtil
 							.getUniqueFileName(getContainerFullPath(),
-									fileName, "selfletbehavior")); //$NON-NLS-1$
+									fileName, "service")); //$NON-NLS-1$
 				}
 				super.setVisible(visible);
 			}
