@@ -1,8 +1,11 @@
 package selfletbehavior.diagram.sheet;
 
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
@@ -49,12 +52,26 @@ public class CustomisedPropertyDescriptor extends PropertyDescriptor implements
 					Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
 					FileDialog dialog = new FileDialog(shell, SWT.OPEN);
 					
-					dialog.setFileName(valueHandler.toString(getValue()));
+					//set the default path
+					URI uri = ((EObject) object).eResource().getURI();
+					URI resolved = CommonPlugin.resolve(uri);
+					resolved = resolved.trimFileExtension();
+					dialog.setFilterPath(resolved.toFileString());
+					
+					
+					//set the default file
+					// (the FileDialog also handles absolute/relative files)
+					String fileName = valueHandler.toString(getValue());
+					dialog.setFileName(fileName);
 					
 					String fileSelected = dialog.open();
 					if (fileSelected == null){
 						return getValue();
 					}
+					
+					//extract out the source path to make it relative
+					URI deres = URI.createFileURI(fileSelected).deresolve(resolved);
+					fileSelected = deres.toString();
 					
 					return valueHandler.toValue(fileSelected);
 				}
