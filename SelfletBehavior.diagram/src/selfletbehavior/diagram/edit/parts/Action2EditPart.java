@@ -7,6 +7,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
@@ -44,6 +45,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import selfletbehavior.Action;
+import selfletbehavior.Behavior;
+import selfletbehavior.Service;
+import selfletbehavior.State;
 import selfletbehavior.diagram.edit.policies.Action2ItemSemanticEditPolicy;
 import selfletbehavior.diagram.edit.policies.SelfletBehaviorTextNonResizableEditPolicy;
 import selfletbehavior.diagram.edit.policies.SelfletBehaviorTextSelectionEditPolicy;
@@ -549,7 +554,7 @@ public class Action2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -589,6 +594,28 @@ public class Action2EditPart extends CompartmentEditPart implements
 			}
 		}
 		super.handleNotificationEvent(event);
+		
+		System.out.println("entry.handleNotificationEvent(" + event + ")");
+		
+		if (event.getNotifier() instanceof Action){
+			String attrName = ((EAttribute) event.getFeature()).getName();
+			System.out.println("attrName: " + attrName);
+			
+			if ("abilityFile".equals(attrName)){
+				//NOW WE HAVE A VALID STATE NAME. WE CAN CREATE AN ACTION OBJECT INSIDE ITS STATE
+				
+				Action action = (Action)event.getNotifier();
+				State state = (State)action.eContainer();
+				Behavior behavior = (Behavior)state.eContainer();
+				Service service = (Service)behavior.eContainer();
+				
+				String actionFileString = service.getName() + "." + behavior.getName() + "." + state.getName() + ".action";
+				System.out.println("actionFile: " + actionFileString);
+				
+				action.setActionFile(actionFileString);
+				action.setBody("do /" + actionFileString);
+			}
+		}
 	}
 
 	/**
