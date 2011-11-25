@@ -6,9 +6,10 @@ Welcome to the Selflet wiki!
 Selflet is a framework for autonomous computing developed at Politecnico di Milano. Selflet has been previously implemented in Eclipse Plugin Development Tools with the use of ArgoUML by Nicola Calcavecchia: [SelfletClipse](http://selfletclipse.sourceforge.net/ "SelfletClipse"). This implementation focuses on the use of Eclipse Graphical Modeling Framework to make graphical diagrams, integrates the current version of SelfletClipse but removes all the dependencies from ArgoUML. 
 
 SelfletClipse is a plugin that supports 3 wizards for the creation of Selflet project:
+
 - Selflet 
 - Selflet Behavior
-- Selflet Goal
+- Selflet Goal (Service)
 
 In this implementation, we will re-use the 2 wizards: Selflet and Selflet Behavior. Selflet Goal wizard is instead substituted by Selflet Service which is a GMF integrated wizard for creation of Service diagram and Service model.
 
