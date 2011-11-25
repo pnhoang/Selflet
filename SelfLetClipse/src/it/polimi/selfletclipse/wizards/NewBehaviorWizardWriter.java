@@ -38,7 +38,7 @@ public class NewBehaviorWizardWriter {
 	private IWorkbenchWindow window;
 	private SelectGoalModel selectGoalModel;
 	private SelectProjectModel selectProjectModel;
-	private InsertGoalModel insertGoalModel;
+	private InsertGoalModel insertServiceModel;
 
 	public NewBehaviorWizardWriter(SelectGoalModel selectGoalModel,
 			SelectProjectModel selectProjectModel,
@@ -46,7 +46,7 @@ public class NewBehaviorWizardWriter {
 
 		this.selectGoalModel = selectGoalModel;
 		this.selectProjectModel = selectProjectModel;
-		this.insertGoalModel = serviceWizardModel;
+		this.insertServiceModel = serviceWizardModel;
 		this.window = Workbench.getInstance().getActiveWorkbenchWindow();
 	}
 
@@ -56,7 +56,7 @@ public class NewBehaviorWizardWriter {
 
 	private void createBehavior() {
 
-		service = insertGoalModel.getGoal();
+		service = insertServiceModel.getGoal();
 
 		String serviceName = service.getName();
 		String projectName = selectProjectModel.getProjectName();

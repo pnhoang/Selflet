@@ -31,7 +31,7 @@ public class NewBehaviorWizard extends Wizard implements INewWizard {
     private SelectProjectController selectProjectController;
     private SelectProjectView selectProjectView = null;
 
-    private InsertGoalModel insertGoalModel;
+    private InsertGoalModel insertServiceModel;
     private InsertGoalController insertGoalController;
     private InsertGoalView insertGoalView = null;
 
@@ -51,12 +51,12 @@ public class NewBehaviorWizard extends Wizard implements INewWizard {
 	selectGoalView = new SelectGoalView(selectGoalController);
 	selectGoalModel.addObserver(selectGoalView);
 
-	insertGoalModel = new InsertGoalModel(InsertGoalModel.GENERIC_GOAL);
-	insertGoalController = new InsertGoalController(insertGoalModel);
+	insertServiceModel = new InsertGoalModel(InsertGoalModel.GENERIC_GOAL);
+	insertGoalController = new InsertGoalController(insertServiceModel);
 	insertGoalView = new InsertGoalView(insertGoalController);
-	insertGoalModel.addObserver(insertGoalView);
+	insertServiceModel.addObserver(insertGoalView);
 
-	selectGoalModel.addObserver(insertGoalModel);
+	selectGoalModel.addObserver(insertServiceModel);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class NewBehaviorWizard extends Wizard implements INewWizard {
 
     public boolean performFinish() {
 	writer = new NewBehaviorWizardWriter(selectGoalModel,
-		selectProjectModel, insertGoalModel);
+		selectProjectModel, insertServiceModel);
 	writer.write();
 	return true;
     }

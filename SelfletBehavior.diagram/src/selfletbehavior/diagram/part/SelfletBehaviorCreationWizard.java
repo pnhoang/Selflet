@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -135,13 +136,16 @@ public class SelfletBehaviorCreationWizard extends Wizard implements INewWizard 
 	 * @generated
 	 */
 	public boolean performFinish() {
+		final URI diagramModelFileURI = diagramModelFilePage.getURI();
+		final URI domainModelFileURI = domainModelFilePage.getURI();
+		
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InterruptedException {
 				diagram = SelfletBehaviorDiagramEditorUtil.createDiagram(
-						diagramModelFilePage.getURI(),
-						domainModelFilePage.getURI(), monitor);
+						diagramModelFileURI,
+						domainModelFileURI, monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						SelfletBehaviorDiagramEditorUtil.openDiagram(diagram);

@@ -28,14 +28,14 @@ public class NewSelfletWizardWriter {
 
 	private SelfLetProject project = null;
 	private SelfletWizardModel selfletModel;
-	private InsertGoalModel insertGoalModel;
+	private InsertGoalModel insertServiceModel;
 
 	public NewSelfletWizardWriter(SelfletWizardModel selfletModel,
-			InsertGoalModel insertGoalModel) {
+			InsertGoalModel insertServiceModel) {
 		if (selfletModel == null)
 			throw new NullPointerException();
 		this.selfletModel = selfletModel;
-		this.insertGoalModel = insertGoalModel;
+		this.insertServiceModel = insertServiceModel;
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class NewSelfletWizardWriter {
 		SelfLetProjectManager.loadProject(project);
 
 		if (project.isActiveSelflet()) {
-			String mainServiceName = insertGoalModel.getGoalName();
+			String mainServiceName = insertServiceModel.getGoalName();
 			createDefaultBehavior(mainServiceName);
 			createDefaultBehaviorAction(mainServiceName);
 			createWaitAction();
@@ -70,7 +70,7 @@ public class NewSelfletWizardWriter {
 
 		project.setActiveSelflet(selfletModel.isActiveSelflet());
 		project.setAuthor(selfletModel.getAuthorName());
-		project.setMainGoal(insertGoalModel.getGoal());
+		project.setMainGoal(insertServiceModel.getGoal());
 		project.setREDsAddress(selfletModel.getREDsAddress());
 		project.setREDsPort(selfletModel.getREDsPort());
 		project.setLimePort(selfletModel.getLimePort());
