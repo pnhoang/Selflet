@@ -234,9 +234,9 @@ public class SelectGoalView extends WizardPage implements Observer {
             item.setText(projectName);
             item.setImage(ImagesManager.PROJECT);
             
-            ArrayList<String> goals = projectGoals.get(projectName);
+            ArrayList<String> services = projectGoals.get(projectName);
             
-            for (String goal : goals) {
+            for (String goal : services) {
                 TreeItem goalItem = new TreeItem(item, SWT.None);
                 goalItem.setText(goal);
                 goalItem.setData("goal");

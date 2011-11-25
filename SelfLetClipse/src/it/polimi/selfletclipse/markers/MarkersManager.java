@@ -161,7 +161,7 @@ public class MarkersManager {
     //
     // private static void checkMissingGoals() {
     //
-    // LOG.info("Checking missing goals in workspace");
+    // LOG.info("Checking missing services in workspace");
     // IProject[] projects = root.getProjects();
     //
     // if (projects == null) {
@@ -212,7 +212,7 @@ public class MarkersManager {
     // checkDependecies(vectorGoals);
     // }
     //
-    // /* Check for each zargo file if there are goals unimplemented */
+    // /* Check for each zargo file if there are services unimplemented */
     // private static void checkDependecies(Vector<GoalsInFile> vectorGoals) {
     //
     // notSatisfied = new Vector<String>();
@@ -220,15 +220,15 @@ public class MarkersManager {
     // for (int i = 0; i < vectorGoals.size(); i++) {
     // GoalsInFile g = vectorGoals.get(i);
     // /*
-    // * Set of goals that must be present in the workspace to avoid
+    // * Set of services that must be present in the workspace to avoid
     // * warnings
     // */
-    // Vector<String> goals = g.getGoals();
+    // Vector<String> services = g.getGoals();
     // /*
     // * Remove the goal with the same name of the selflet This is the
     // * case when we are dealing with elementary behavior
     // */
-    // goals.remove(g.getFileNameWithoutExtension());
+    // services.remove(g.getFileNameWithoutExtension());
     //
     // for (int j = 0; j < vectorGoals.size(); j++) {
     // String filename = vectorGoals.get(j)
@@ -236,19 +236,19 @@ public class MarkersManager {
     //
     // if (i != j)
     // if (!filename.equals("DefaultBehavior"))
-    // if (goals.contains(filename))
-    // goals.remove(filename);
+    // if (services.contains(filename))
+    // services.remove(filename);
     //
     // }
     //
     // /*
     // * Wait behavior is implemented by default
     // */
-    // goals.remove("wait");
+    // services.remove("wait");
     //
     // /* If some goal is not implemented then we must report a warning */
-    // if (goals.size() > 0)
-    // for (String goal : goals) {
+    // if (services.size() > 0)
+    // for (String goal : services) {
     // try {
     // /* Create warnings */
     // IMarker m = g.getFile().createMarker(IMarker.PROBLEM);

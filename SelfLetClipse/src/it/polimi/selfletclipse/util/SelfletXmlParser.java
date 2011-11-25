@@ -45,7 +45,7 @@ public class SelfletXmlParser {
     public static final String BEHAVIOR_TAG = "behavior";
     public static final String CONDITIONS_TAG = "conditions";
     public static final String CONDITION_TAG = "condition";
-    public static final String GOALS_TAG = "goals";
+    public static final String SERVICES_TAG = "services";
     public static final String GOAL_TAG = "goal";
     public static final String RULES_TAG = "rules";
     public static final String RULE_TAG = "rule";
@@ -579,7 +579,7 @@ public class SelfletXmlParser {
 
 	}// end if conditions
 
-	if (resourcesNodes.item(4).getNodeName() != GOALS_TAG) {
+	if (resourcesNodes.item(4).getNodeName() != SERVICES_TAG) {
 	    throw new EvaluationException(
 		    "Unexpected name of nodes in the xml file");
 	}
@@ -587,11 +587,11 @@ public class SelfletXmlParser {
 	//
 	if (resourcesNodes.item(4).hasChildNodes()) {
 
-	    NodeList goalsNodes = resourcesNodes.item(4).getChildNodes();
+	    NodeList servicesNodes = resourcesNodes.item(4).getChildNodes();
 
-	    for (int i = 0; i < goalsNodes.getLength(); i++) {
+	    for (int i = 0; i < servicesNodes.getLength(); i++) {
 
-		String file = getNamedAttribute(goalsNodes.item(i), FILE_TAG);
+		String file = getNamedAttribute(servicesNodes.item(i), FILE_TAG);
 
 		if (file == null || !validateEXTFile(file, "xml")) {
 		    throw new EvaluationException(
@@ -609,7 +609,7 @@ public class SelfletXmlParser {
 		    mySelfletXml.addGoal(projectPath + file);
 		}
 
-		if (goalsNodes.item(i).getTextContent() != "") {// controllo che
+		if (servicesNodes.item(i).getTextContent() != "") {// controllo che
 		    // sia EMPTY
 		    throw new EvaluationException(
 			    "Unexpected content in the goal tag");
@@ -833,7 +833,7 @@ public class SelfletXmlParser {
 	System.out.println("Action:         " + s.getAction().toString());
 	System.out.println("behaviors:      " + s.getBehaviors().toString());
 	System.out.println("conditions:     " + s.getConditions().toString());
-	System.out.println("goals:          " + s.getGoals().toString());
+	System.out.println("services:          " + s.getGoals().toString());
 
 	for (int i = 0; i < s.getMyGoalsXml().size(); i++) {
 	    GoalXmlParser.demostrate(s.getMyGoalsXml().get(i));

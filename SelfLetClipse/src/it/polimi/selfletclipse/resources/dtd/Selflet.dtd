@@ -30,7 +30,7 @@
 		
 <!-- Second part: resources of the selflet -->
 
-<!ELEMENT resources (abilities,actions,behaviors,conditions,goals,rules)>
+<!ELEMENT resources (abilities,actions,behaviors,conditions,services,rules)>
 
 	<!-- Abilities -->
 	<!ELEMENT abilities (ability*)>
@@ -63,7 +63,7 @@
 			<!ATTLIST condition file CDATA #REQUIRED>
 
 	<!-- Goals -->
-	<!ELEMENT goals (goal*)>
+	<!ELEMENT services (goal*)>
 		<!ELEMENT goal EMPTY>
 			<!ATTLIST goal file CDATA #REQUIRED>
 

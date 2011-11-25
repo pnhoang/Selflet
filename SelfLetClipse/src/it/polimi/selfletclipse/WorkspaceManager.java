@@ -20,7 +20,7 @@ public class WorkspaceManager {
 	private static WorkspaceManager instance = null;
 
 	public static final String folderNames[] = { "abilities", "actions",
-			"behaviors", "conditions", "goals", "rules" };
+			"behaviors", "conditions", "services", "rules" };
 
 	/** Resource types constants */
 	public static final int ABILITY = 0;

@@ -22,7 +22,7 @@ public class SelfLetProject {
 	private boolean activeSelflet;
 
 	private Goal mainGoal;
-	private ArrayList<Goal> goals;
+	private ArrayList<Goal> services;
 
 	private Map<String, ArrayList<IResource>> resourcesMap;
 	private IProject projectResource;
@@ -36,7 +36,7 @@ public class SelfLetProject {
 		limePort = "";
 		description = "";
 		resourcesMap = new HashMap<String, ArrayList<IResource>>();
-		goals = new ArrayList<Goal>();
+		services = new ArrayList<Goal>();
 	}
 
 	public Map<String, ArrayList<IResource>> getResources() {
@@ -150,7 +150,7 @@ public class SelfLetProject {
 	}
 
 	public Goal getGoal(String goalName) throws NotFoundException {
-		for (Goal goal : goals) {
+		for (Goal goal : services) {
 			if (goal.getName().equals(goalName))
 				return goal;
 		}
@@ -159,22 +159,22 @@ public class SelfLetProject {
 	}
 
 	public ArrayList<Goal> getGoals() {
-		return (ArrayList<Goal>) goals.clone();
+		return (ArrayList<Goal>) services.clone();
 	}
 
 	public ArrayList<IResource> getGoalResources() {
-		String goals = WorkspaceManager.folderNames[WorkspaceManager.GOAL];
+		String services = WorkspaceManager.folderNames[WorkspaceManager.GOAL];
 
-		return resourcesMap.get(goals);
+		return resourcesMap.get(services);
 	}
 
 	public void addGoal(Goal goal) {
-		for (Goal g : goals) {
+		for (Goal g : services) {
 			if (g.equals(goal))
-				goals.remove(g);
+				services.remove(g);
 		}
 
-		goals.add(goal);
+		services.add(goal);
 	}
 
 	/**

@@ -70,10 +70,10 @@ public class SelectGoalModel extends Observable {
 
 	for (SelfLetProject project : projects) {
 
-	    ArrayList<Goal> goals = project.getGoals();
+	    ArrayList<Goal> services = project.getGoals();
 	    ArrayList<String> goalNames = new ArrayList<String>();
 
-	    for (Goal goal : goals) {
+	    for (Goal goal : services) {
 		String goalName = goal.getName();
 		if (goalName.endsWith(".xml"))
 		    goalName = goalName.substring(0, goalName.length()

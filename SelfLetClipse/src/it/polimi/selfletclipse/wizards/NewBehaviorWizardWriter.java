@@ -170,10 +170,10 @@ public class NewBehaviorWizardWriter {
 
 	private String appendParamValues(String content) {
 
-		ArrayList<GoalParameter> goals = goal.getParameters();
+		ArrayList<GoalParameter> services = goal.getParameters();
 
 		int i = 0;
-		for (GoalParameter param : goals) {
+		for (GoalParameter param : services) {
 
 			content = content.concat("\tabilityParams[" + i + "] =  "
 					+ param.getName() + ";\n");
@@ -184,8 +184,8 @@ public class NewBehaviorWizardWriter {
 
 	private String appendVariablesFromKnowledge(String s) {
 
-		ArrayList<GoalParameter> goals = goal.getParameters();
-		for (GoalParameter param : goals) {
+		ArrayList<GoalParameter> services = goal.getParameters();
+		for (GoalParameter param : services) {
 			s = s.concat("\ttry {\n");
 			s = s.concat("\t\t" + param.getName() + " = (" + param.getType()
 					+ ") kb.getProperty(\"" + param.getName() + "\");\n");
@@ -203,9 +203,9 @@ public class NewBehaviorWizardWriter {
 	 */
 	private String appendVariablesDeclaration(String s) {
 
-		ArrayList<GoalParameter> goals = goal.getParameters();
+		ArrayList<GoalParameter> services = goal.getParameters();
 		// Input
-		for (GoalParameter param : goals) {
+		for (GoalParameter param : services) {
 			s = s.concat("\t" + param.getType() + " " + param.getName()
 					+ " = null;\n");
 		}

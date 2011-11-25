@@ -59,7 +59,7 @@ public class WorkspaceWriter {
 
 		IProject projectResource = project.getProjectResource();
 
-		String path = new String("goals/" + goal.getName() + ".xml");
+		String path = new String("services/" + goal.getName() + ".xml");
 		IFile file = FileUtils.createFileInProject(projectResource, path);
 
 		String s = new String();
@@ -181,10 +181,10 @@ public class WorkspaceWriter {
 		s = s.concat(getXMLConditions(project));
 		s = s.concat("\t\t</conditions>\n\n");
 
-		// --goals
-		s = s.concat("\t\t<goals>\n");
+		// --services
+		s = s.concat("\t\t<services>\n");
 		s = s.concat(getXMLGoals(project));
-		s = s.concat("\t\t</goals>\n\n");
+		s = s.concat("\t\t</services>\n\n");
 
 		// --rules
 		s = s.concat("\t\t<rules>\n");
@@ -231,25 +231,25 @@ public class WorkspaceWriter {
 		
 		
 		String folderName = WorkspaceManager.folderNames[WorkspaceManager.GOAL];
-		IFolder goalsFolder = workspaceProject.getFolder(folderName);
+		IFolder servicesFolder = workspaceProject.getFolder(folderName);
 		
 		//Loop all the files with only .jar extensions for Abilities
-		IResource[] goals = null;
+		IResource[] services = null;
 		try {
-			goals = goalsFolder.members();
+			services = servicesFolder.members();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		for (IResource goalFile : goals){
+		for (IResource goalFile : services){
 			System.out.println("file: " + goalFile.getName());	
 		}
 		
 		String s = new String();
 		
-		for (IResource goal : goals) {
+		for (IResource goal : services) {
 			String name = goal.getName() + ".xml";
 			s = s + "\t\t\t<goal file=\"" + folderName + "/" + name + "\">";
 			s = s + "</goal>\n";

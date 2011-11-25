@@ -10,7 +10,7 @@ public class SelfletRepresentation {
     private String nameSelflet;
     private SelfletProperties properties;
     private SelfletResources resources;
-    private Vector<GoalRepresentation> goalsXml = new Vector<GoalRepresentation>();
+    private Vector<GoalRepresentation> servicesXml = new Vector<GoalRepresentation>();
 
     /**
      * Costruttore della classe SelfletRepresentation
@@ -563,16 +563,16 @@ public class SelfletRepresentation {
      * oggetto goalXmlParser con il parametro passato. Aggiunge al vettore
      * goalXml la rappresentazione del goal parsato.
      * 
-     * @param goals
+     * @param services
      */
-    public void addGoal(String goals) {
+    public void addGoal(String services) {
 
-	resources.goals.add(goals);
+	resources.services.add(services);
 	GoalXmlParser myGoalXml;
 	try {
 
-	    myGoalXml = new GoalXmlParser(goals);
-	    goalsXml.add(myGoalXml.getMyGoalXml());
+	    myGoalXml = new GoalXmlParser(services);
+	    servicesXml.add(myGoalXml.getMyGoalXml());
 	} catch (EvaluationException e) {
 	}
 
@@ -586,7 +586,7 @@ public class SelfletRepresentation {
      * @return rappresentazione del goal
      */
     public GoalRepresentation getGoalRepresentation(int i) {
-	return (GoalRepresentation) (goalsXml.get(i));
+	return (GoalRepresentation) (servicesXml.get(i));
     }
 
     /**
@@ -597,7 +597,7 @@ public class SelfletRepresentation {
      * @return goal
      */
     public String getGoals(int i) {
-	return (resources.goals.get(i).toString());
+	return (resources.services.get(i).toString());
     }
 
     /**
@@ -606,7 +606,7 @@ public class SelfletRepresentation {
      * @return vettore dei goal
      */
     public Vector<String> getGoals() {
-	return resources.goals;
+	return resources.services;
     }
 
     /**
@@ -697,7 +697,7 @@ public class SelfletRepresentation {
 	private Vector<String> actions = new Vector<String>();
 	private Vector<String> behaviors = new Vector<String>();
 	private Vector<String> conditions = new Vector<String>();
-	private Vector<String> goals = new Vector<String>();
+	private Vector<String> services = new Vector<String>();
 	private Vector<String> rules = new Vector<String>();
 
     }// MyResources
@@ -709,7 +709,7 @@ public class SelfletRepresentation {
      * @return vettore contenente la rappresentazione dei goal
      */
     public Vector<GoalRepresentation> getMyGoalsXml() {
-	return goalsXml;
+	return servicesXml;
     }
 
     /**
@@ -720,7 +720,7 @@ public class SelfletRepresentation {
      *            GoalXml
      */
     public void setMyGoalsXml(Vector<GoalRepresentation> myGoalsXml) {
-	this.goalsXml = myGoalsXml;
+	this.servicesXml = myGoalsXml;
     }
 
 }

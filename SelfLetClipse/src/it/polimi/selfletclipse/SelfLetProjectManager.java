@@ -190,7 +190,7 @@ public class SelfLetProjectManager {
     }
 
     /**
-     * Parse all the goals in the "goals" folder and creates a goal object for
+     * Parse all the services in the "services" folder and creates a goal object for
      * each one of them.
      * */
     private static void loadGoals(SelfLetProject project) {
