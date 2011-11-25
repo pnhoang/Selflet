@@ -501,7 +501,7 @@ public class SelfletXmlParser {
 
 		String file = getNamedAttribute(actionsNodes.item(i), FILE_TAG);
 
-		if (file == null || !validateEXTFile(file, "java"))
+		if (file == null || !validateEXTFile(file, "action"))
 		    throw new EvaluationException(
 			    "Invalid attribute file of actions");
 		else
@@ -530,7 +530,7 @@ public class SelfletXmlParser {
 		String file = getNamedAttribute(behaviorsNodes.item(i),
 			FILE_TAG);
 
-		if (file == null || !validateEXTFile(file, "xmi")) {
+		if (file == null || !validateEXTFile(file, "service")) {
 		    // TODO da rimettere!
 		    /*
 		     * throw new EvaluationException (
