@@ -70,8 +70,8 @@
             category="SelfletClipse.category"
             class="it.polimi.selfletclipse.wizards.NewGoalWizard"
             icon="src/it/polimi/selfletclipse/resources/img/SynchState.gif"
-            id="SelfLetClipse.goalWizard"
-            name="Selflet Goal">
+            id="SelfLetClipse.serviceWizard"
+            name="Selflet Service">
       </wizard>
    </extension>
    <extension

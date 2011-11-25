@@ -20,8 +20,8 @@ public class SelectGoalController {
 	model.setElementaryBehavior();
     }
 
-    public void setSelectedGoal(String goal, String project) {
-	model.setSelectedGoal(goal,project);
+    public void setSelectedGoal(String service, String project) {
+	model.setSelectedGoal(service,project);
     }
 
     public void setNewGoal(boolean b) {

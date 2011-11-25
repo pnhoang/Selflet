@@ -19,9 +19,9 @@ public class Goal {
 	 * Constructor
 	 * 
 	 * @param name
-	 *            goal name
+	 *            service name
 	 * @param parameters
-	 *            list of goal parameters
+	 *            list of service parameters
 	 */
 	public Goal(String name, ArrayList<GoalParameter> parameters) {
 		this.name = name;
@@ -32,8 +32,8 @@ public class Goal {
 		return resource;
 	}
 
-	public void setGoalResource(IResource goalResource) {
-		this.resource = goalResource;
+	public void setGoalResource(IResource serviceResource) {
+		this.resource = serviceResource;
 	}
 
 	/**
@@ -43,14 +43,14 @@ public class Goal {
 	}
 
 	/**
-	 * @param goalParameters
+	 * @param serviceParameters
 	 *            A vector with all the parameters including the output
 	 *            parameter. The method will set the output parameter field and
 	 *            remove the output parameter from the input vector
 	 * 
 	 * */
-	public void setParameters(ArrayList<GoalParameter> goalParameters) {
-		this.parameters = goalParameters;
+	public void setParameters(ArrayList<GoalParameter> serviceParameters) {
+		this.parameters = serviceParameters;
 
 		for (GoalParameter p : parameters) {
 			if (p.isOutput()) {

@@ -237,7 +237,7 @@ public class SelfletWizardView extends WizardPage implements Observer {
         gd1.widthHint = 150;
         gd1.horizontalSpan = 1;
         
-        // Label (High-level goal)
+        // Label (High-level service)
         Label labelAuthorName = new Label(topLevel, SWT.LEFT);
         labelAuthorName.setText("Author:");
         labelAuthorName.setLayoutData(gd1);

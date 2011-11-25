@@ -40,18 +40,18 @@ public class SelfLetProjectManager {
     }
 
     /**
-     * @param goalName
+     * @param serviceName
      * @param projectName
      * 
-     *            Returns a goal object representing the goal.
+     *            Returns a service object representing the service.
      * @throws NotFoundException
      * */
-    public static Goal getGoal(String goalName, String projectName)
+    public static Goal getGoal(String serviceName, String projectName)
 	    throws NotFoundException {
 
 	for (SelfLetProject project : projects) {
 	    if (project.getName().equals(projectName)) {
-		return project.getGoal(goalName);
+		return project.getGoal(serviceName);
 	    }
 	}
 
@@ -60,30 +60,30 @@ public class SelfLetProjectManager {
 
     /**
      * 
-     * Load a goal xml file and returns the associated resource
+     * Load a service xml file and returns the associated resource
      * 
-     * @param goal
-     *            the goal name
+     * @param service
+     *            the service name
      * @param projectResources
-     *            the projectResources containing the goal
+     *            the projectResources containing the service
      * 
-     * @return the resource representing the goal. null if the action does not
+     * @return the resource representing the service. null if the action does not
      *         exist
      * @throws NotFoundException
      * */
-    public static IResource getGoalResource(String goal, String project)
+    public static IResource getGoalResource(String service, String project)
 	    throws NotFoundException {
 
-	if (goal == null || project == null)
+	if (service == null || project == null)
 	    throw new NotFoundException();
 
 	SelfLetProject p = null;
 	Goal g = null;
 	try {
 	    p = SelfLetProjectManager.getProject(project);
-	    g = p.getGoal(goal);
+	    g = p.getGoal(service);
 	} catch (NotFoundException e) {
-	    LOG.debug("Error while loading goal " + goal + " in project "
+	    LOG.debug("Error while loading service " + service + " in project "
 		    + project);
 	    throw new NotFoundException();
 	}
@@ -190,14 +190,14 @@ public class SelfLetProjectManager {
     }
 
     /**
-     * Parse all the services in the "services" folder and creates a goal object for
+     * Parse all the services in the "services" folder and creates a service object for
      * each one of them.
      * */
     private static void loadGoals(SelfLetProject project) {
 
-	ArrayList<IResource> goalResources = project.getGoalResources();
+	ArrayList<IResource> serviceResources = project.getGoalResources();
 
-	for (IResource resource : goalResources) {
+	for (IResource resource : serviceResources) {
 
 	    if (resource == null)
 		continue;

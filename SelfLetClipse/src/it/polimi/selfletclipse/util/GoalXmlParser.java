@@ -19,7 +19,7 @@ import org.xml.sax.SAXException;
 public class GoalXmlParser {
 
 	/* element */
-	public static final String GOAL_TAG = "goal";
+	public static final String GOAL_TAG = "service";
 	public static final String INPUT_TAG = "input";
 	public static final String OUTPUT_TAG = "output";
 	public static final String OFFER_MODE_TAG = "offermode";
@@ -47,7 +47,7 @@ public class GoalXmlParser {
 	private static GoalRepresentation myGoalXml;
 /**
  * Costruttore della classe GoalXmlParser.
- * @param path percorso del goal.xml
+ * @param path percorso del service.xml
  * @throws EvaluationException
  */
 	public GoalXmlParser(String path) throws EvaluationException {
@@ -63,7 +63,7 @@ public class GoalXmlParser {
 /**
  * Il metodo provvede a validare l’xml e a memorizzare i dati in una variabile di tipo GoalRepresentation 
  * altrimenti solleva eccezioni di tipo EvaluatorException nel caso di formattazione non conforme al dtd.
- * @param path percorso del goal.xml
+ * @param path percorso del service.xml
  * @throws EvaluationException
  */
 	public static void EvaluatorXml(String path) throws EvaluationException {
@@ -82,9 +82,9 @@ public class GoalXmlParser {
 
 		NodeList nodes = doc.getElementsByTagName(GOAL_TAG);
 
-		if (nodes.getLength() != 1) // un solo goal per ogni xml
+		if (nodes.getLength() != 1) // un solo service per ogni xml
 			throw new EvaluationException(
-					"Unexpected number of goal nodes in the xml file");
+					"Unexpected number of service nodes in the xml file");
 
 		String name = getNamedAttribute(nodes.item(0), NAME_TAG); // dal primo
 		// nodo
@@ -94,7 +94,7 @@ public class GoalXmlParser {
 		// name
 
 		if (name == null || name.trim().equalsIgnoreCase(""))
-			throw new EvaluationException("Invalid attribute goal name");
+			throw new EvaluationException("Invalid attribute service name");
 		else {
 			myGoalXml.setNameGoal(name);
 		}
@@ -102,7 +102,7 @@ public class GoalXmlParser {
 
 		removeTextNode(nodes);
 		NodeList children = nodes.item(0).getChildNodes(); // restituisce i nodi
-		// figli di goal
+		// figli di service
 		// (input,output,offermode,isActive)
 
 		if (children.getLength() != 4) // controllo che ci siano
@@ -332,7 +332,7 @@ public class GoalXmlParser {
  */
 	public static void demostrate(GoalRepresentation myGoalXml) {
 
-		System.out.println("nome goal:       " + myGoalXml.getNameGoal());
+		System.out.println("nome service:       " + myGoalXml.getNameGoal());
 		for (int i = 0; i < myGoalXml.getInputName().size(); i++) {
 			System.out.println("Input name:    " + myGoalXml.getInputName(i));
 			System.out.println("Input type:    " + myGoalXml.getInputType(i));
@@ -345,14 +345,14 @@ public class GoalXmlParser {
 	}
 /**
  * Metodo che restituisce la rappresentazione del file xml contenuto nell’oggetto myGoalXml di tipo GoalRepresentation.
- * @return rappresentazione dell'xml del goal
+ * @return rappresentazione dell'xml del service
  */
 	public static GoalRepresentation getMyGoalXml() {
 		return myGoalXml;
 	}
 /**
- * Metodo che permette di assegnare all’oggetto myGoalXml il goal passato per parametro.
- * @param myGoalXml oggetto di tipo goalXml
+ * Metodo che permette di assegnare all’oggetto myGoalXml il service passato per parametro.
+ * @param myGoalXml oggetto di tipo serviceXml
  */
 	public static void setMyGoalXml(GoalRepresentation myGoalXml) {
 		GoalXmlParser.myGoalXml = myGoalXml;

@@ -15,14 +15,14 @@ public class InsertGoalModel extends Observable implements Observer {
     // model data
     private String parameterName;
 
-    private String goalName;
+    private String serviceName;
     private ArrayList<GoalParameter> parameters = null;
 
     private String pageTitle;
     private String pageDescription;
 
     private boolean parametersReadOnly;
-    private boolean goalNameReadOnly;
+    private boolean serviceNameReadOnly;
 
     public static final int MAIN_GOAL = 0;
     public static final int GENERIC_GOAL = 1;
@@ -32,25 +32,25 @@ public class InsertGoalModel extends Observable implements Observer {
 
 	switch (type) {
 	case MAIN_GOAL:
-	    pageTitle = "Create the main goal for the selflet";
-	    pageDescription = "Specify the input and the output parameters for the main goal";
+	    pageTitle = "Create the main service for the selflet";
+	    pageDescription = "Specify the input and the output parameters for the main service";
 	    break;
 
 	case GENERIC_GOAL:
 	    pageTitle = "Create a Goal";
-	    pageDescription = "Specify the input and the output parameters for the goal";
+	    pageDescription = "Specify the input and the output parameters for the service";
 	    break;
 	}
 
 	parameterName = "";
-	goalName = "";
+	serviceName = "";
 	parameters = new ArrayList<GoalParameter>();
 	this.parametersReadOnly = false;
-	this.goalNameReadOnly = false;
+	this.serviceNameReadOnly = false;
     }
 
     public Goal getGoal() {
-	return new Goal(goalName, parameters);
+	return new Goal(serviceName, parameters);
     }
 
     public String getParameterName() {
@@ -58,7 +58,7 @@ public class InsertGoalModel extends Observable implements Observer {
     }
 
     public String getGoalName() {
-	return goalName;
+	return serviceName;
     }
 
     public String getPageTitle() {
@@ -69,8 +69,8 @@ public class InsertGoalModel extends Observable implements Observer {
 	return pageDescription;
     }
 
-    void setGoalName(String goal) {
-	this.goalName = goal;
+    void setGoalName(String service) {
+	this.serviceName = service;
 	changeAndNotifyObservers();
     }
 
@@ -103,7 +103,7 @@ public class InsertGoalModel extends Observable implements Observer {
     }
 
     public boolean isGoalComplete() {
-	if (goalName.length() == 0)
+	if (serviceName.length() == 0)
 	    return false;
 
 	if (parameters.isEmpty())
@@ -123,7 +123,7 @@ public class InsertGoalModel extends Observable implements Observer {
 
     public boolean isGoalNameReadOnly() {
 	// if parameters are read only, its not possible to change only the name
-	return parametersReadOnly ? true : goalNameReadOnly;
+	return parametersReadOnly ? true : serviceNameReadOnly;
     }
 
     void removeParameter(int index) {
@@ -133,14 +133,14 @@ public class InsertGoalModel extends Observable implements Observer {
 	changeAndNotifyObservers();
     }
 
-    void setOutputParameter(GoalParameter goalParameter, boolean output) {
-	int index = parameters.indexOf(goalParameter);
+    void setOutputParameter(GoalParameter serviceParameter, boolean output) {
+	int index = parameters.indexOf(serviceParameter);
 
 	if (index < 0)
 	    return;
 
 	for (GoalParameter gp : parameters) {
-	    if (gp.equals(goalParameter))
+	    if (gp.equals(serviceParameter))
 		gp.setOutput(output);
 	    else
 		gp.setOutput(false);
@@ -151,31 +151,31 @@ public class InsertGoalModel extends Observable implements Observer {
     // observer pattern
     public void update(Observable o, Object arg) {
 	if (arg instanceof SelectGoalModel) {
-	    this.goalNameReadOnly = false;
+	    this.serviceNameReadOnly = false;
 	    this.parametersReadOnly = false;
 
 	    SelectGoalModel model = (SelectGoalModel) arg;
-	    goalName = model.getGoalName();
+	    serviceName = model.getGoalName();
 
-	    if (goalName.length() > 0)
-		this.goalNameReadOnly = true;
+	    if (serviceName.length() > 0)
+		this.serviceNameReadOnly = true;
 
 	    // delete previous parameters
 	    parameters.clear();
 
 	    if (!model.isNewGoal()) {
 		//
-		Goal goal;
+		Goal service;
 		try {
-		    goal = SelfLetProjectManager.getGoal(model.getGoalName(),
+		    service = SelfLetProjectManager.getGoal(model.getGoalName(),
 			    model.getProject());
 		} catch (NotFoundException e) {
 		    return;
 		}
 
-		if (goal != null) {
-		    parameters = goal.getParameters();
-		    parameters.add(new GoalParameter(goal.getOutputName(), goal
+		if (service != null) {
+		    parameters = service.getParameters();
+		    parameters.add(new GoalParameter(service.getOutputName(), service
 			    .getOutputType(), true));
 
 		    this.parametersReadOnly = true;

@@ -17,27 +17,27 @@ import org.w3c.dom.NodeList;
 public class XmlUtil {
 
     /**
-     * Parse the input document and returns a goal object
+     * Parse the input document and returns a service object
      * 
      * @param doc
      *            the document to parse
-     * @return the goal parsed from document
+     * @return the service parsed from document
      * 
      * */
     public static Goal parseGoal(Document doc) {
-	Goal goal = new Goal();
+	Goal service = new Goal();
 	ArrayList<GoalParameter> parameters = new ArrayList<GoalParameter>();
 
 	Node node = doc.getFirstChild();
-	if (!node.getNodeName().equals("goal"))
+	if (!node.getNodeName().equals("service"))
 	    return null;
 
-	String goalName = getNamedAttribute(node, "name");
+	String serviceName = getNamedAttribute(node, "name");
 
-	if (goalName == null)
+	if (serviceName == null)
 	    return null;
 
-	goal.setName(goalName);
+	service.setName(serviceName);
 
 	NodeList children = node.getChildNodes();
 
@@ -79,9 +79,9 @@ public class XmlUtil {
 
 	GoalParameter gp = new GoalParameter(name, type, true);
 	parameters.add(gp);
-	goal.setParameters(parameters);
+	service.setParameters(parameters);
 
-	return goal;
+	return service;
     }
 
     /**

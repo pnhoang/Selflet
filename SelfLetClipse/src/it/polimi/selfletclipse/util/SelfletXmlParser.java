@@ -46,13 +46,13 @@ public class SelfletXmlParser {
     public static final String CONDITIONS_TAG = "conditions";
     public static final String CONDITION_TAG = "condition";
     public static final String SERVICES_TAG = "services";
-    public static final String GOAL_TAG = "goal";
+    public static final String GOAL_TAG = "service";
     public static final String RULES_TAG = "rules";
     public static final String RULE_TAG = "rule";
 
     /* attributes */
     public static final String NAME_TAG = "name";
-    public static final String MAIN_GOAL_TAG = "mainGoal";
+    public static final String MAIN_GOAL_TAG = "mainService";
     public static final String VALUE_TAG = "value";
     public static final String FILE_TAG = "file";
 
@@ -203,18 +203,18 @@ public class SelfletXmlParser {
 
 	if (propertiesNodes.item(2).getNodeName() == ACTIVE_TAG) {
 
-	    String maingoal = getNamedAttribute(propertiesNodes.item(2),
-		    MAIN_GOAL_TAG); // controllo se c'è l'attributo maingoal
-	    if (maingoal == null || maingoal.trim().equalsIgnoreCase(""))
-		throw new EvaluationException("Invalid attribute main goal");
+	    String mainservice = getNamedAttribute(propertiesNodes.item(2),
+		    MAIN_GOAL_TAG); // controllo se c'è l'attributo mainservice
+	    if (mainservice == null || mainservice.trim().equalsIgnoreCase(""))
+		throw new EvaluationException("Invalid attribute main service");
 	    else
-		mySelfletXml.setActive_Maingoal(maingoal)/* memorizzare maingoal */;
+		mySelfletXml.setActive_Mainservice(mainservice)/* memorizzare mainservice */;
 
 	}// fine if active_tag
 
 	if (propertiesNodes.item(2).getNodeName() == PASSIVE_TAG) {
 
-	    mySelfletXml.setActive_Maingoal("");
+	    mySelfletXml.setActive_Mainservice("");
 
 	}
 
@@ -595,7 +595,7 @@ public class SelfletXmlParser {
 
 		if (file == null || !validateEXTFile(file, "xml")) {
 		    throw new EvaluationException(
-			    "Invalid attribute of file goal: " + file);
+			    "Invalid attribute of file service: " + file);
 		} else {
 
 		    String projectPath = filePath;
@@ -612,12 +612,12 @@ public class SelfletXmlParser {
 		if (servicesNodes.item(i).getTextContent() != "") {// controllo che
 		    // sia EMPTY
 		    throw new EvaluationException(
-			    "Unexpected content in the goal tag");
+			    "Unexpected content in the service tag");
 		}
 
-	    }// end for goal
+	    }// end for service
 
-	}// end if goal
+	}// end if service
 
 	if (resourcesNodes.item(5).getNodeName() != RULES_TAG)
 	    throw new EvaluationException(
@@ -781,7 +781,7 @@ public class SelfletXmlParser {
 	System.out.println("nome selflet:    " + s.getNameSelflet());
 	System.out.println("nome autore:     " + s.getAuthor());
 	System.out.println("descrizione:     " + s.getDescription());
-	System.out.println("maingoal:        " + s.getActive_Maingoal());
+	System.out.println("mainservice:        " + s.getActive_Mainservice());
 	System.out.println("reds address:    " + s.getMyReds_Address());
 	System.out.println("reds port:       " + s.getMyReds_Port());
 	System.out.println("lime port:       " + s.getLime_Port());

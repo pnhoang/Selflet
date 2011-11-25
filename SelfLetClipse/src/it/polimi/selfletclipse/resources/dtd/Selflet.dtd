@@ -8,7 +8,7 @@
 	<!ELEMENT description (#PCDATA)>
 
 	<!ELEMENT active EMPTY>
-		<!ATTLIST active mainGoal CDATA #REQUIRED>
+		<!ATTLIST active mainService CDATA #REQUIRED>
 	<!ELEMENT passive EMPTY>
 
 	<!ELEMENT reds (address,port)>
@@ -63,9 +63,9 @@
 			<!ATTLIST condition file CDATA #REQUIRED>
 
 	<!-- Goals -->
-	<!ELEMENT services (goal*)>
-		<!ELEMENT goal EMPTY>
-			<!ATTLIST goal file CDATA #REQUIRED>
+	<!ELEMENT services (service*)>
+		<!ELEMENT service EMPTY>
+			<!ATTLIST service file CDATA #REQUIRED>
 
 	<!-- Rules -->
 	<!ELEMENT rules (rule*)>

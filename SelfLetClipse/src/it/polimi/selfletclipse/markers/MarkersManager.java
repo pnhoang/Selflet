@@ -106,11 +106,11 @@ public class MarkersManager {
     // are
     // * respected:
     // *
-    // * 1) The file must contains exactly the goal invocation represented by
+    // * 1) The file must contains exactly the service invocation represented by
     // the
     // * action file name
     // *
-    // * 2) The file must not contain more than one goal invocation
+    // * 2) The file must not contain more than one service invocation
     // *
     // * 3)
     // */
@@ -225,7 +225,7 @@ public class MarkersManager {
     // */
     // Vector<String> services = g.getGoals();
     // /*
-    // * Remove the goal with the same name of the selflet This is the
+    // * Remove the service with the same name of the selflet This is the
     // * case when we are dealing with elementary behavior
     // */
     // services.remove(g.getFileNameWithoutExtension());
@@ -246,15 +246,15 @@ public class MarkersManager {
     // */
     // services.remove("wait");
     //
-    // /* If some goal is not implemented then we must report a warning */
+    // /* If some service is not implemented then we must report a warning */
     // if (services.size() > 0)
-    // for (String goal : services) {
+    // for (String service : services) {
     // try {
     // /* Create warnings */
     // IMarker m = g.getFile().createMarker(IMarker.PROBLEM);
     // m
-    // .setAttribute(IMarker.MESSAGE, "Missing goal: "
-    // + goal);
+    // .setAttribute(IMarker.MESSAGE, "Missing service: "
+    // + service);
     // m.setAttribute(IMarker.TRANSIENT, true);
     // m.setAttribute(IMarker.LOCATION, "Selflet "
     // + g.getFile().getProject().getName());

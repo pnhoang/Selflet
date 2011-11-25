@@ -33,7 +33,7 @@ public class NewBehaviorWizardWriter {
 
 	// Parameters
 	private IProject prj;
-	private Goal goal;
+	private Goal service;
 
 	private IWorkbenchWindow window;
 	private SelectGoalModel selectGoalModel;
@@ -42,11 +42,11 @@ public class NewBehaviorWizardWriter {
 
 	public NewBehaviorWizardWriter(SelectGoalModel selectGoalModel,
 			SelectProjectModel selectProjectModel,
-			InsertGoalModel goalWizardModel) {
+			InsertGoalModel serviceWizardModel) {
 
 		this.selectGoalModel = selectGoalModel;
 		this.selectProjectModel = selectProjectModel;
-		this.insertGoalModel = goalWizardModel;
+		this.insertGoalModel = serviceWizardModel;
 		this.window = Workbench.getInstance().getActiveWorkbenchWindow();
 	}
 
@@ -56,28 +56,28 @@ public class NewBehaviorWizardWriter {
 
 	private void createBehavior() {
 
-		goal = insertGoalModel.getGoal();
+		service = insertGoalModel.getGoal();
 
-		String goalName = goal.getName();
+		String serviceName = service.getName();
 		String projectName = selectProjectModel.getProjectName();
 
 		prj = SelfLetPlugin.root.getProject(projectName);
 
-		IFile file = prj.getFile("behaviors/" + goalName + ".zargo");
+		IFile file = prj.getFile("behaviors/" + serviceName + ".zargo");
 
-		createBehaviorFile(goalName, file, selectGoalModel.isComplex());
+		createBehaviorFile(serviceName, file, selectGoalModel.isComplex());
 
 		if (selectGoalModel.isComplex()) {
-			createComplexAction(goalName);
+			createComplexAction(serviceName);
 		} else {
-			createElementaryAction(goalName);
+			createElementaryAction(serviceName);
 		}
 
 		WorkspaceManager.refreshResourcesTree();
 
 		if (!selectGoalModel.isNewGoal()) {
 			try {
-				WorkspaceWriter.writeGoalFile(goal, projectName);
+				WorkspaceWriter.writeGoalFile(service, projectName);
 			} catch (WriteErrorException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -107,8 +107,8 @@ public class NewBehaviorWizardWriter {
 		s = s.concat("\tIInternalKnowledge kb = $6;\n\n");
 		s = s.concat("\n");
 
-		String name = goal.getOutputName();
-		String type = goal.getOutputType();
+		String name = service.getOutputName();
+		String type = service.getOutputType();
 
 		s = s.concat("\t" + type + " " + name + " = null;\n");
 		s = s.concat("\t" + name + " = ae.needGoal(\"" + behaviorName
@@ -129,7 +129,7 @@ public class NewBehaviorWizardWriter {
 			e.printStackTrace();
 		}
 
-		int numParameters = goal.getParameters().size();
+		int numParameters = service.getParameters().size();
 
 		// Create the content for the action
 		String s = new String();
@@ -151,8 +151,8 @@ public class NewBehaviorWizardWriter {
 		s = s.concat("\tList params = new ArrayList();\n");
 		s = s.concat("\tparams.add(abilityParams);\n");
 
-		String name = goal.getOutputName();
-		String type = goal.getOutputType();
+		String name = service.getOutputName();
+		String type = service.getOutputType();
 
 		// if (outputParam != null) {
 
@@ -170,7 +170,7 @@ public class NewBehaviorWizardWriter {
 
 	private String appendParamValues(String content) {
 
-		ArrayList<GoalParameter> services = goal.getParameters();
+		ArrayList<GoalParameter> services = service.getParameters();
 
 		int i = 0;
 		for (GoalParameter param : services) {
@@ -184,7 +184,7 @@ public class NewBehaviorWizardWriter {
 
 	private String appendVariablesFromKnowledge(String s) {
 
-		ArrayList<GoalParameter> services = goal.getParameters();
+		ArrayList<GoalParameter> services = service.getParameters();
 		for (GoalParameter param : services) {
 			s = s.concat("\ttry {\n");
 			s = s.concat("\t\t" + param.getName() + " = (" + param.getType()
@@ -203,14 +203,14 @@ public class NewBehaviorWizardWriter {
 	 */
 	private String appendVariablesDeclaration(String s) {
 
-		ArrayList<GoalParameter> services = goal.getParameters();
+		ArrayList<GoalParameter> services = service.getParameters();
 		// Input
 		for (GoalParameter param : services) {
 			s = s.concat("\t" + param.getType() + " " + param.getName()
 					+ " = null;\n");
 		}
 		// Output
-		s = s.concat("\t" + goal.getOutputType() + " " + goal.getOutputName()
+		s = s.concat("\t" + service.getOutputType() + " " + service.getOutputName()
 				+ " = null;\n");
 
 		return s;

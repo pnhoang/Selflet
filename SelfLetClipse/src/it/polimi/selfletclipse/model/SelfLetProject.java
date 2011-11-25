@@ -21,7 +21,7 @@ public class SelfLetProject {
 	private boolean createDirectories;
 	private boolean activeSelflet;
 
-	private Goal mainGoal;
+	private Goal mainService;
 	private ArrayList<Goal> services;
 
 	private Map<String, ArrayList<IResource>> resourcesMap;
@@ -101,8 +101,8 @@ public class SelfLetProject {
 		this.activeSelflet = activeSelflet;
 	}
 
-	public void setMainGoal(Goal mainGoal) {
-		this.mainGoal = mainGoal;
+	public void setMainGoal(Goal mainService) {
+		this.mainService = mainService;
 	}
 
 	public String getAuthor() {
@@ -134,7 +134,7 @@ public class SelfLetProject {
 	}
 
 	public Goal getMainGoal() {
-		return mainGoal;
+		return mainService;
 	}
 
 	public String getName() {
@@ -149,10 +149,10 @@ public class SelfLetProject {
 		return projectResource;
 	}
 
-	public Goal getGoal(String goalName) throws NotFoundException {
-		for (Goal goal : services) {
-			if (goal.getName().equals(goalName))
-				return goal;
+	public Goal getGoal(String serviceName) throws NotFoundException {
+		for (Goal service : services) {
+			if (service.getName().equals(serviceName))
+				return service;
 		}
 
 		throw new NotFoundException();
@@ -168,13 +168,13 @@ public class SelfLetProject {
 		return resourcesMap.get(services);
 	}
 
-	public void addGoal(Goal goal) {
+	public void addGoal(Goal service) {
 		for (Goal g : services) {
-			if (g.equals(goal))
+			if (g.equals(service))
 				services.remove(g);
 		}
 
-		services.add(goal);
+		services.add(service);
 	}
 
 	/**

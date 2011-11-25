@@ -82,23 +82,23 @@ public class SelfletRepresentation {
     }
 
     /**
-     * Metodo che consente di assegnare alla variabile active_Maingoal l’active
-     * maingoal della selflet.
+     * Metodo che consente di assegnare alla variabile active_Mainservice l’active
+     * mainservice della selflet.
      * 
-     * @param active_Maingoal
-     *            active main goal
+     * @param active_Mainservice
+     *            active main service
      */
-    public void setActive_Maingoal(String active_Maingoal) {
-	properties.active_Maingoal = active_Maingoal;
+    public void setActive_Mainservice(String active_Mainservice) {
+	properties.active_Mainservice = active_Mainservice;
     }
 
     /**
-     * Metodo che restituisce l’active maingoal della selflet.
+     * Metodo che restituisce l’active mainservice della selflet.
      * 
-     * @return active maingoal
+     * @return active mainservice
      */
-    public String getActive_Maingoal() {
-	return (properties.active_Maingoal);
+    public String getActive_Mainservice() {
+	return (properties.active_Mainservice);
     }
 
     /**
@@ -559,9 +559,9 @@ public class SelfletRepresentation {
     }
 
     /**
-     * Metodo che aggiunge il nome del goal al vettore dei goal e istanzia un
-     * oggetto goalXmlParser con il parametro passato. Aggiunge al vettore
-     * goalXml la rappresentazione del goal parsato.
+     * Metodo che aggiunge il nome del service al vettore dei service e istanzia un
+     * oggetto serviceXmlParser con il parametro passato. Aggiunge al vettore
+     * serviceXml la rappresentazione del service parsato.
      * 
      * @param services
      */
@@ -583,7 +583,7 @@ public class SelfletRepresentation {
      * 
      * @param i
      *            index
-     * @return rappresentazione del goal
+     * @return rappresentazione del service
      */
     public GoalRepresentation getGoalRepresentation(int i) {
 	return (GoalRepresentation) (servicesXml.get(i));
@@ -594,7 +594,7 @@ public class SelfletRepresentation {
      * 
      * @param i
      *            index
-     * @return goal
+     * @return service
      */
     public String getGoals(int i) {
 	return (resources.services.get(i).toString());
@@ -603,7 +603,7 @@ public class SelfletRepresentation {
     /**
      * Metodo che restituisce un vettore di stringhe con l’insieme dei Goals.
      * 
-     * @return vettore dei goal
+     * @return vettore dei service
      */
     public Vector<String> getGoals() {
 	return resources.services;
@@ -646,7 +646,7 @@ public class SelfletRepresentation {
 
 	private String author;
 	private String description;
-	private String active_Maingoal;
+	private String active_Mainservice;
 
 	private MyReds myReds = new MyReds();
 
@@ -706,7 +706,7 @@ public class SelfletRepresentation {
      * Metodo che restituisce un vettore di oggetti di tipo GoalRepresentation
      * con l’insieme delle rappresentazioni dei Goals.
      * 
-     * @return vettore contenente la rappresentazione dei goal
+     * @return vettore contenente la rappresentazione dei service
      */
     public Vector<GoalRepresentation> getMyGoalsXml() {
 	return servicesXml;

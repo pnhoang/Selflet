@@ -6,8 +6,8 @@ public class InsertGoalController {
 
     private InsertGoalModel model;
 
-    public InsertGoalController(InsertGoalModel goalModel) {
-	this.model = goalModel;
+    public InsertGoalController(InsertGoalModel serviceModel) {
+	this.model = serviceModel;
     }
 
     public void setParameterName(String par) {
@@ -30,8 +30,8 @@ public class InsertGoalController {
 	model.removeParameter(index);
     }
 
-    public void setOutputParameter(GoalParameter goalParameter, boolean output) {
-	model.setOutputParameter(goalParameter, output);
+    public void setOutputParameter(GoalParameter serviceParameter, boolean output) {
+	model.setOutputParameter(serviceParameter, output);
     }
 
 }

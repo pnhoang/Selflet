@@ -28,9 +28,9 @@ public class NewGoalWizard extends Wizard implements INewWizard {
 
     private static final Logger LOG = Logger.getLogger(NewGoalWizard.class);
 
-    private InsertGoalModel goalModel;
-    private InsertGoalController goalController;
-    private InsertGoalView goalView;
+    private InsertGoalModel serviceModel;
+    private InsertGoalController serviceController;
+    private InsertGoalView serviceView;
 
     private SelectProjectModel selectProjectModel;
     private SelectProjectController selectProjectController;
@@ -47,16 +47,16 @@ public class NewGoalWizard extends Wizard implements INewWizard {
 	selectProjectView = new SelectProjectView(selectProjectController);
 	selectProjectModel.addObserver(selectProjectView);
 
-	goalModel = new InsertGoalModel(InsertGoalModel.MAIN_GOAL);
-	goalController = new InsertGoalController(goalModel);
-	goalView = new InsertGoalView(goalController);
-	goalModel.addObserver(goalView);
+	serviceModel = new InsertGoalModel(InsertGoalModel.MAIN_GOAL);
+	serviceController = new InsertGoalController(serviceModel);
+	serviceView = new InsertGoalView(serviceController);
+	serviceModel.addObserver(serviceView);
     }
 
     @Override
     public void addPages() {
 	addPage(selectProjectView);
-	addPage(goalView);
+	addPage(serviceView);
     }
 
     @Override
@@ -64,18 +64,18 @@ public class NewGoalWizard extends Wizard implements INewWizard {
 
 	WorkspaceManager.refreshResourcesTree();
 
-	Goal goal = goalModel.getGoal();
+	Goal service = serviceModel.getGoal();
 	String projectName = selectProjectModel.getProjectName();
 	IFile file = null;
 	try {
-	    file = WorkspaceWriter.writeGoalFile(goal, projectName);
+	    file = WorkspaceWriter.writeGoalFile(service, projectName);
 	} catch (WriteErrorException e1) {
 	    // TODO
 	}
 
-	goal.setGoalResource(file);
+	service.setGoalResource(file);
 	try {
-	    SelfLetProjectManager.getProject(projectName).addGoal(goal);
+	    SelfLetProjectManager.getProject(projectName).addGoal(service);
 	} catch (NotFoundException e1) {
 	    // TODO
 	}

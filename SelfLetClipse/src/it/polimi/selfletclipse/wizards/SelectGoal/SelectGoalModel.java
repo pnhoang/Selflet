@@ -16,7 +16,7 @@ import org.eclipse.core.resources.IResource;
 
 public class SelectGoalModel extends Observable {
 
-    private String goalName;
+    private String serviceName;
     private String project;
     private boolean isComplex;
     private boolean isNewGoal;
@@ -25,7 +25,7 @@ public class SelectGoalModel extends Observable {
 	// initialization
 	this.isComplex = true;
 	this.isNewGoal = false;
-	this.goalName = "";
+	this.serviceName = "";
 	this.project = "";
     }
 
@@ -39,7 +39,7 @@ public class SelectGoalModel extends Observable {
     }
 
     public String getGoalName() {
-	return goalName;
+	return serviceName;
     }
 
     public String getProject() {
@@ -56,8 +56,8 @@ public class SelectGoalModel extends Observable {
 	changeAndNotifyObservers();
     }
 
-    void setSelectedGoal(String goal, String project) {
-	this.goalName = goal;
+    void setSelectedGoal(String service, String project) {
+	this.serviceName = service;
 	this.project = project;
 	changeAndNotifyObservers();
     }
@@ -71,27 +71,27 @@ public class SelectGoalModel extends Observable {
 	for (SelfLetProject project : projects) {
 
 	    ArrayList<Goal> services = project.getGoals();
-	    ArrayList<String> goalNames = new ArrayList<String>();
+	    ArrayList<String> serviceNames = new ArrayList<String>();
 
-	    for (Goal goal : services) {
-		String goalName = goal.getName();
-		if (goalName.endsWith(".xml"))
-		    goalName = goalName.substring(0, goalName.length()
+	    for (Goal service : services) {
+		String serviceName = service.getName();
+		if (serviceName.endsWith(".xml"))
+		    serviceName = serviceName.substring(0, serviceName.length()
 			    - ".xml".length());
-		goalNames.add(goalName);
+		serviceNames.add(serviceName);
 	    }
-	    map.put(project.getName(), goalNames);
+	    map.put(project.getName(), serviceNames);
 	}
 
 	return map;
     }
 
     public boolean isGoalComplete() {
-	// at least a goal name...
-	if (goalName.length() <= 0)
+	// at least a service name...
+	if (serviceName.length() <= 0)
 	    return false;
 
-	// we just need a goal name
+	// we just need a service name
 	if (isNewGoal)
 	    return true;
 
@@ -111,8 +111,8 @@ public class SelectGoalModel extends Observable {
 	return this.isNewGoal;
     }
 
-    void setGoalName(String goal) {
-	this.goalName = goal;
+    void setGoalName(String service) {
+	this.serviceName = service;
 	changeAndNotifyObservers();
     }
 

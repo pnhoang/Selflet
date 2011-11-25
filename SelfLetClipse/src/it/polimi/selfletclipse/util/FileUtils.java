@@ -61,11 +61,11 @@ public class FileUtils {
     }
 
     /**
-     * Load the document from the specified file and then returns a goal object
+     * Load the document from the specified file and then returns a service object
      * extracted form the given resource.
      * 
-     * @return null if the file does not represents a valid goal xml file, the
-     *         goal otherwise
+     * @return null if the file does not represents a valid service xml file, the
+     *         service otherwise
      * */
     public static Goal loadGoalFromFile(IResource resource) {
 

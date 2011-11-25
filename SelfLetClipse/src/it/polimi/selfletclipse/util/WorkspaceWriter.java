@@ -32,17 +32,17 @@ public class WorkspaceWriter {
 	}
 
 	/**
-	 * Write a goal xml file in the project identified by the project name given
+	 * Write a service xml file in the project identified by the project name given
 	 * as parameter.
 	 * 
-	 * @param goal
-	 *            The goal to write
+	 * @param service
+	 *            The service to write
 	 * @param projectName
-	 *            The project in which to write the goal
+	 *            The project in which to write the service
 	 * @return
 	 * @throws WriteErrorException
 	 * */
-	public static IFile writeGoalFile(Goal goal, String projectName)
+	public static IFile writeGoalFile(Goal service, String projectName)
 	throws WriteErrorException {
 
 		SelfLetProject project = null;
@@ -54,20 +54,20 @@ public class WorkspaceWriter {
 		}
 
 		if (project == null || project.getProjectResource() == null)
-			throw new WriteErrorException("Cannot write goal " + goal
+			throw new WriteErrorException("Cannot write service " + service
 					+ " in project " + projectName);
 
 		IProject projectResource = project.getProjectResource();
 
-		String path = new String("services/" + goal.getName() + ".xml");
+		String path = new String("services/" + service.getName() + ".xml");
 		IFile file = FileUtils.createFileInProject(projectResource, path);
 
 		String s = new String();
 
-		s = s.concat("<goal name=\"" + goal.getName() + "\">\r\n");
+		s = s.concat("<service name=\"" + service.getName() + "\">\r\n");
 		s = s.concat("\t<input>\n");
 
-		ArrayList<GoalParameter> parameters = goal.getParameters();
+		ArrayList<GoalParameter> parameters = service.getParameters();
 
 		for (GoalParameter parameter : parameters) {
 			s = s.concat("\t\t<param name=\"" + parameter.getName()
@@ -76,10 +76,10 @@ public class WorkspaceWriter {
 
 		s = s.concat("\t</input>\r\n");
 		s = s.concat("\t<output>\r\n");
-		s = s.concat("\t\t<param name=\"" + goal.getOutputName() + "\" type=\""
-				+ goal.getOutputType() + "\" />\r\n");
+		s = s.concat("\t\t<param name=\"" + service.getOutputName() + "\" type=\""
+				+ service.getOutputType() + "\" />\r\n");
 		s = s.concat("\t</output>\r\n");
-		s = s.concat("</goal>\r\n");
+		s = s.concat("</service>\r\n");
 
 		FileUtils.writeFile(file, s);
 		return file;
@@ -147,7 +147,7 @@ public class WorkspaceWriter {
 		s = s.concat("\t\t<description>" + project.getDescription()
 				+ "</description>\r\n");
 
-		String mode = project.isActiveSelflet() ? "active mainGoal=\""
+		String mode = project.isActiveSelflet() ? "active mainService=\""
 				: "passive";
 
 		// add parameter
@@ -243,16 +243,16 @@ public class WorkspaceWriter {
 		}
 		
 		
-		for (IResource goalFile : services){
-			System.out.println("file: " + goalFile.getName());	
+		for (IResource serviceFile : services){
+			System.out.println("file: " + serviceFile.getName());	
 		}
 		
 		String s = new String();
 		
-		for (IResource goal : services) {
-			String name = goal.getName() + ".xml";
-			s = s + "\t\t\t<goal file=\"" + folderName + "/" + name + "\">";
-			s = s + "</goal>\n";
+		for (IResource service : services) {
+			String name = service.getName();
+			s = s + "\t\t\t<service file=\"" + folderName + "/" + name + "\">";
+			s = s + "</service>\n";
 		}
 
 		return s;

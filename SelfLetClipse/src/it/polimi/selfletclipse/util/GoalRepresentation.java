@@ -23,7 +23,7 @@ public class GoalRepresentation {
     /**
      * Metodo che restituisce il nome del Goal.
      * 
-     * @return nome goal
+     * @return nome service
      */
     public String getNameGoal() {
 	return nameGoal;
@@ -34,7 +34,7 @@ public class GoalRepresentation {
      * Goal.
      * 
      * @param nameGoal
-     *            nome del goal
+     *            nome del service
      */
     public void setNameGoal(String nameGoal) {
 	this.nameGoal = nameGoal;
@@ -122,7 +122,7 @@ public class GoalRepresentation {
     }
 
     /**
-     * Metodo che restituisce il nome del parametro di output del goal.
+     * Metodo che restituisce il nome del parametro di output del service.
      * 
      * @return nome parametro di output
      */
@@ -131,7 +131,7 @@ public class GoalRepresentation {
     }
 
     /**
-     * Metodo che restituisce il type del parametro di output del goal.
+     * Metodo che restituisce il type del parametro di output del service.
      * 
      * @return type parametro di output
      */
@@ -141,10 +141,10 @@ public class GoalRepresentation {
 
     /**
      * Metodo che consente di assegnare alla variabile outputName il nome
-     * dell’output del goal.
+     * dell’output del service.
      * 
      * @param name
-     *            nome goal output
+     *            nome service output
      */
     public void setOutputName(String name) {
 	this.output.name = name;
@@ -152,27 +152,27 @@ public class GoalRepresentation {
 
     /**
      * Metodo che consente di assegnare alla variabile outputType il nome
-     * dell’output del goal.
+     * dell’output del service.
      * 
      * @param type
-     *            type goal output
+     *            type service output
      */
     public void setOutputType(String type) {
 	this.output.type = type;
     }
 
     /**
-     * Metodo che restituisce true se il goal è attivo o false se il goal non è
+     * Metodo che restituisce true se il service è attivo o false se il service non è
      * attivo.
      * 
-     * @return true se il goal attivo false se il goal non è attivo
+     * @return true se il service attivo false se il service non è attivo
      */
     public Boolean getIsActive() {
 	return isActive;
     }
 
     /**
-     * Metodo che consente di settare il goal ad attivo o non attivo.
+     * Metodo che consente di settare il service ad attivo o non attivo.
      * 
      * @param isActive
      *            true se è active
@@ -192,7 +192,7 @@ public class GoalRepresentation {
 
     /**
      * Metodo che consente di assegnare alla variabile offerMode il tipo di
-     * offerMode del goal;
+     * offerMode del service;
      * 
      * @param offerMode
      *            tipo di offermode

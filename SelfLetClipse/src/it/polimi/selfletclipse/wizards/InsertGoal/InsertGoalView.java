@@ -97,7 +97,7 @@ public class InsertGoalView extends WizardPage implements Observer {
         buttonAdd.setEnabled(false);
         
         /*
-         * Add the goal name into table when pressing the add button
+         * Add the service name into table when pressing the add button
          */
         buttonAdd.addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent e) {
@@ -148,7 +148,7 @@ public class InsertGoalView extends WizardPage implements Observer {
         
         Label labelGoalName = new Label(labelAndTextComposite, SWT.LEFT);
         labelGoalName.setLayoutData(new RowData(150, 15));
-        labelGoalName.setText("Goal name: ");
+        labelGoalName.setText("Service name: ");
         
         textGoalName = new Text(labelAndTextComposite, SWT.BORDER);
         textGoalName.setLayoutData(new RowData(300, 15));
@@ -231,11 +231,11 @@ public class InsertGoalView extends WizardPage implements Observer {
                     
                     TableItem ti = (TableItem) o;
                     Object data = ti.getData();
-                    GoalParameter goalParameter = (GoalParameter) data;
+                    GoalParameter serviceParameter = (GoalParameter) data;
                     if (ti.getChecked())
-                        controller.setOutputParameter(goalParameter, true);
+                        controller.setOutputParameter(serviceParameter, true);
                     else
-                        controller.setOutputParameter(goalParameter, false);
+                        controller.setOutputParameter(serviceParameter, false);
                 }
             }
         });
@@ -362,11 +362,11 @@ public class InsertGoalView extends WizardPage implements Observer {
         
     }
     
-    private void fillTable(ArrayList<GoalParameter> goalParameters) {
+    private void fillTable(ArrayList<GoalParameter> serviceParameters) {
         table.removeAll();
         
         TableItem newItem;
-        for (GoalParameter gp : goalParameters) {
+        for (GoalParameter gp : serviceParameters) {
             newItem = new TableItem(table, SWT.NONE);
             newItem.setText(new String[] { gp.getName(), gp.getType() });
             newItem.setChecked(gp.isOutput());

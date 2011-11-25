@@ -43,7 +43,7 @@ public class SelectGoalView extends WizardPage implements Observer {
     private Tree tree;
     private boolean treeAlreadyContainsValues = false;
     
-    private final static String pageName = "Select goal";
+    private final static String pageName = "Select service";
     
     public SelectGoalView(SelectGoalController selectGoalController) {
         super(pageName);
@@ -111,11 +111,11 @@ public class SelectGoalView extends WizardPage implements Observer {
     }
     
     private void createUpperPart() {
-        /* Radio button existing goal */
+        /* Radio button existing service */
         this.buttonExistingGoal = new Button(topLevel, SWT.RADIO);
         buttonExistingGoal.setSelection(true);
         buttonExistingGoal
-		.setText("Select from existing goal in the workspace:");
+		.setText("Select from existing service in the workspace:");
         
         GridData gd1 = new GridData();
         gd1.horizontalAlignment = GridData.FILL;
@@ -137,7 +137,7 @@ public class SelectGoalView extends WizardPage implements Observer {
                 TreeItem item = (TreeItem) event.item;
                 Object data = item.getData();
                 
-                if ((data instanceof String) && ((String) data).equals("goal")) {
+                if ((data instanceof String) && ((String) data).equals("service")) {
                     controller.setSelectedGoal(item.getText(), item
                                                .getParentItem().getText());
                 } else {
@@ -161,7 +161,7 @@ public class SelectGoalView extends WizardPage implements Observer {
             }
         });
         
-        /* Radio button new goal */
+        /* Radio button new service */
         this.buttonNewGoal = new Button(topLevel, SWT.RADIO);
         buttonNewGoal.setText("New Goal");
         buttonNewGoal.setSelection(false);
@@ -170,7 +170,7 @@ public class SelectGoalView extends WizardPage implements Observer {
         gd2.horizontalAlignment = GridData.FILL;
         gd2.grabExcessHorizontalSpace = true;
         
-        /* Text box for a new goal */
+        /* Text box for a new service */
         this.textGoalName = new Text(topLevel, SWT.BORDER);
         textGoalName.setLayoutData(gd2);
         textGoalName.setEnabled(false);
@@ -187,7 +187,7 @@ public class SelectGoalView extends WizardPage implements Observer {
         setControl(topLevel);
         
         setTitle("Create a Behavior");
-        setDescription("Select the goal this behavior implements");
+        setDescription("Select the service this behavior implements");
         
         GridLayout gl = new GridLayout();
         gl.numColumns = 2;
@@ -236,11 +236,11 @@ public class SelectGoalView extends WizardPage implements Observer {
             
             ArrayList<String> services = projectGoals.get(projectName);
             
-            for (String goal : services) {
-                TreeItem goalItem = new TreeItem(item, SWT.None);
-                goalItem.setText(goal);
-                goalItem.setData("goal");
-                goalItem.setImage(ImagesManager.STATE);
+            for (String service : services) {
+                TreeItem serviceItem = new TreeItem(item, SWT.None);
+                serviceItem.setText(service);
+                serviceItem.setData("service");
+                serviceItem.setImage(ImagesManager.STATE);
             }
         }
     }

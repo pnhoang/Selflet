@@ -1,5 +1,5 @@
-<!ELEMENT goal (input,output,offermode,isActive)>
-	<!ATTLIST goal name CDATA #REQUIRED>
+<!ELEMENT service (input,output,offermode,isActive)>
+	<!ATTLIST service name CDATA #REQUIRED>
 	
 	<!ELEMENT input (param*)>
 		<!ELEMENT param EMPTY>
