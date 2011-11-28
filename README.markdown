@@ -1,4 +1,4 @@
-INTRODUCTIONS
+INTRODUCTION
 =============
 
 Welcome to the Selflet wiki!
