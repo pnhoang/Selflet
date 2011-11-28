@@ -7,6 +7,7 @@ import java.util.List;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -112,7 +113,7 @@ public class FinalEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(20, 20);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(35, 35);
 		return result;
 	}
 
@@ -275,10 +276,29 @@ public class FinalEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public FinalFigure() {
+			this.setFillXOR(true);
+			this.setLineWidth(5);
 			this.setForegroundColor(ColorConstants.black);
 			this.setBackgroundColor(ColorConstants.black);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20),
-					getMapMode().DPtoLP(20)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(35),
+					getMapMode().DPtoLP(35)));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			Ellipse elli0 = new Ellipse();
+			elli0.setFillXOR(true);
+			elli0.setForegroundColor(ColorConstants.black);
+			elli0.setBackgroundColor(ColorConstants.black);
+			elli0.setPreferredSize(new Dimension(getMapMode().DPtoLP(22),
+					getMapMode().DPtoLP(22)));
+
+			this.add(elli0);
+
 		}
 
 	}

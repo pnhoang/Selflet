@@ -8,9 +8,11 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -183,7 +185,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(200, 40);
 		return result;
 	}
 
@@ -371,7 +373,7 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class InvocationStateFigure extends RectangleFigure {
+	public class InvocationStateFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
@@ -396,9 +398,12 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setLineStyle(Graphics.LINE_DASH);
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			this.setForegroundColor(ColorConstants.black);
 			this.setBackgroundColor(THIS_BACK);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
+					getMapMode().DPtoLP(40)));
 			createContents();
 		}
 
@@ -439,6 +444,6 @@ public class InvocationEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 250, 220, 220);
+	static final Color THIS_BACK = new Color(null, 166, 223, 107);
 
 }

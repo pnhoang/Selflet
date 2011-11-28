@@ -84,9 +84,10 @@ public class SelfletBehaviorPaletteFactory {
 				Messages.InitialState1CreationTool_title,
 				Messages.InitialState1CreationTool_desc, types);
 		entry.setId("createInitialState1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Init_3011));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/Initial.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/Initial.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -101,9 +102,10 @@ public class SelfletBehaviorPaletteFactory {
 				Messages.FinalState2CreationTool_title,
 				Messages.FinalState2CreationTool_desc, types);
 		entry.setId("createFinalState2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Final_3014));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/Final.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/Final.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -117,9 +119,10 @@ public class SelfletBehaviorPaletteFactory {
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Intermediate_3016));
 		entry.setId("createIntermediateState3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Intermediate_3016));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/inter.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/inter.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -133,9 +136,10 @@ public class SelfletBehaviorPaletteFactory {
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Invocation_3012));
 		entry.setId("createInvocationState4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Invocation_3012));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/Invo.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/Invo.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -149,9 +153,10 @@ public class SelfletBehaviorPaletteFactory {
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Elementary_3001));
 		entry.setId("createElementaryBehavior5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Elementary_3001));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/Elementary.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/Elementary.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -165,9 +170,10 @@ public class SelfletBehaviorPaletteFactory {
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Complex_3006));
 		entry.setId("createComplexBehavior6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Complex_3006));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/Complex.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/Complex.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -182,9 +188,10 @@ public class SelfletBehaviorPaletteFactory {
 				Messages.Action7CreationTool_title,
 				Messages.Action7CreationTool_desc, types);
 		entry.setId("createAction7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Action_3013));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/action.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/action.png")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -198,9 +205,10 @@ public class SelfletBehaviorPaletteFactory {
 				Collections
 						.singletonList(SelfletBehaviorElementTypes.Condition_4007));
 		entry.setId("createStateConnection1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(SelfletBehaviorElementTypes
-				.getImageDescriptor(SelfletBehaviorElementTypes.Condition_4007));
-		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setSmallIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/smallResources/Connector.png")); //$NON-NLS-1$
+		entry.setLargeIcon(SelfletBehaviorDiagramEditorPlugin
+				.findImageDescriptor("/SelfletBehavior/src/bigResources/Connector.png")); //$NON-NLS-1$
 		return entry;
 	}
 

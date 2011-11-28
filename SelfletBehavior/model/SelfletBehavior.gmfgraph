@@ -13,7 +13,14 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="StateNextFigure"
+          lineWidth="2"
           targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
         <children
             xsi:type="gmfgraph:Label"
             name="nextConditionLabelFigure"
@@ -54,26 +61,27 @@
         name="FinalFigure">
       <actualFigure
           xsi:type="gmfgraph:Ellipse"
-          name="FinalFigure">
+          name="FinalFigure"
+          lineWidth="5"
+          xorFill="true">
         <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
         <backgroundColor
-            xsi:type="gmfgraph:ConstantColor"/>
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
         <preferredSize
             dx="35"
             dy="35"/>
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
         <children
-            xsi:type="gmfgraph:Ellipse">
+            xsi:type="gmfgraph:Ellipse"
+            xorFill="true">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
           <backgroundColor
-              xsi:type="gmfgraph:RGBColor"/>
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
           <preferredSize
               dx="22"
               dy="22"/>
@@ -97,9 +105,9 @@
             minorSpacing="0"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="250"
-            green="250"
-            blue="250"/>
+            red="232"
+            green="187"
+            blue="108"/>
         <preferredSize
             dx="200"
             dy="40"/>
@@ -140,9 +148,9 @@
             value="black"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="250"
-            green="220"
-            blue="220"/>
+            red="166"
+            green="223"
+            blue="107"/>
         <preferredSize
             dx="200"
             dy="40"/>
@@ -215,6 +223,16 @@
               xsi:type="gmfgraph:BorderLayoutData"
               alignment="BEGINNING"
               vertical="true"/>
+          <foregroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="166"
+              green="223"
+              blue="107"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="166"
+              green="223"
+              blue="107"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -222,6 +240,11 @@
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
               vertical="true"/>
+          <foregroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="166"
+              green="223"
+              blue="107"/>
         </children>
       </actualFigure>
       <accessors
@@ -243,6 +266,11 @@
               xsi:type="gmfgraph:BorderLayoutData"
               alignment="BEGINNING"
               vertical="true"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="232"
+              green="187"
+              blue="108"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -250,6 +278,11 @@
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
               vertical="true"/>
+          <foregroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="232"
+              green="187"
+              blue="108"/>
         </children>
       </actualFigure>
       <accessors

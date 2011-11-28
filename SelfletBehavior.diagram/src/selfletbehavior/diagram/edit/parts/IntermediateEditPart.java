@@ -184,7 +184,7 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(200, 40);
 		return result;
 	}
 
@@ -397,9 +397,11 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(25),
-					getMapMode().DPtoLP(25)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			this.setBackgroundColor(THIS_BACK);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
+					getMapMode().DPtoLP(40)));
 			createContents();
 		}
 
@@ -440,6 +442,6 @@ public class IntermediateEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 250, 250, 250);
+	static final Color THIS_BACK = new Color(null, 232, 187, 108);
 
 }

@@ -13,63 +13,91 @@
           title="Initial State"
           description="Create new Initial State">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/Initial.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/Initial.png"
+            bundle="SelfletBehavior"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Final State"
           description="Create new Final State">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/Final.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/Final.png"
+            bundle="SelfletBehavior"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Intermediate State"
           description="Create new intermediate state (calling service state)">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/inter.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/inter.png"
+            bundle="SelfletBehavior"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Invocation State"
           description="Create new Invocation State">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/Invo.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/Invo.png"
+            bundle="SelfletBehavior"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Elementary Behavior"
           description="Create a new Selflet Elementary Behavior">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/Elementary.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/Elementary.png"
+            bundle="SelfletBehavior"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Complex Behavior"
           description="Create a new Selflet Complex Behavior">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/Complex.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/Complex.png"
+            bundle="SelfletBehavior"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Action"
           description="Create a new Action file or script">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/action.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/action.png"
+            bundle="SelfletBehavior"/>
       </tools>
     </tools>
     <tools
@@ -82,9 +110,13 @@
           title="State Connection"
           description="Create new connection from one State to another">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/smallResources/Connector.png"
+            bundle="SelfletBehavior"/>
         <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="src/bigResources/Connector.png"
+            bundle="SelfletBehavior"/>
       </tools>
     </tools>
   </palette>

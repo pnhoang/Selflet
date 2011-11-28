@@ -303,10 +303,16 @@ public class ElementaryEditPart extends ShapeNodeEditPart {
 
 			fFigureElementaryBehaviorNameFigure = new WrappingLabel();
 			fFigureElementaryBehaviorNameFigure.setText("<...>");
+			fFigureElementaryBehaviorNameFigure
+					.setForegroundColor(FFIGUREELEMENTARYBEHAVIORNAMEFIGURE_FORE);
+			fFigureElementaryBehaviorNameFigure
+					.setBackgroundColor(FFIGUREELEMENTARYBEHAVIORNAMEFIGURE_BACK);
 
 			this.add(fFigureElementaryBehaviorNameFigure, BorderLayout.TOP);
 
 			fFigureElementaryBehaviorCompartmentFigure = new RectangleFigure();
+			fFigureElementaryBehaviorCompartmentFigure
+					.setForegroundColor(FFIGUREELEMENTARYBEHAVIORCOMPARTMENTFIGURE_FORE);
 
 			this.add(fFigureElementaryBehaviorCompartmentFigure,
 					BorderLayout.CENTER);
@@ -328,5 +334,23 @@ public class ElementaryEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREELEMENTARYBEHAVIORNAMEFIGURE_FORE = new Color(
+			null, 166, 223, 107);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREELEMENTARYBEHAVIORNAMEFIGURE_BACK = new Color(
+			null, 166, 223, 107);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREELEMENTARYBEHAVIORCOMPARTMENTFIGURE_FORE = new Color(
+			null, 166, 223, 107);
 
 }

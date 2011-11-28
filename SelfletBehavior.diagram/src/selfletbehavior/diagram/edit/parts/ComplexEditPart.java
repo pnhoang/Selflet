@@ -303,10 +303,14 @@ public class ComplexEditPart extends ShapeNodeEditPart {
 
 			fFigureComplexBehaviorNameFigure = new WrappingLabel();
 			fFigureComplexBehaviorNameFigure.setText("<...>");
+			fFigureComplexBehaviorNameFigure
+					.setBackgroundColor(FFIGURECOMPLEXBEHAVIORNAMEFIGURE_BACK);
 
 			this.add(fFigureComplexBehaviorNameFigure, BorderLayout.TOP);
 
 			fFigureComplexBehaviorCompartmentFigure = new RectangleFigure();
+			fFigureComplexBehaviorCompartmentFigure
+					.setForegroundColor(FFIGURECOMPLEXBEHAVIORCOMPARTMENTFIGURE_FORE);
 
 			this.add(fFigureComplexBehaviorCompartmentFigure,
 					BorderLayout.CENTER);
@@ -328,5 +332,17 @@ public class ComplexEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGURECOMPLEXBEHAVIORNAMEFIGURE_BACK = new Color(null,
+			232, 187, 108);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGURECOMPLEXBEHAVIORCOMPARTMENTFIGURE_FORE = new Color(
+			null, 232, 187, 108);
 
 }

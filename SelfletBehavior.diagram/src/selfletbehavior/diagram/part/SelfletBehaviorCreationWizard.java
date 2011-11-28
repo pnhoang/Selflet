@@ -136,16 +136,13 @@ public class SelfletBehaviorCreationWizard extends Wizard implements INewWizard 
 	 * @generated
 	 */
 	public boolean performFinish() {
-		final URI diagramModelFileURI = diagramModelFilePage.getURI();
-		final URI domainModelFileURI = domainModelFilePage.getURI();
-		
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InterruptedException {
 				diagram = SelfletBehaviorDiagramEditorUtil.createDiagram(
-						diagramModelFileURI,
-						domainModelFileURI, monitor);
+						diagramModelFilePage.getURI(),
+						domainModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						SelfletBehaviorDiagramEditorUtil.openDiagram(diagram);

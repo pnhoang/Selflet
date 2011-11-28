@@ -1,5 +1,6 @@
 package selfletbehavior.diagram.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
@@ -116,6 +117,9 @@ public class ConditionEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public StateNextFigure() {
+			this.setLineWidth(2);
+			this.setForegroundColor(ColorConstants.black);
+			this.setBackgroundColor(ColorConstants.black);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
