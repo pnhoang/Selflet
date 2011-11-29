@@ -25,7 +25,7 @@ Complex Behavior has one Initial State, this state can connect to as many Interm
 This is an example of a Selflet service with 1 Elementary Behavior implementation and 1 Complex Behavior implementation. The diagram and diagram model are available in the source code folder called runtime_workspace
 
 
-![A Selflet service with 1 Elementary Behavior implementation and 1 Complex Behavior implementation](http://dl.dropbox.com/u/13281717/service_diagram_v0.1.5.png)
+![A Selflet service with 1 Elementary Behavior implementation and 1 Complex Behavior implementation](http://dl.dropbox.com/u/13281717/service_diagram_v0.1.7.png)
 
 
 INSTRUCTIONS:
