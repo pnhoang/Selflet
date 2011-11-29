@@ -13,7 +13,6 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="StateNextFigure"
-          lineWidth="2"
           targetDecoration="//@figures.0/@figures.0">
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
