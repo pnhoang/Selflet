@@ -29,18 +29,6 @@
 
    </extension>
    <extension
-         id="selfletclipse.wizardNewBehavior"
-         name="Behavior"
-         point="org.eclipse.ui.newWizards">
-      <wizard
-            category="SelfletClipse.category"
-            class="it.polimi.selfletclipse.wizards.NewBehaviorWizard"
-            icon="src/it/polimi/selfletclipse/resources/img/StateMachine.gif"
-            id="SelfLetClipse.behaviorWizard"
-            name="Selflet Behavior">
-      </wizard>
-   </extension>
-   <extension
          id="selfletclipse.marker"
          name="marker"
          point="org.eclipse.core.resources.markers">
