@@ -705,7 +705,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbilityState" eSuperTypes="#//State">
     <eStructuralFeatures xsi:type="ecore:EReference" name="do" lowerBound="1" eType="#//Action"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InvocationState" eSuperTypes="#//State">
+  <eClassifiers xsi:type="ecore:EClass" name="IntermediateState" eSuperTypes="#//State">
     <eStructuralFeatures xsi:type="ecore:EReference" name="invoke" eType="#//Service"/>
   </eClassifiers>
 </ecore:EPackage>

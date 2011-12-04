@@ -211,7 +211,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_3FihwxYBEeGVWOgUEtj2MQ"/>
     </children>
     <element xmi:type="ecore:EDataType" href="SelfletBehavior.ecore#//FileReference"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3Fh6sRYBEeGVWOgUEtj2MQ" x="603" y="29"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3Fh6sRYBEeGVWOgUEtj2MQ" x="448"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_YWwTkRK8EeGvccBHG6bmZQ"/>
   <element xmi:type="ecore:EPackage" href="SelfletBehavior.ecore#/"/>
