@@ -304,6 +304,16 @@
           text=""/>
     </descriptors>
   </figures>
+  <figures
+      name="Images">
+    <descriptors
+        name="SVGFinalStateFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="SVGFinalStateFigure"
+          qualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure"/>
+    </descriptors>
+  </figures>
   <nodes
       name="Initial State"
       figure="InitFigure"/>
@@ -325,6 +335,9 @@
   <nodes
       name="Complex Behavior"
       figure="ComplexBehaviorFigure"/>
+  <nodes
+      name="SVG Final State"
+      figure="SVGFinalStateFigure"/>
   <connections
       name="StateNext"
       figure="StateNextFigure"/>

@@ -119,7 +119,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.1"/>
               <diagramNode
-                  href="SelfletBehavior.gmfgraph#Final State"/>
+                  href="SelfletBehavior.gmfgraph#SVG Final State"/>
             </ownedChild>
           </children>
           <compartments
@@ -221,7 +221,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.1"/>
               <diagramNode
-                  href="SelfletBehavior.gmfgraph#Final State"/>
+                  href="SelfletBehavior.gmfgraph#SVG Final State"/>
             </ownedChild>
           </children>
           <compartments

@@ -1,16 +1,16 @@
 package selfletbehavior.diagram.edit.parts;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.Ellipse;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
+
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -21,6 +21,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.draw2d.ui.render.factory.RenderedImageFactory;
+import org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -28,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import selfletbehavior.diagram.edit.policies.FinalItemSemanticEditPolicy;
+import selfletbehavior.diagram.part.SelfletBehaviorDiagramEditorPlugin;
 import selfletbehavior.diagram.providers.SelfletBehaviorElementTypes;
 
 /**
@@ -96,24 +99,27 @@ public class FinalEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new FinalFigure();
+		URL url = FileLocator.find(SelfletBehaviorDiagramEditorPlugin
+				.getInstance().getBundle(), new Path("icons/Final.svg"), null); //$NON-NLS-1$
+		return new ScalableImageFigure(RenderedImageFactory.getInstance(url),
+				true, true, true);
 	}
 
 	/**
 	 * @generated
 	 */
-	public FinalFigure getPrimaryShape() {
-		return (FinalFigure) primaryShape;
+	public ScalableImageFigure getPrimaryShape() {
+		return (ScalableImageFigure) primaryShape;
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(35, 35);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(32, 32);
 		return result;
 	}
 
@@ -265,42 +271,6 @@ public class FinalEditPart extends ShapeNodeEditPart {
 			types.add(SelfletBehaviorElementTypes.Final_3018);
 		}
 		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public class FinalFigure extends Ellipse {
-
-		/**
-		 * @generated
-		 */
-		public FinalFigure() {
-			this.setFillXOR(true);
-			this.setLineWidth(5);
-			this.setForegroundColor(ColorConstants.black);
-			this.setBackgroundColor(ColorConstants.black);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(35),
-					getMapMode().DPtoLP(35)));
-			createContents();
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			Ellipse elli0 = new Ellipse();
-			elli0.setFillXOR(true);
-			elli0.setForegroundColor(ColorConstants.black);
-			elli0.setBackgroundColor(ColorConstants.black);
-			elli0.setPreferredSize(new Dimension(getMapMode().DPtoLP(22),
-					getMapMode().DPtoLP(22)));
-
-			this.add(elli0);
-
-		}
-
 	}
 
 }

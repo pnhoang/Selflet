@@ -219,18 +219,8 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="FinalEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="FinalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFillXOR(true);&#xA;this.setLineWidth(5);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(35)&#xA;, getMapMode().DPtoLP(35)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse elli0 = new org.eclipse.draw2d.Ellipse();&#xA;elli0.setFillXOR(true);&#xA;&#x9;elli0.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;elli0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;elli0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(22)&#xA;, getMapMode().DPtoLP(22)&#xA;));&#xA;&#xA;this.add(elli0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="35"
-            height="35"/>
-      </viewmap>
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure"/>
       <modelFacet>
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Final"/>
@@ -433,18 +423,8 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@childNodes.4/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="FinalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFillXOR(true);&#xA;this.setLineWidth(5);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(35)&#xA;, getMapMode().DPtoLP(35)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse elli0 = new org.eclipse.draw2d.Ellipse();&#xA;elli0.setFillXOR(true);&#xA;&#x9;elli0.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;elli0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;elli0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(22)&#xA;, getMapMode().DPtoLP(22)&#xA;));&#xA;&#xA;this.add(elli0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedForeground="true"
-            fixedBackground="true"/>
-        <attributes
-            xsi:type="gmfgen:DefaultSizeAttributes"
-            width="35"
-            height="35"/>
-      </viewmap>
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure"/>
       <modelFacet>
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Final"/>
