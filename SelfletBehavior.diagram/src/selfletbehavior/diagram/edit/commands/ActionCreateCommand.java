@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import selfletbehavior.Action;
 import selfletbehavior.SelfletbehaviorFactory;
 import selfletbehavior.State;
+import selfletbehavior.diagram.providers.ElementInitializers;
 
 /**
  * @generated
@@ -62,6 +63,8 @@ public class ActionCreateCommand extends EditElementCommand {
 
 		State owner = (State) getElementToEdit();
 		owner.setAction(newElement);
+
+		ElementInitializers.getInstance().init_Action_3013(newElement);
 
 		doConfigure(newElement, monitor, info);
 

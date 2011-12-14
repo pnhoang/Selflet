@@ -1,5 +1,8 @@
 package selfletbehavior.diagram.providers;
 
+import selfletbehavior.Action;
+import selfletbehavior.SelfletbehaviorPackage;
+import selfletbehavior.diagram.expressions.SelfletBehaviorOCLFactory;
 import selfletbehavior.diagram.part.SelfletBehaviorDiagramEditorPlugin;
 
 /**
@@ -9,6 +12,25 @@ public class ElementInitializers {
 
 	protected ElementInitializers() {
 		// use #getInstance to access cached instance
+	}
+
+	/**
+	 * @generated
+	 */
+	public void init_Action_3013(Action instance) {
+		try {
+			Object value_0 = SelfletBehaviorOCLFactory.getExpression(0,
+					SelfletbehaviorPackage.eINSTANCE.getAction(), null)
+					.evaluate(instance);
+			instance.setActionFile((String) value_0);
+			Object value_1 = SelfletBehaviorOCLFactory.getExpression(1,
+					SelfletbehaviorPackage.eINSTANCE.getAction(), null)
+					.evaluate(instance);
+			instance.setBody((String) value_1);
+		} catch (RuntimeException e) {
+			SelfletBehaviorDiagramEditorPlugin.getInstance().logError(
+					"Element initialization failed", e); //$NON-NLS-1$						
+		}
 	}
 
 	/**

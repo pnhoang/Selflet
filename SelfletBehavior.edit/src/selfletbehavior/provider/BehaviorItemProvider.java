@@ -68,6 +68,7 @@ public class BehaviorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addTargetServicePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class BehaviorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Service feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetServicePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Behavior_targetService_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Behavior_targetService_feature", "_UI_Behavior_type"),
+				 SelfletbehaviorPackage.Literals.BEHAVIOR__TARGET_SERVICE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

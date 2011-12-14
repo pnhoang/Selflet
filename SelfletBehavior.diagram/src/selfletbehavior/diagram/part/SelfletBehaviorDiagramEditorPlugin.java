@@ -21,6 +21,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import selfletbehavior.diagram.edit.policies.SelfletBehaviorBaseItemSemanticEditPolicy;
+import selfletbehavior.diagram.expressions.SelfletBehaviorOCLFactory;
 import selfletbehavior.diagram.providers.ElementInitializers;
 import selfletbehavior.provider.SelfletbehaviorItemProviderAdapterFactory;
 
@@ -68,6 +69,11 @@ public class SelfletBehaviorDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private SelfletBehaviorOCLFactory oclFactory;
+
+	/**
+	 * @generated
+	 */
 	public SelfletBehaviorDiagramEditorPlugin() {
 	}
 
@@ -90,6 +96,7 @@ public class SelfletBehaviorDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -233,6 +240,20 @@ public class SelfletBehaviorDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public SelfletBehaviorOCLFactory getSelfletBehaviorOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setSelfletBehaviorOCLFactory(SelfletBehaviorOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

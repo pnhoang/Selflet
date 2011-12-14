@@ -10,11 +10,13 @@
     <genClasses ecoreClass="SelfletBehavior.ecore#//Behavior">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Behavior/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Behavior/state"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Behavior/targetService"/>
     </genClasses>
     <genClasses ecoreClass="SelfletBehavior.ecore#//State">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//State/action"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//State/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//State/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//State/targetBehavior"/>
     </genClasses>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Init"/>
     <genClasses ecoreClass="SelfletBehavior.ecore#//Final"/>
@@ -39,6 +41,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/body"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/actionFile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SelfletBehavior.ecore#//Action/abilityFile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SelfletBehavior.ecore#//Action/targetState"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

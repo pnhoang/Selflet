@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -118,7 +119,7 @@ public class ServiceImpl extends EObjectImpl implements Service {
 	 */
 	public EList<Behavior> getBehavior() {
 		if (behavior == null) {
-			behavior = new EObjectContainmentEList<Behavior>(Behavior.class, this, SelfletbehaviorPackage.SERVICE__BEHAVIOR);
+			behavior = new EObjectContainmentWithInverseEList<Behavior>(Behavior.class, this, SelfletbehaviorPackage.SERVICE__BEHAVIOR, SelfletbehaviorPackage.BEHAVIOR__TARGET_SERVICE);
 		}
 		return behavior;
 	}
@@ -163,6 +164,21 @@ public class ServiceImpl extends EObjectImpl implements Service {
 		description = newDescription;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SelfletbehaviorPackage.SERVICE__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SelfletbehaviorPackage.SERVICE__BEHAVIOR:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBehavior()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

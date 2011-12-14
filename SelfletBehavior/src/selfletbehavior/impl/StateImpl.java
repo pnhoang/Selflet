@@ -21,9 +21,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import selfletbehavior.Action;
+import selfletbehavior.Behavior;
 import selfletbehavior.Condition;
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.State;
@@ -38,6 +40,7 @@ import selfletbehavior.State;
  *   <li>{@link selfletbehavior.impl.StateImpl#getAction <em>Action</em>}</li>
  *   <li>{@link selfletbehavior.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link selfletbehavior.impl.StateImpl#getNext <em>Next</em>}</li>
+ *   <li>{@link selfletbehavior.impl.StateImpl#getTargetBehavior <em>Target Behavior</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,9 +136,9 @@ public class StateImpl extends EObjectImpl implements State {
 		if (newAction != action) {
 			NotificationChain msgs = null;
 			if (action != null)
-				msgs = ((InternalEObject)action).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfletbehaviorPackage.STATE__ACTION, null, msgs);
+				msgs = ((InternalEObject)action).eInverseRemove(this, SelfletbehaviorPackage.ACTION__TARGET_STATE, Action.class, msgs);
 			if (newAction != null)
-				msgs = ((InternalEObject)newAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SelfletbehaviorPackage.STATE__ACTION, null, msgs);
+				msgs = ((InternalEObject)newAction).eInverseAdd(this, SelfletbehaviorPackage.ACTION__TARGET_STATE, Action.class, msgs);
 			msgs = basicSetAction(newAction, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -181,6 +184,67 @@ public class StateImpl extends EObjectImpl implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Behavior getTargetBehavior() {
+		if (eContainerFeatureID() != SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR) return null;
+		return (Behavior)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetBehavior(Behavior newTargetBehavior, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newTargetBehavior, SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetBehavior(Behavior newTargetBehavior) {
+		if (newTargetBehavior != eInternalContainer() || (eContainerFeatureID() != SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR && newTargetBehavior != null)) {
+			if (EcoreUtil.isAncestor(this, newTargetBehavior))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTargetBehavior != null)
+				msgs = ((InternalEObject)newTargetBehavior).eInverseAdd(this, SelfletbehaviorPackage.BEHAVIOR__STATE, Behavior.class, msgs);
+			msgs = basicSetTargetBehavior(newTargetBehavior, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR, newTargetBehavior, newTargetBehavior));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SelfletbehaviorPackage.STATE__ACTION:
+				if (action != null)
+					msgs = ((InternalEObject)action).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SelfletbehaviorPackage.STATE__ACTION, null, msgs);
+				return basicSetAction((Action)otherEnd, msgs);
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetTargetBehavior((Behavior)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,8 +252,24 @@ public class StateImpl extends EObjectImpl implements State {
 				return basicSetAction(null, msgs);
 			case SelfletbehaviorPackage.STATE__NEXT:
 				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				return basicSetTargetBehavior(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				return eInternalContainer().eInverseRemove(this, SelfletbehaviorPackage.BEHAVIOR__STATE, Behavior.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -206,6 +286,8 @@ public class StateImpl extends EObjectImpl implements State {
 				return getName();
 			case SelfletbehaviorPackage.STATE__NEXT:
 				return getNext();
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				return getTargetBehavior();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +311,9 @@ public class StateImpl extends EObjectImpl implements State {
 				getNext().clear();
 				getNext().addAll((Collection<? extends Condition>)newValue);
 				return;
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				setTargetBehavior((Behavior)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -250,6 +335,9 @@ public class StateImpl extends EObjectImpl implements State {
 			case SelfletbehaviorPackage.STATE__NEXT:
 				getNext().clear();
 				return;
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				setTargetBehavior((Behavior)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +356,8 @@ public class StateImpl extends EObjectImpl implements State {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SelfletbehaviorPackage.STATE__NEXT:
 				return next != null && !next.isEmpty();
+			case SelfletbehaviorPackage.STATE__TARGET_BEHAVIOR:
+				return getTargetBehavior() != null;
 		}
 		return super.eIsSet(featureID);
 	}

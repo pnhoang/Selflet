@@ -89,13 +89,22 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int BEHAVIOR__STATE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Target Service</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR__TARGET_SERVICE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Behavior</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_FEATURE_COUNT = 2;
+	int BEHAVIOR_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link selfletbehavior.impl.StateImpl <em>State</em>}' class.
@@ -135,13 +144,22 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int STATE__NEXT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Target Behavior</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__TARGET_BEHAVIOR = 3;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 3;
+	int STATE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link selfletbehavior.impl.InitImpl <em>Init</em>}' class.
@@ -179,6 +197,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @ordered
 	 */
 	int INIT__NEXT = STATE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Target Behavior</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT__TARGET_BEHAVIOR = STATE__TARGET_BEHAVIOR;
 
 	/**
 	 * The number of structural features of the '<em>Init</em>' class.
@@ -227,6 +254,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int FINAL__NEXT = STATE__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Target Behavior</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL__TARGET_BEHAVIOR = STATE__TARGET_BEHAVIOR;
+
+	/**
 	 * The number of structural features of the '<em>Final</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -271,6 +307,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERMEDIATE__NEXT = STATE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Target Behavior</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE__TARGET_BEHAVIOR = STATE__TARGET_BEHAVIOR;
 
 	/**
 	 * The number of structural features of the '<em>Intermediate</em>' class.
@@ -319,6 +364,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int INVOCATION__NEXT = STATE__NEXT;
 
 	/**
+	 * The feature id for the '<em><b>Target Behavior</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCATION__TARGET_BEHAVIOR = STATE__TARGET_BEHAVIOR;
+
+	/**
 	 * The number of structural features of the '<em>Invocation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -357,6 +411,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int ELEMENTARY__STATE = BEHAVIOR__STATE;
 
 	/**
+	 * The feature id for the '<em><b>Target Service</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENTARY__TARGET_SERVICE = BEHAVIOR__TARGET_SERVICE;
+
+	/**
 	 * The number of structural features of the '<em>Elementary</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +455,15 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX__STATE = BEHAVIOR__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Target Service</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX__TARGET_SERVICE = BEHAVIOR__TARGET_SERVICE;
 
 	/**
 	 * The number of structural features of the '<em>Complex</em>' class.
@@ -561,13 +633,22 @@ public interface SelfletbehaviorPackage extends EPackage {
 	int ACTION__ABILITY_FILE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Target State</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__TARGET_STATE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 3;
+	int ACTION_FEATURE_COUNT = 4;
 
 
 	/**
@@ -614,6 +695,17 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EReference getBehavior_State();
 
 	/**
+	 * Returns the meta object for the container reference '{@link selfletbehavior.Behavior#getTargetService <em>Target Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Target Service</em>'.
+	 * @see selfletbehavior.Behavior#getTargetService()
+	 * @see #getBehavior()
+	 * @generated
+	 */
+	EReference getBehavior_TargetService();
+
+	/**
 	 * Returns the meta object for class '{@link selfletbehavior.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -655,6 +747,17 @@ public interface SelfletbehaviorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_Next();
+
+	/**
+	 * Returns the meta object for the container reference '{@link selfletbehavior.State#getTargetBehavior <em>Target Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Target Behavior</em>'.
+	 * @see selfletbehavior.State#getTargetBehavior()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_TargetBehavior();
 
 	/**
 	 * Returns the meta object for class '{@link selfletbehavior.Init <em>Init</em>}'.
@@ -867,6 +970,17 @@ public interface SelfletbehaviorPackage extends EPackage {
 	EAttribute getAction_AbilityFile();
 
 	/**
+	 * Returns the meta object for the container reference '{@link selfletbehavior.Action#getTargetState <em>Target State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Target State</em>'.
+	 * @see selfletbehavior.Action#getTargetState()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_TargetState();
+
+	/**
 	 * Returns the meta object for data type '{@link selfletbehavior.FileReference <em>File Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,6 +1040,14 @@ public interface SelfletbehaviorPackage extends EPackage {
 		EReference BEHAVIOR__STATE = eINSTANCE.getBehavior_State();
 
 		/**
+		 * The meta object literal for the '<em><b>Target Service</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEHAVIOR__TARGET_SERVICE = eINSTANCE.getBehavior_TargetService();
+
+		/**
 		 * The meta object literal for the '{@link selfletbehavior.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -958,6 +1080,14 @@ public interface SelfletbehaviorPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__NEXT = eINSTANCE.getState_Next();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Behavior</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__TARGET_BEHAVIOR = eINSTANCE.getState_TargetBehavior();
 
 		/**
 		 * The meta object literal for the '{@link selfletbehavior.impl.InitImpl <em>Init</em>}' class.
@@ -1138,6 +1268,14 @@ public interface SelfletbehaviorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION__ABILITY_FILE = eINSTANCE.getAction_AbilityFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Target State</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__TARGET_STATE = eINSTANCE.getAction_TargetState();
 
 		/**
 		 * The meta object literal for the '<em>File Reference</em>' data type.

@@ -32,6 +32,7 @@ public interface Service extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Behavior</b></em>' containment reference list.
 	 * The list contents are of type {@link selfletbehavior.Behavior}.
+	 * It is bidirectional and its opposite is '{@link selfletbehavior.Behavior#getTargetService <em>Target Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Behavior</em>' containment reference list isn't clear,
@@ -40,7 +41,8 @@ public interface Service extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Behavior</em>' containment reference list.
 	 * @see selfletbehavior.SelfletbehaviorPackage#getService_Behavior()
-	 * @model containment="true"
+	 * @see selfletbehavior.Behavior#getTargetService
+	 * @model opposite="targetService" containment="true"
 	 * @generated
 	 */
 	EList<Behavior> getBehavior();

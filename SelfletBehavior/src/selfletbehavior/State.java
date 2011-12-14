@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link selfletbehavior.State#getAction <em>Action</em>}</li>
  *   <li>{@link selfletbehavior.State#getName <em>Name</em>}</li>
  *   <li>{@link selfletbehavior.State#getNext <em>Next</em>}</li>
+ *   <li>{@link selfletbehavior.State#getTargetBehavior <em>Target Behavior</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface State extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link selfletbehavior.Action#getTargetState <em>Target State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Action</em>' containment reference isn't clear,
@@ -40,7 +42,8 @@ public interface State extends EObject {
 	 * @return the value of the '<em>Action</em>' containment reference.
 	 * @see #setAction(Action)
 	 * @see selfletbehavior.SelfletbehaviorPackage#getState_Action()
-	 * @model containment="true"
+	 * @see selfletbehavior.Action#getTargetState
+	 * @model opposite="targetState" containment="true"
 	 * @generated
 	 */
 	Action getAction();
@@ -96,5 +99,33 @@ public interface State extends EObject {
 	 * @generated
 	 */
 	EList<Condition> getNext();
+
+	/**
+	 * Returns the value of the '<em><b>Target Behavior</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link selfletbehavior.Behavior#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Behavior</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Behavior</em>' container reference.
+	 * @see #setTargetBehavior(Behavior)
+	 * @see selfletbehavior.SelfletbehaviorPackage#getState_TargetBehavior()
+	 * @see selfletbehavior.Behavior#getState
+	 * @model opposite="state" transient="false"
+	 * @generated
+	 */
+	Behavior getTargetBehavior();
+
+	/**
+	 * Sets the value of the '{@link selfletbehavior.State#getTargetBehavior <em>Target Behavior</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Behavior</em>' container reference.
+	 * @see #getTargetBehavior()
+	 * @generated
+	 */
+	void setTargetBehavior(Behavior value);
 
 } // State

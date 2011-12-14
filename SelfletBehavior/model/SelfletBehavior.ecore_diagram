@@ -225,21 +225,21 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_Ydz90BK8EeGvccBHG6bmZQ" fontName="Lucida Grande"/>
     <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//Behavior/state"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ydz90RK8EeGvccBHG6bmZQ" points="[0, 0, -102, 60]$[102, -60, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRURK8EeGvccBHG6bmZQ" id="(0.49122807017543857,0.0)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRURK8EeGvccBHG6bmZQ" id="(0.9298245614035088,0.15384615384615385)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRUhK8EeGvccBHG6bmZQ" id="(0.3170731707317073,1.0)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_YeBZMBK8EeGvccBHG6bmZQ" type="4003" source="_YdNg6RK8EeGvccBHG6bmZQ" target="_YdRyYRK8EeGvccBHG6bmZQ">
     <children xmi:type="notation:DecorationNode" xmi:id="_YeBZMxK8EeGvccBHG6bmZQ" type="6002">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeBZNBK8EeGvccBHG6bmZQ" x="10" y="18"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeBZNBK8EeGvccBHG6bmZQ" x="-16" y="-13"/>
     </children>
     <children xmi:type="notation:DecorationNode" xmi:id="_YeBZNRK8EeGvccBHG6bmZQ" type="6004">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeBZNhK8EeGvccBHG6bmZQ" x="3" y="30"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeBZNhK8EeGvccBHG6bmZQ" x="-38" y="-15"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_YeBZMRK8EeGvccBHG6bmZQ" fontName="Lucida Grande"/>
     <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//State/action"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YeBZMhK8EeGvccBHG6bmZQ" points="[0, 0, -104, 60]$[104, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfjDMhK8EeGvccBHG6bmZQ" id="(0.7317073170731707,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfjDMxK8EeGvccBHG6bmZQ" id="(0.48936170212765956,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfjDMxK8EeGvccBHG6bmZQ" id="(0.23404255319148937,0.2692307692307692)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_YeCnUBK8EeGvccBHG6bmZQ" type="4003" source="_YdNg6RK8EeGvccBHG6bmZQ" target="_YdRyVRK8EeGvccBHG6bmZQ">
     <children xmi:type="notation:DecorationNode" xmi:id="_YeDOYBK8EeGvccBHG6bmZQ" type="6002">
@@ -319,20 +319,57 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_YeLxQRK8EeGvccBHG6bmZQ" fontName="Lucida Grande"/>
     <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//Service/behavior"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YeLxQhK8EeGvccBHG6bmZQ" points="[0, 0, -105, 60]$[105, -60, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRUxK8EeGvccBHG6bmZQ" id="(0.5,0.0)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRUxK8EeGvccBHG6bmZQ" id="(0.96,0.15384615384615385)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRVBK8EeGvccBHG6bmZQ" id="(0.24561403508771928,1.0)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_YeM_YBK8EeGvccBHG6bmZQ" type="4002" source="_YdRyVRK8EeGvccBHG6bmZQ" target="_YdNg6RK8EeGvccBHG6bmZQ">
     <children xmi:type="notation:DecorationNode" xmi:id="_YeNmcBK8EeGvccBHG6bmZQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeNmcRK8EeGvccBHG6bmZQ" y="40"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeNmcRK8EeGvccBHG6bmZQ" x="-29" y="22"/>
     </children>
     <children xmi:type="notation:DecorationNode" xmi:id="_YeNmchK8EeGvccBHG6bmZQ" type="6003">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeNmcxK8EeGvccBHG6bmZQ" x="-34" y="53"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YeNmcxK8EeGvccBHG6bmZQ" x="-46" y="31"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_YeM_YRK8EeGvccBHG6bmZQ" fontName="Lucida Grande"/>
     <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//Condition/targetState"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YeM_YhK8EeGvccBHG6bmZQ" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRVRK8EeGvccBHG6bmZQ" id="(0.5,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YfkRVhK8EeGvccBHG6bmZQ" id="(0.24390243902439024,0.25)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_BMTFsSZxEeGbnZ9d3gfa_w" type="4002" source="_YdRyYRK8EeGvccBHG6bmZQ" target="_YdNg6RK8EeGvccBHG6bmZQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BMUT0CZxEeGbnZ9d3gfa_w" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BMUT0SZxEeGbnZ9d3gfa_w" x="-55" y="-25"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BMUT0iZxEeGbnZ9d3gfa_w" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BMU64CZxEeGbnZ9d3gfa_w" x="-75" y="-22"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BMTFsiZxEeGbnZ9d3gfa_w" fontName="Lucida Grande"/>
+    <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//Action/targetState"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BMTFsyZxEeGbnZ9d3gfa_w" points="[0, 26, 114, -86]$[0, 26, 114, -86]$[-93, 96, 21, -16]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_odnI8CZxEeGbnZ9d3gfa_w" type="4002" source="_YdNg6RK8EeGvccBHG6bmZQ" target="_YdGzMBK8EeGvccBHG6bmZQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_odnwACZxEeGbnZ9d3gfa_w" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_odnwASZxEeGbnZ9d3gfa_w" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_odnwAiZxEeGbnZ9d3gfa_w" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_odnwAyZxEeGbnZ9d3gfa_w" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_odnI8SZxEeGbnZ9d3gfa_w" fontName="Lucida Grande"/>
+    <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//State/targetBehavior"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_odnI8iZxEeGbnZ9d3gfa_w" points="[-5, 4, 108, -100]$[-122, 96, -9, -8]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_odqMQCZxEeGbnZ9d3gfa_w" id="(0.12195121951219512,0.3269230769230769)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_odqMQSZxEeGbnZ9d3gfa_w" id="(0.15789473684210525,0.17307692307692307)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_rCLXcCZxEeGbnZ9d3gfa_w" type="4002" source="_YdGzMBK8EeGvccBHG6bmZQ" target="_YdRLShK8EeGvccBHG6bmZQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_rCL-gCZxEeGbnZ9d3gfa_w" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_rCL-gSZxEeGbnZ9d3gfa_w" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_rCL-giZxEeGbnZ9d3gfa_w" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_rCL-gyZxEeGbnZ9d3gfa_w" x="-20" y="36"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_rCLXcSZxEeGbnZ9d3gfa_w" fontName="Lucida Grande"/>
+    <element xmi:type="ecore:EReference" href="SelfletBehavior.ecore#//Behavior/targetService"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rCLXciZxEeGbnZ9d3gfa_w" points="[-28, 19, 105, -73]$[-138, 86, -5, -6]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_sTAGICZxEeGbnZ9d3gfa_w" id="(0.03508771929824561,0.2692307692307692)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rCOawCZxEeGbnZ9d3gfa_w" id="(0.22,0.11538461538461539)"/>
   </edges>
 </notation:Diagram>
