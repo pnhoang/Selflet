@@ -231,19 +231,21 @@ public class SelfletbehaviorFactoryImpl extends EFactoryImpl implements Selfletb
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public FileReference createFileReferenceFromString(EDataType eDataType, String initialValue) {
-		return (FileReference)super.createFromString(eDataType, initialValue);
+		return new FileReferenceImpl(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertFileReferenceToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		if (instanceValue == null)
+			return null;
+		return ((FileReference) instanceValue).toString(); 
 	}
 
 	/**
