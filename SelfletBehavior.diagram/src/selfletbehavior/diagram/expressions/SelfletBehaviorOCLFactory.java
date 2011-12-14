@@ -32,7 +32,7 @@ public class SelfletBehaviorOCLFactory {
 	 * @generated
 	 */
 	protected SelfletBehaviorOCLFactory() {
-		this.expressions = new SelfletBehaviorAbstractExpression[2];
+		this.expressions = new SelfletBehaviorAbstractExpression[4];
 	}
 
 	/**
@@ -52,6 +52,8 @@ public class SelfletBehaviorOCLFactory {
 		}
 		if (cached.expressions[index] == null) {
 			final String[] exprBodies = new String[] {
+					"self.targetState.targetBehavior.targetService.name.concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
+					"\'do /\'.concat(self.targetState.targetBehavior.targetService.name).concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
 					"self.targetState.targetBehavior.targetService.name.concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
 					"\'do /\'.concat(self.targetState.targetBehavior.targetService.name).concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
 			};

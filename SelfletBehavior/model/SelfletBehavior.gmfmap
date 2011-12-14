@@ -208,6 +208,25 @@
                 <ownedChild>
                   <domainMetaElement
                       href="SelfletBehavior.ecore#//Action"/>
+                  <domainInitializer
+                      xsi:type="gmfmap:FeatureSeqInitializer">
+                    <initializers
+                        xsi:type="gmfmap:FeatureValueSpec">
+                      <feature
+                          xsi:type="ecore:EAttribute"
+                          href="SelfletBehavior.ecore#//Action/actionFile"/>
+                      <value
+                          body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
+                    </initializers>
+                    <initializers
+                        xsi:type="gmfmap:FeatureValueSpec">
+                      <feature
+                          xsi:type="ecore:EAttribute"
+                          href="SelfletBehavior.ecore#//Action/body"/>
+                      <value
+                          body="'do /'.concat(self.targetState.targetBehavior.targetService.name).concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
+                    </initializers>
+                  </domainInitializer>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping">
                     <diagramLabel

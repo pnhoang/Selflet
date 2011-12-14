@@ -415,6 +415,21 @@
             href="SelfletBehavior.genmodel#//selfletbehavior/State/action"/>
         <childMetaFeature
             href="SelfletBehavior.genmodel#//selfletbehavior/State/action"/>
+        <modelElementInitializer
+            xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers
+              xsi:type="gmfgen:GenFeatureValueSpec"
+              value="//@expressionProviders/@providers.0/@expressions.2">
+            <feature
+                href="SelfletBehavior.genmodel#//selfletbehavior/Action/actionFile"/>
+          </initializers>
+          <initializers
+              xsi:type="gmfgen:GenFeatureValueSpec"
+              value="//@expressionProviders/@providers.0/@expressions.3">
+            <feature
+                href="SelfletBehavior.genmodel#//selfletbehavior/Action/body"/>
+          </initializers>
+        </modelElementInitializer>
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -982,6 +997,10 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
+      <expressions
+          body="'do /'.concat(self.targetState.targetBehavior.targetService.name).concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
       <expressions
           body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
       <expressions
