@@ -1000,7 +1000,7 @@
         xsi:type="gmfgen:GenExpressionInterpreter">
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="self.targetBehavior.state -> size() &lt;= 3"/>
+          body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Invocation)) -> size() &lt;= 1"/>
       <expressions
           body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
       <expressions

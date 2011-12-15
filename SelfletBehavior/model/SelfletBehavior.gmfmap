@@ -69,7 +69,7 @@
               <domainMetaElement
                   href="SelfletBehavior.ecore#//Invocation"/>
               <domainSpecialization
-                  body="self.targetBehavior.state -> size() &lt;= 3"/>
+                  body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Invocation)) -> size() &lt;= 1"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
