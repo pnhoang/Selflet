@@ -32,7 +32,7 @@ public class SelfletBehaviorOCLFactory {
 	 * @generated
 	 */
 	protected SelfletBehaviorOCLFactory() {
-		this.expressions = new SelfletBehaviorAbstractExpression[8];
+		this.expressions = new SelfletBehaviorAbstractExpression[9];
 	}
 
 	/**
@@ -57,6 +57,7 @@ public class SelfletBehaviorOCLFactory {
 					"self.targetState.targetBehavior.targetService.name.concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
 					"\'do /\'.concat(self.targetState.targetBehavior.targetService.name).concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
 					"self.targetBehavior.state -> select (s | s.oclIsTypeOf(Final)) -> size() <= 1", //$NON-NLS-1$
+					"self.state -> select (s | s.oclIsTypeOf(Init)) -> size() <= 1", //$NON-NLS-1$
 					"self.targetBehavior.state -> select (s | s.oclIsTypeOf(Init)) -> size() <= 1", //$NON-NLS-1$
 					"self.targetState.targetBehavior.targetService.name.concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$
 					"\'do /\'.concat(self.targetState.targetBehavior.targetService.name).concat(\'.\').concat(self.targetState.targetBehavior.name).concat(\'.\').concat(self.targetState.name).concat(\'.action\')", //$NON-NLS-1$

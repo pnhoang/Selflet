@@ -267,7 +267,8 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="ComplexBehaviorFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComplexBehaviorFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureComplexBehaviorNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureComplexBehaviorCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComplexBehaviorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureComplexBehaviorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureComplexBehaviorNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#x9;fFigureComplexBehaviorNameFigure.setBackgroundColor(FFIGURECOMPLEXBEHAVIORNAMEFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureComplexBehaviorNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureComplexBehaviorCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#x9;fFigureComplexBehaviorCompartmentFigure.setForegroundColor(FFIGURECOMPLEXBEHAVIORCOMPARTMENTFIGURE_FORE&#xA;);&#xA;&#xA;this.add(fFigureComplexBehaviorCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureComplexBehaviorNameFigure() {&#xA;&#x9;&#x9;return fFigureComplexBehaviorNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureComplexBehaviorCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureComplexBehaviorCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGURECOMPLEXBEHAVIORNAMEFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 232, 187, 108);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGURECOMPLEXBEHAVIORCOMPARTMENTFIGURE_FORE = new org.eclipse.swt.graphics.Color(null, 232, 187, 108);&#xA;&#xA;"/>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.5">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Complex"/>
         <containmentMetaFeature
@@ -327,7 +328,7 @@
             height="22"/>
       </viewmap>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.0/@expressions.5">
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.6">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Init"/>
         <containmentMetaFeature
@@ -423,13 +424,13 @@
             xsi:type="gmfgen:GenFeatureSeqInitializer">
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.6">
+              value="//@expressionProviders/@providers.0/@expressions.7">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/actionFile"/>
           </initializers>
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.7">
+              value="//@expressionProviders/@providers.0/@expressions.8">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/body"/>
           </initializers>
@@ -1014,6 +1015,9 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Final)) -> size() &lt;= 1"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>

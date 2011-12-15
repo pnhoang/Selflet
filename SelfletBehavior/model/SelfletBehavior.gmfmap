@@ -162,6 +162,8 @@
         <ownedChild>
           <domainMetaElement
               href="SelfletBehavior.ecore#//Complex"/>
+          <domainSpecialization
+              body="self.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel

@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import selfletbehavior.Complex;
 import selfletbehavior.Final;
 import selfletbehavior.Init;
 import selfletbehavior.Invocation;
@@ -157,7 +158,8 @@ public class SelfletBehaviorVisualIDRegistry {
 				return ElementaryEditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getComplex().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isComplex_3006((Complex) domainElement)) {
 				return ComplexEditPart.VISUAL_ID;
 			}
 			break;
@@ -384,8 +386,18 @@ public class SelfletBehaviorVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static boolean isInit_3015(Init domainElement) {
+	private static boolean isComplex_3006(Complex domainElement) {
 		Object result = SelfletBehaviorOCLFactory.getExpression(5,
+				SelfletbehaviorPackage.eINSTANCE.getComplex(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isInit_3015(Init domainElement) {
+		Object result = SelfletBehaviorOCLFactory.getExpression(6,
 				SelfletbehaviorPackage.eINSTANCE.getInit(), null).evaluate(
 				domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
