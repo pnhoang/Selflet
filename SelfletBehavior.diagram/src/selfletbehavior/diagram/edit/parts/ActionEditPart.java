@@ -618,8 +618,12 @@ public class ActionEditPart extends CompartmentEditPart implements
 						+ ".action";
 				System.out.println("actionFile: " + actionFileString);
 
-				action.setActionFile(actionFileString);
-				action.setBody("do /" + actionFileString);
+				/*
+				 * WE ALREADY POPULATED THESE PROPERTIES USING THE FEATURE SEQUENCE INITIALIZER
+				 * DON'T NEED TO UPDATE THE VALUES ANYMORE
+				 */
+				//action.setActionFile(actionFileString);
+				//action.setBody("do /" + actionFileString);
 
 				//Path path = new Path(action.getAbilityFile().toString());
 				URI uri = URI.createFileURI(action.getAbilityFile().toString());
