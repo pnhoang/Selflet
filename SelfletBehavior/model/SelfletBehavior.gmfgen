@@ -141,7 +141,8 @@
             width="200"
             height="40"/>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.0">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Invocation"/>
         <containmentMetaFeature
@@ -200,13 +201,13 @@
             xsi:type="gmfgen:GenFeatureSeqInitializer">
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.0">
+              value="//@expressionProviders/@providers.0/@expressions.1">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/actionFile"/>
           </initializers>
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.1">
+              value="//@expressionProviders/@providers.0/@expressions.2">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/body"/>
           </initializers>
@@ -419,13 +420,13 @@
             xsi:type="gmfgen:GenFeatureSeqInitializer">
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.2">
+              value="//@expressionProviders/@providers.0/@expressions.3">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/actionFile"/>
           </initializers>
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.3">
+              value="//@expressionProviders/@providers.0/@expressions.4">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/body"/>
           </initializers>
@@ -997,6 +998,9 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.targetBehavior.state -> size() &lt;= 3"/>
       <expressions
           body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
       <expressions

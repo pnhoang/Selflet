@@ -68,6 +68,8 @@
             <ownedChild>
               <domainMetaElement
                   href="SelfletBehavior.ecore#//Invocation"/>
+              <domainSpecialization
+                  body="self.targetBehavior.state -> size() &lt;= 3"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel

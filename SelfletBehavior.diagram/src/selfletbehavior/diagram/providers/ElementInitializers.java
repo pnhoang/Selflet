@@ -19,11 +19,11 @@ public class ElementInitializers {
 	 */
 	public void init_Action_3013(Action instance) {
 		try {
-			Object value_0 = SelfletBehaviorOCLFactory.getExpression(0,
+			Object value_0 = SelfletBehaviorOCLFactory.getExpression(1,
 					SelfletbehaviorPackage.eINSTANCE.getAction(), null)
 					.evaluate(instance);
 			instance.setActionFile((String) value_0);
-			Object value_1 = SelfletBehaviorOCLFactory.getExpression(1,
+			Object value_1 = SelfletBehaviorOCLFactory.getExpression(2,
 					SelfletbehaviorPackage.eINSTANCE.getAction(), null)
 					.evaluate(instance);
 			instance.setBody((String) value_1);
@@ -38,11 +38,11 @@ public class ElementInitializers {
 	 */
 	public void init_Action_3017(Action instance) {
 		try {
-			Object value_0 = SelfletBehaviorOCLFactory.getExpression(2,
+			Object value_0 = SelfletBehaviorOCLFactory.getExpression(3,
 					SelfletbehaviorPackage.eINSTANCE.getAction(), null)
 					.evaluate(instance);
 			instance.setActionFile((String) value_0);
-			Object value_1 = SelfletBehaviorOCLFactory.getExpression(3,
+			Object value_1 = SelfletBehaviorOCLFactory.getExpression(4,
 					SelfletbehaviorPackage.eINSTANCE.getAction(), null)
 					.evaluate(instance);
 			instance.setBody((String) value_1);

@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import selfletbehavior.Invocation;
 import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorPackage;
 import selfletbehavior.diagram.edit.parts.Action2EditPart;
@@ -33,6 +34,7 @@ import selfletbehavior.diagram.edit.parts.ServiceDescriptionEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceNameEditPart;
 import selfletbehavior.diagram.edit.parts.ServiceServicesCompartmentEditPart;
+import selfletbehavior.diagram.expressions.SelfletBehaviorOCLFactory;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -163,7 +165,8 @@ public class SelfletBehaviorVisualIDRegistry {
 				return InitEditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getInvocation().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isInvocation_3012((Invocation) domainElement)) {
 				return InvocationEditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getFinal().isSuperTypeOf(
@@ -341,6 +344,16 @@ public class SelfletBehaviorVisualIDRegistry {
 	 */
 	private static boolean isDiagram(Selflet element) {
 		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isInvocation_3012(Invocation domainElement) {
+		Object result = SelfletBehaviorOCLFactory.getExpression(0,
+				SelfletbehaviorPackage.eINSTANCE.getInvocation(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 }

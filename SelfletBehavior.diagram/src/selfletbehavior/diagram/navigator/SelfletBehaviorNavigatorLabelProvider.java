@@ -102,45 +102,45 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
-		case Final2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_3018); //$NON-NLS-1$
-		case ServiceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Service", SelfletBehaviorElementTypes.Service_2005); //$NON-NLS-1$
-		case ActionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Action", SelfletBehaviorElementTypes.Action_3013); //$NON-NLS-1$
-		case ElementaryEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Elementary", SelfletBehaviorElementTypes.Elementary_3001); //$NON-NLS-1$
-		case ConditionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://selfletbehavior/1.0?Condition", SelfletBehaviorElementTypes.Condition_4007); //$NON-NLS-1$
-		case Action2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Action", SelfletBehaviorElementTypes.Action_3017); //$NON-NLS-1$
-		case ComplexEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Complex", SelfletBehaviorElementTypes.Complex_3006); //$NON-NLS-1$
-		case InvocationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Invocation", SelfletBehaviorElementTypes.Invocation_3012); //$NON-NLS-1$
-		case InitEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_3011); //$NON-NLS-1$
-		case BehaviorEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://selfletbehavior/1.0?Selflet", SelfletBehaviorElementTypes.Selflet_1000); //$NON-NLS-1$
-		case IntermediateEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Intermediate", SelfletBehaviorElementTypes.Intermediate_3016); //$NON-NLS-1$
-		case FinalEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_3014); //$NON-NLS-1$
 		case Init2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_3015); //$NON-NLS-1$
+		case BehaviorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://selfletbehavior/1.0?Selflet", SelfletBehaviorElementTypes.Selflet_1000); //$NON-NLS-1$
+		case Final2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_3018); //$NON-NLS-1$
+		case Action2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Action", SelfletBehaviorElementTypes.Action_3017); //$NON-NLS-1$
+		case ElementaryEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Elementary", SelfletBehaviorElementTypes.Elementary_3001); //$NON-NLS-1$
+		case IntermediateEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Intermediate", SelfletBehaviorElementTypes.Intermediate_3016); //$NON-NLS-1$
+		case ActionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Action", SelfletBehaviorElementTypes.Action_3013); //$NON-NLS-1$
+		case FinalEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Final", SelfletBehaviorElementTypes.Final_3014); //$NON-NLS-1$
+		case InitEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Init", SelfletBehaviorElementTypes.Init_3011); //$NON-NLS-1$
+		case ServiceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://selfletbehavior/1.0?Service", SelfletBehaviorElementTypes.Service_2005); //$NON-NLS-1$
+		case ComplexEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Complex", SelfletBehaviorElementTypes.Complex_3006); //$NON-NLS-1$
+		case ConditionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://selfletbehavior/1.0?Condition", SelfletBehaviorElementTypes.Condition_4007); //$NON-NLS-1$
+		case InvocationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://selfletbehavior/1.0?Invocation", SelfletBehaviorElementTypes.Invocation_3012); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -193,32 +193,32 @@ public class SelfletBehaviorNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (SelfletBehaviorVisualIDRegistry.getVisualID(view)) {
-		case Final2EditPart.VISUAL_ID:
-			return getFinal_3018Text(view);
-		case ServiceEditPart.VISUAL_ID:
-			return getService_2005Text(view);
-		case ActionEditPart.VISUAL_ID:
-			return getAction_3013Text(view);
-		case ElementaryEditPart.VISUAL_ID:
-			return getElementary_3001Text(view);
-		case ConditionEditPart.VISUAL_ID:
-			return getCondition_4007Text(view);
-		case Action2EditPart.VISUAL_ID:
-			return getAction_3017Text(view);
-		case ComplexEditPart.VISUAL_ID:
-			return getComplex_3006Text(view);
-		case InvocationEditPart.VISUAL_ID:
-			return getInvocation_3012Text(view);
-		case InitEditPart.VISUAL_ID:
-			return getInit_3011Text(view);
-		case BehaviorEditPart.VISUAL_ID:
-			return getSelflet_1000Text(view);
-		case IntermediateEditPart.VISUAL_ID:
-			return getIntermediate_3016Text(view);
-		case FinalEditPart.VISUAL_ID:
-			return getFinal_3014Text(view);
 		case Init2EditPart.VISUAL_ID:
 			return getInit_3015Text(view);
+		case BehaviorEditPart.VISUAL_ID:
+			return getSelflet_1000Text(view);
+		case Final2EditPart.VISUAL_ID:
+			return getFinal_3018Text(view);
+		case Action2EditPart.VISUAL_ID:
+			return getAction_3017Text(view);
+		case ElementaryEditPart.VISUAL_ID:
+			return getElementary_3001Text(view);
+		case IntermediateEditPart.VISUAL_ID:
+			return getIntermediate_3016Text(view);
+		case ActionEditPart.VISUAL_ID:
+			return getAction_3013Text(view);
+		case FinalEditPart.VISUAL_ID:
+			return getFinal_3014Text(view);
+		case InitEditPart.VISUAL_ID:
+			return getInit_3011Text(view);
+		case ServiceEditPart.VISUAL_ID:
+			return getService_2005Text(view);
+		case ComplexEditPart.VISUAL_ID:
+			return getComplex_3006Text(view);
+		case ConditionEditPart.VISUAL_ID:
+			return getCondition_4007Text(view);
+		case InvocationEditPart.VISUAL_ID:
+			return getInvocation_3012Text(view);
 		}
 		return getUnknownElementText(view);
 	}
