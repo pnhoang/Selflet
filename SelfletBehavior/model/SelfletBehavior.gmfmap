@@ -54,6 +54,8 @@
             <ownedChild>
               <domainMetaElement
                   href="SelfletBehavior.ecore#//Init"/>
+              <domainSpecialization
+                  body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.0"/>
@@ -136,6 +138,8 @@
             <ownedChild>
               <domainMetaElement
                   href="SelfletBehavior.ecore#//Final"/>
+              <domainSpecialization
+                  body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Final)) -> size() &lt;= 1"/>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.1"/>
@@ -177,6 +181,8 @@
             <ownedChild>
               <domainMetaElement
                   href="SelfletBehavior.ecore#//Init"/>
+              <domainSpecialization
+                  body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="SelfletBehavior.gmftool#//@palette/@tools.0/@tools.0"/>

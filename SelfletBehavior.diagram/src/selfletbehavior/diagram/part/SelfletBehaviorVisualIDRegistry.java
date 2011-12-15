@@ -6,6 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import selfletbehavior.Final;
+import selfletbehavior.Init;
 import selfletbehavior.Invocation;
 import selfletbehavior.Selflet;
 import selfletbehavior.SelfletbehaviorPackage;
@@ -161,7 +163,8 @@ public class SelfletBehaviorVisualIDRegistry {
 			break;
 		case ElementaryElementaryBehaviorsCompartmentEditPart.VISUAL_ID:
 			if (SelfletbehaviorPackage.eINSTANCE.getInit().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isInit_3011((Init) domainElement)) {
 				return InitEditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getInvocation().isSuperTypeOf(
@@ -170,7 +173,8 @@ public class SelfletBehaviorVisualIDRegistry {
 				return InvocationEditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getFinal().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isFinal_3014((Final) domainElement)) {
 				return FinalEditPart.VISUAL_ID;
 			}
 			break;
@@ -182,7 +186,8 @@ public class SelfletBehaviorVisualIDRegistry {
 			break;
 		case ComplexComplexBehaviorsCompartmentEditPart.VISUAL_ID:
 			if (SelfletbehaviorPackage.eINSTANCE.getInit().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isInit_3015((Init) domainElement)) {
 				return Init2EditPart.VISUAL_ID;
 			}
 			if (SelfletbehaviorPackage.eINSTANCE.getIntermediate()
@@ -349,10 +354,40 @@ public class SelfletBehaviorVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static boolean isInvocation_3012(Invocation domainElement) {
+	private static boolean isInit_3011(Init domainElement) {
 		Object result = SelfletBehaviorOCLFactory.getExpression(0,
+				SelfletbehaviorPackage.eINSTANCE.getInit(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isInvocation_3012(Invocation domainElement) {
+		Object result = SelfletBehaviorOCLFactory.getExpression(1,
 				SelfletbehaviorPackage.eINSTANCE.getInvocation(), null)
 				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isFinal_3014(Final domainElement) {
+		Object result = SelfletBehaviorOCLFactory.getExpression(4,
+				SelfletbehaviorPackage.eINSTANCE.getFinal(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isInit_3015(Init domainElement) {
+		Object result = SelfletBehaviorOCLFactory.getExpression(5,
+				SelfletbehaviorPackage.eINSTANCE.getInit(), null).evaluate(
+				domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 

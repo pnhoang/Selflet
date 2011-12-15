@@ -103,7 +103,8 @@
             width="22"
             height="22"/>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.0">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Init"/>
         <containmentMetaFeature
@@ -142,7 +143,7 @@
             height="40"/>
       </viewmap>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.0/@expressions.0">
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.1">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Invocation"/>
         <containmentMetaFeature
@@ -201,13 +202,13 @@
             xsi:type="gmfgen:GenFeatureSeqInitializer">
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.1">
+              value="//@expressionProviders/@providers.0/@expressions.2">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/actionFile"/>
           </initializers>
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.2">
+              value="//@expressionProviders/@providers.0/@expressions.3">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/body"/>
           </initializers>
@@ -237,7 +238,8 @@
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure"/>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.4">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Final"/>
         <containmentMetaFeature
@@ -324,7 +326,8 @@
             width="22"
             height="22"/>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.5">
         <metaClass
             href="SelfletBehavior.genmodel#//selfletbehavior/Init"/>
         <containmentMetaFeature
@@ -420,13 +423,13 @@
             xsi:type="gmfgen:GenFeatureSeqInitializer">
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.3">
+              value="//@expressionProviders/@providers.0/@expressions.6">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/actionFile"/>
           </initializers>
           <initializers
               xsi:type="gmfgen:GenFeatureValueSpec"
-              value="//@expressionProviders/@providers.0/@expressions.4">
+              value="//@expressionProviders/@providers.0/@expressions.7">
             <feature
                 href="SelfletBehavior.genmodel#//selfletbehavior/Action/body"/>
           </initializers>
@@ -1000,11 +1003,20 @@
         xsi:type="gmfgen:GenExpressionInterpreter">
       <expressions
           xsi:type="gmfgen:GenConstraint"
+          body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
           body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Invocation)) -> size() &lt;= 1"/>
       <expressions
           body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
       <expressions
           body="'do /'.concat(self.targetState.targetBehavior.targetService.name).concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Final)) -> size() &lt;= 1"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.targetBehavior.state -> select (s | s.oclIsTypeOf(Init)) -> size() &lt;= 1"/>
       <expressions
           body="self.targetState.targetBehavior.targetService.name.concat('.').concat(self.targetState.targetBehavior.name).concat('.').concat(self.targetState.name).concat('.action')"/>
       <expressions
